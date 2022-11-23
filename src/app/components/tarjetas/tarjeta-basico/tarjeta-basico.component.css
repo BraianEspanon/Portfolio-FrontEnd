@@ -1,0 +1,22 @@
+.container-detalle{
+    height: 120px;
+}
+.img-detalle {
+    width: 90px;
+    border-radius: 50%;
+    float: left;
+    margin: 10px 25px;
+}
+.titulo{
+    margin: 10px;
+
+}
+.descripcion{
+    margin: 5px 0px 0px;
+}
+.periodo{
+    color: rgb(110, 110, 110);
+    font-size: small;
+    line-height: 25px;
+    margin: 5px 0px 15px;
+}

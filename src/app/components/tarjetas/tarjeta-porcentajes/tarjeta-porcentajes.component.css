@@ -1,0 +1,10 @@
+.titulo-porcentaje{
+    text-align: center;
+    margin: 10px 0px 0px;
+}
+.barra-porcentaje{
+    height: 10px;
+    width: 75%;
+    margin: 0px auto 10px;
+    border-radius: 20px;
+}

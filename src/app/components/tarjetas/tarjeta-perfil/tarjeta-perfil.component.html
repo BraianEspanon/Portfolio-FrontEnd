@@ -1,0 +1,20 @@
+
+
+<img class="img-portada" src='{{tarjeta.urlImgPortada}}' alt="Portada"/>
+<div class="container-foto-perfil">
+    <img class="img-perfil" src='{{tarjeta.urlImgPerfil}}' alt="Foto de perfil"/>
+    <fa-icon
+    class="btn editar"
+    [icon]="faPen"
+    ></fa-icon>
+</div>
+
+<h2 class="nombre">{{tarjeta.nombre}}</h2>
+<div class="container-detalleylugar">
+    <p class="detalle">
+        {{tarjeta.detalle}}
+    </p>
+    <p class="detalle">
+        {{tarjeta.lugar}}
+    </p>
+</div>

@@ -1,0 +1,16 @@
+.titulo{
+    margin: 0px 30px;
+    font-size: large;
+    text-decoration: none;
+    color: blue;
+}
+
+.titulo:active{
+    color:red;
+}
+.descripcion{
+    color: rgb(110, 110, 110);
+    font-size: small;
+    line-height: 25px;
+    margin: 0px 30px 15px;
+}

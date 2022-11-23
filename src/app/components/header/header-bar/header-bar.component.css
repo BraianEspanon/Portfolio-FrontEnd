@@ -1,0 +1,22 @@
+header {
+    background-color:rgb(28, 28, 56);
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+    color: gainsboro;
+}
+
+a {
+    padding: 5px 10px;
+    text-decoration: none;
+    color: gainsboro;
+    vertical-align: middle;
+}
+
+a:hover{
+    color:White;
+}
+
+a:active{
+    color:red;
+}

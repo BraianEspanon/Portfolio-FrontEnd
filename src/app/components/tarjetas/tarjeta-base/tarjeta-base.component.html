@@ -1,0 +1,17 @@
+<h2 class="titulo">
+    {{tarjeta.titulo}}
+</h2>
+<div *ngFor="let detalle of tarjeta.detalle">
+    <app-tarjeta-basico
+        *ngIf="tarjeta.tipo == 'Basico'"
+        [detalle] = "detalle"
+    ></app-tarjeta-basico>
+    <app-tarjeta-porcentajes
+        *ngIf="tarjeta.tipo == 'Porcentaje'"
+        [detalle] = "detalle"
+    ></app-tarjeta-porcentajes>
+    <app-tarjeta-proyectos
+        *ngIf="tarjeta.tipo == 'Proyectos'"
+        [detalle] = "detalle"
+    ></app-tarjeta-proyectos>
+</div>
