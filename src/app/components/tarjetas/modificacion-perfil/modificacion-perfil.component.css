@@ -1,0 +1,21 @@
+
+.botones{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.label{
+    margin-top: 15px;
+    display: inline-block;
+    width: 100%;
+}
+.textbox{
+    border:none;
+    display: inline-block;
+    border-bottom: 1px solid rgb(29, 29, 29);
+    width: 100%;
+}
+.textbox:focus{
+    outline: none;
+}

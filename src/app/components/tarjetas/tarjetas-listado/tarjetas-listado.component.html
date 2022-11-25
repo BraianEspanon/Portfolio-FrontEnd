@@ -2,6 +2,7 @@
     <app-tarjeta-perfil
     [tarjeta] = "tarjetaPerfil"
     [loggedIn] = "loggedIn"
+    (onEditPerfil)="onEditPerfil($event)"
     ></app-tarjeta-perfil>
 </div>
 <div class="container-tarjeta" *ngFor="let tarjeta of listaTarjetas">

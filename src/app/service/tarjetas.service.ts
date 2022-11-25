@@ -30,4 +30,8 @@ export class TarjetasService {
     const url = `${this.apiUrl}/tarjetasInformacion/${tarjeta.id}`;
     return this.http.put<Tarjeta>(url, tarjeta, httpOptions);
   }
+  updateTarjetaPerfil(tarjetaPerfil: TarjetaPerfil) : Observable<TarjetaPerfil>{
+    const url = `${this.apiUrl}/tarjetaPerfil`;
+    return this.http.put<TarjetaPerfil>(url, tarjetaPerfil, httpOptions);
+  }
 }

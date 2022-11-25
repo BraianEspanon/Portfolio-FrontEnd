@@ -1,0 +1,58 @@
+<div>
+    <label class="label" for="nombre">Nombre:</label>
+    <input 
+        class="textbox"
+        type="text"
+        name="nombre"
+        id="nombre"
+        [(ngModel)]="nombre"
+    >
+</div>
+
+<div>
+    <label class="label" for="urlImgPortada">URL Imagen Portada:</label>
+    <input 
+        class="textbox"
+        type="text"
+        name="urlImgPortada"
+        id="urlImgPortada"
+        [(ngModel)]="urlImgPortada"
+    >
+</div>
+
+<div>
+    <label class="label" for="urlImgPerfil">URL Imagen Perfil:</label>
+    <input 
+        class="textbox"
+        type="text"
+        name="urlImgPerfil"
+        id="urlImgPerfil"
+        [(ngModel)]="urlImgPerfil"
+    >
+</div>
+
+<div>
+    <label class="label" for="nombre">Detalle:</label>
+    <input 
+        class="textbox"
+        type="text"
+        name="detalle"
+        id="detalle"
+        [(ngModel)]="detalle"
+    >
+</div>
+
+<div>
+    <label class="label" for="lugar">Lugar:</label>
+    <input 
+        class="textbox"
+        type="text"
+        name="lugar"
+        id="lugar"
+        [(ngModel)]="lugar"
+    >
+</div>
+<mat-dialog-actions class="botones">
+    <input mat-button [mat-dialog-close]="cancel()" type="button" value="Cancelar">
+    <input mat-button [mat-dialog-close]="submit()" type="submit">
+</mat-dialog-actions>

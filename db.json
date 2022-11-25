@@ -3,7 +3,7 @@
     "nombre": "Braian Españon",
     "urlImgPortada": "/assets/images/portada.jfif",
     "urlImgPerfil": "/assets/images/pfp.jpg",
-    "detalle": "Estudiante de Ing. en sistemas",
+    "detalle": "Estudiante de ingeniería en sistemas",
     "lugar": "Córdoba, Argentina"
   },
   "tarjetasInformacion": [
@@ -14,7 +14,7 @@
       "detalle": [
         {
           "id": 1,
-          "titulo": "UTN",
+          "titulo": "Universidad Tecnológica Nacional",
           "urlImg": "/assets/images/UTN_logo.jpg",
           "descripcion": "Ingeniería en sistemas de información",
           "periodo": "2020 - Actualidad"
@@ -28,7 +28,7 @@
         },
         {
           "id": 3,
-          "titulo": "U. Desarrollo Web",
+          "titulo": "Universidad Desarrollo Web",
           "urlImg": "https://logos-world.net/wp-content/uploads/2021/11/Udemy-Logo.png",
           "descripcion": "FrontEnd Developer",
           "periodo": "2021"

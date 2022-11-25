@@ -1,12 +1,21 @@
-<div class="container-detalle">
-    <div class="container-detalle-imagen">
-        <img class="img-detalle" src='{{detalle.urlImg}}' alt="Imagen detalle"/>
+<div class="container-basico">
+    <div class="container-basico-imagen">
+        <img class="img-basico" src='{{detalle.urlImg}}' alt="Imagen detalle"/>
     </div>
-    <div class="container-detalle-titulo">
+
+    <div class="container-basico-titulo">
         <h2 class="titulo">
             {{detalle.titulo}}
         </h2>
-        
+        <p class="descripcion">
+            {{detalle.descripcion}}
+        </p>
+        <p class="periodo">
+            {{detalle.periodo}}
+        </p>
+    </div>
+    
+    <div class="container-basico-botones">
         <fa-icon class="btn-editar"
         [icon]="faPen"
         *ngIf="loggedIn"
@@ -18,11 +27,4 @@
         (click)="eliminar()"
         ></fa-icon>
     </div>
-
-    <p class="descripcion">
-        {{detalle.descripcion}}
-    </p>
-    <p class="periodo">
-        {{detalle.periodo}}
-    </p>
 </div>

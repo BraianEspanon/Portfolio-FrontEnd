@@ -1,23 +1,30 @@
-.container-detalle{
-    height: 100px;
+.container-basico{
+    margin: 10px 0px;
 }
-.container-detalle-titulo{
-    min-height: 27px;
+.container-basico-titulo{
+    width: 55%;
+    display: inline-block;
+    overflow: hidden;
+    margin-left: 10px;
 }
-.container-detalle-imagen{
+.container-basico-imagen{
     float: left;
-    margin: 0px 10px;
     height: 100%;
-    width: 65px;
+    width: 100px;
 }
-.img-detalle {
-    width: 100%;
+.container-basico-botones{
+    height: 30px;
+    width: 15%;
+    float: right;
+    margin-bottom: 20px;
+}
+.img-basico {
+    margin: 0px 10px;
+    width: 100px;
     border-radius: 50%;
 }
 .titulo{
     margin: 0px;
-    float: left;
-    overflow: hidden;
 }
 
 .btn-editar{
@@ -39,4 +46,3 @@
     line-height: 25px;
     margin: 5px 0px 15px;
 }
-

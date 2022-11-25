@@ -48,4 +48,8 @@ export class TarjetasListadoComponent implements OnInit {
   onDeleteDetalle(tarjetaConDetalleEliminado : Tarjeta){
     this.tarjetasService.updateTarjeta(tarjetaConDetalleEliminado).subscribe();
   }
+
+  onEditPerfil(tarjetaPerfilEditado : TarjetaPerfil){
+    this.tarjetasService.updateTarjetaPerfil(tarjetaPerfilEditado).subscribe();
+  }
 }

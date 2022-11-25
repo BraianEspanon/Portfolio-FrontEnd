@@ -20,6 +20,7 @@ import { TarjetaPorcentajesComponent } from './components/tarjetas/tarjeta-porce
 import { TarjetaProyectosComponent } from './components/tarjetas/tarjeta-proyectos/tarjeta-proyectos.component';
 import { LoginComponent } from './components/login/login.component';
 import { AltaModificacionDetalleComponent } from './components/tarjetas/alta-modificacion-detalle/alta-modificacion-detalle.component';
+import { ModificacionPerfilComponent } from './components/tarjetas/modificacion-perfil/modificacion-perfil.component';
 
 
 const appRoutes: Routes = [
@@ -40,6 +41,7 @@ const appRoutes: Routes = [
     TarjetaProyectosComponent,
     LoginComponent,
     AltaModificacionDetalleComponent,
+    ModificacionPerfilComponent,
   ],
   imports: [
     BrowserModule,
@@ -52,7 +54,10 @@ const appRoutes: Routes = [
     MatDialogModule,
     BrowserAnimationsModule
   ],
-  entryComponents:[AltaModificacionDetalleComponent],
+  entryComponents:[
+    AltaModificacionDetalleComponent, 
+    ModificacionPerfilComponent
+  ],
   providers: [],
   bootstrap: [AppComponent]
 })

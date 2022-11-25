@@ -1,12 +1,13 @@
-
-
-<img class="img-portada" src='{{tarjeta.urlImgPortada}}' alt="Portada"/>
+<div class="container-foto-portada">
+    <img class="img-portada" src='{{tarjeta.urlImgPortada}}' alt="Portada"/>
+</div>
 <div class="container-foto-perfil">
     <img class="img-perfil" src='{{tarjeta.urlImgPerfil}}' alt="Foto de perfil"/>
     <fa-icon
-    class="btn-editar"
-    [icon]="faPen"
-    *ngIf="loggedIn"
+        class="btn-editar"
+        [icon]="faPen"
+        *ngIf="loggedIn"
+        (click)="editar()"
     ></fa-icon>
 </div>
 
