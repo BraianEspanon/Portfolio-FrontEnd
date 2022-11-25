@@ -4,7 +4,27 @@ body{
     background-color:rgb(230, 238, 255);
     margin: 0px;
 }
+.container-tarjeta{
+    min-width: 375px;
+    max-width: 95%;
+    margin: 20px auto;
+    min-height: 100px;
+    border: 1px solid steelblue;
+    border-radius: 20px;
+    background-color:azure;
+    overflow: hidden;
+}
 
 .btn{
-    width: 50px;
+    background-color: transparent;
+    border-style: solid;
+    border-radius: 5px;
+    border-width: 2px;
+    padding: 5px 10px;
+}
+
+.container-alta-modificacion{
+    min-width: 300px;
+    max-width: 500px;
+    width: 30%;
 }

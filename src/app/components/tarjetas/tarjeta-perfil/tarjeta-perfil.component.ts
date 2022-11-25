@@ -9,6 +9,7 @@ import { faPen } from '@fortawesome/free-solid-svg-icons';
 })
 export class TarjetaPerfilComponent implements OnInit {
   @Input() tarjeta : TarjetaPerfil = {} as TarjetaPerfil;
+  @Input() loggedIn : boolean = false;
   faPen = faPen;
   constructor() { }
 

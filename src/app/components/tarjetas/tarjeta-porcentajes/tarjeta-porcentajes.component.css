@@ -1,10 +1,36 @@
+.container-porcentaje{
+    height: 30px;
+    width: 75%;
+    float: left;
+    margin-bottom: 20px;
+    margin-left: 9%;
+}
+.container-porcentaje-botones{
+    height: 30px;
+    width: 15%;
+    float: left;
+    margin-bottom: 20px;
+}
+
 .titulo-porcentaje{
+    margin: 0px 0px;
     text-align: center;
-    margin: 10px 0px 0px;
+    width: 100%;
 }
 .barra-porcentaje{
     height: 10px;
-    width: 75%;
-    margin: 0px auto 10px;
+    width: 100%;
+    margin: 0px 0px 10px;
     border-radius: 20px;
+}
+
+.btn-editar{
+    float: left;
+    cursor:pointer;
+    margin: 10px 5px 0px 10px;
+}
+.btn-eliminar{
+    float: left;
+    cursor: pointer;
+    margin: 10px 0px 0px 5px;
 }

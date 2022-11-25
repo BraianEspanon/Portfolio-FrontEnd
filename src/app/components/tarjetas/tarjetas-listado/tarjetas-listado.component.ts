@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { TarjetasService } from 'src/app/service/tarjetas.service';
 import { Tarjeta } from 'src/app/entity/Tarjeta';
+import { TarjetaDetalle } from 'src/app/entity/TarjetaDetalle';
 import { TarjetaPerfil } from 'src/app/entity/TarjetaPerfil';
+import { AuthService } from 'src/app/service/auth.service';
 
 
 import { faTimes } from '@fortawesome/free-solid-svg-icons';
@@ -14,10 +16,15 @@ import { faTimes } from '@fortawesome/free-solid-svg-icons';
 export class TarjetasListadoComponent implements OnInit {
   listaTarjetas: Tarjeta[] = [];
   tarjetaPerfil: TarjetaPerfil = {} as TarjetaPerfil;
-  faTimes = faTimes;
+  
+  loggedIn: boolean = false;
   constructor(
-    private tarjetasService: TarjetasService
-  ) { }
+    private tarjetasService: TarjetasService,
+    private authService: AuthService
+  )
+  { 
+    this.loggedIn = this.authService.loggedIn
+  }
 
   ngOnInit(): void {
     this.tarjetasService.getTarjetasInformacion().subscribe((tarjetas) => 
@@ -29,5 +36,16 @@ export class TarjetasListadoComponent implements OnInit {
     (
       this.tarjetaPerfil = tarjetas
     ));
+  }
+  onAddDetalle(tarjeta : Tarjeta){
+    this.tarjetasService.updateTarjeta(tarjeta).subscribe();
+  }
+
+  onEditDetalle(tarjetaConDetalleEditado : Tarjeta){
+    this.tarjetasService.updateTarjeta(tarjetaConDetalleEditado).subscribe();
+  }
+  
+  onDeleteDetalle(tarjetaConDetalleEliminado : Tarjeta){
+    this.tarjetasService.updateTarjeta(tarjetaConDetalleEliminado).subscribe();
   }
 }

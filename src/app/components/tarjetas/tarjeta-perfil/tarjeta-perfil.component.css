@@ -8,6 +8,19 @@
     font-size: 1;
 }
 
+.container-foto-perfil{
+    width: 100px;
+    height: 100px;
+    position: relative;
+    left: 65px;
+    top: -20px;
+    float: left;
+    line-height: 1px;
+}
+.container-detalleylugar{
+    height: 80px;
+}
+
 .img-perfil{
     width: 90px;
     border-radius: 50%;
@@ -15,6 +28,7 @@
     display: block;
     margin: 0;
     font-size: 1;
+    
 }
 
 .nombre {
@@ -33,23 +47,11 @@
     line-height: 25px;
 }
 
-.editar{
+.btn-editar{
     float:right;
     width: 18px;
     position: relative;
     bottom: 60px;
     left: 15px;
     cursor:pointer;
-}
-.container-foto-perfil{
-    width: 100px;
-    height: 100px;
-    position: relative;
-    left: 50px;
-    top: -20px;
-    float: left;
-    line-height: 1px;
-}
-.container-detalleylugar{
-    height: 80px;
 }

@@ -1,55 +1,79 @@
 {
-    "tarjetaPerfil":{
-        "nombre": "Braian Españon",
-        "urlImgPortada": "/assets/images/portada.jfif",
-        "urlImgPerfil": "/assets/images/pfp.jpg",
-        "detalle": "Estudiante de Ing. en sistemas",
-        "lugar": "Córdoba, Argentina"
-    },
-    "tarjetasInformacion":[
+  "tarjetaPerfil": {
+    "nombre": "Braian Españon",
+    "urlImgPortada": "/assets/images/portada.jfif",
+    "urlImgPerfil": "/assets/images/pfp.jpg",
+    "detalle": "Estudiante de Ing. en sistemas",
+    "lugar": "Córdoba, Argentina"
+  },
+  "tarjetasInformacion": [
+    {
+      "id": 1,
+      "titulo": "Educación",
+      "tipo": "Basico",
+      "detalle": [
         {
-            "titulo": "Educación",
-            "tipo": "Basico",
-            "detalle":[ 
-                {
-                    "titulo": "UTN",
-                    "urlImg": "/assets/images/UTN_logo.jpg",
-                    "descripcion": "Ingeniería en sistemas de información",
-                    "periodo": "2020 - Actualidad"
-                },
-                {
-                    "titulo": "Instituto Don Orione",
-                    "urlImg": "/assets/images/UTN_logo.jpg",
-                    "descripcion": "Bachillerato en comunicación",
-                    "periodo": "2014 - 2019"
-                }
-            ]
+          "id": 1,
+          "titulo": "UTN",
+          "urlImg": "/assets/images/UTN_logo.jpg",
+          "descripcion": "Ingeniería en sistemas de información",
+          "periodo": "2020 - Actualidad"
         },
         {
-            "titulo": "Hard Skills & Soft Skills",
-            "tipo": "Porcentaje",
-            "detalle":[ 
-                {
-                    "titulo": "Resolucion de problemas",
-                    "cantidad": 60,
-                    "color": "#aa3333"
-                },
-                {
-                    "titulo": "Diseño de sistemas",
-                    "cantidad": 20,
-                    "color": "#6666a6"
-                }
-            ]
+          "id": 2,
+          "titulo": "Instituto Don Orione",
+          "urlImg": "/assets/images/UTN_logo.jpg",
+          "descripcion": "Bachillerato en comunicación",
+          "periodo": "2014 - 2019"
         },
         {
-            "titulo": "Proyectos",
-            "tipo": "Proyectos",
-            "detalle":[ 
-                {
-                    "titulo": "Mi Portfolio",
-                    "descripcion": "Enlace al repositorio de GitHub de esta página web."
-                }
-            ]
+          "id": 3,
+          "titulo": "U. Desarrollo Web",
+          "urlImg": "https://logos-world.net/wp-content/uploads/2021/11/Udemy-Logo.png",
+          "descripcion": "FrontEnd Developer",
+          "periodo": "2021"
         }
-    ]
+      ]
+    },
+    {
+      "id": 2,
+      "titulo": "Hard Skills & Soft Skills",
+      "tipo": "Porcentaje",
+      "detalle": [
+        {
+          "id": 1,
+          "titulo": "Diseño de sistemas",
+          "cantidad": 100
+        },
+        {
+          "id": 2,
+          "titulo": "Otra cosa",
+          "cantidad": "30"
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "titulo": "Proyectos",
+      "tipo": "Proyectos",
+      "detalle": [
+        {
+          "id": 1,
+          "titulo": "Mi Portfolio",
+          "descripcion": "Enlace al repositorio de GitHub de esta página web. (FrontEnd)",
+          "enlace": "https://github.com/BraianEspanon/Portfolio-FrontEnd"
+        },
+        {
+          "id": 2,
+          "titulo": "Mi Portfolio",
+          "descripcion": "Enlace al repositorio de GitHub de esta página web. (BackEnd)",
+          "enlace": "https://github.com/BraianEspanon/Portfolio-Backend"
+        }
+      ]
+    }
+  ],
+  "authenticate": {
+    "email": "1",
+    "password": "1"
+  }
 }

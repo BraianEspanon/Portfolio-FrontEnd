@@ -1,8 +1,24 @@
 <div class="container-detalle">
-    <img class="img-detalle" src='{{detalle.urlImg}}' alt="Imagen detalle"/>
-    <h2 class="titulo">
-        {{detalle.titulo}}
-    </h2>
+    <div class="container-detalle-imagen">
+        <img class="img-detalle" src='{{detalle.urlImg}}' alt="Imagen detalle"/>
+    </div>
+    <div class="container-detalle-titulo">
+        <h2 class="titulo">
+            {{detalle.titulo}}
+        </h2>
+        
+        <fa-icon class="btn-editar"
+        [icon]="faPen"
+        *ngIf="loggedIn"
+        (click)="editar()"
+        ></fa-icon>
+        <fa-icon class="btn-eliminar"
+        [icon]="faTrash"
+        *ngIf="loggedIn"
+        (click)="eliminar()"
+        ></fa-icon>
+    </div>
+
     <p class="descripcion">
         {{detalle.descripcion}}
     </p>

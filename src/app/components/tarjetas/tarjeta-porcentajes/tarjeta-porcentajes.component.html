@@ -1,7 +1,21 @@
-<p class="titulo-porcentaje">{{detalle.titulo}}</p>
-<mat-progress-bar 
+<div class="container-porcentaje">
+    <p class="titulo-porcentaje">{{detalle.titulo}}</p>
+    <mat-progress-bar 
     class="barra-porcentaje"
     [value]="detalle.cantidad"
     color=""
-></mat-progress-bar>
+    ></mat-progress-bar>
+</div>
+<div class="container-porcentaje-botones">
+    <fa-icon class="btn-editar"
+    [icon]="faPen"
+    *ngIf="loggedIn"
+    (click)="editar()"
+    ></fa-icon>
 
+    <fa-icon class="btn-eliminar"
+    [icon]="faTrash"
+    *ngIf="loggedIn"
+    (click)="eliminar()"
+    ></fa-icon>
+</div>

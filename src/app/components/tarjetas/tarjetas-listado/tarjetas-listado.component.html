@@ -1,11 +1,16 @@
 <div class="container-tarjeta">
     <app-tarjeta-perfil
     [tarjeta] = "tarjetaPerfil"
-
+    [loggedIn] = "loggedIn"
     ></app-tarjeta-perfil>
 </div>
 <div class="container-tarjeta" *ngFor="let tarjeta of listaTarjetas">
     <app-tarjeta-base
-    [tarjeta] = "tarjeta">
+    [tarjeta] = "tarjeta"
+    [loggedIn] = "loggedIn"
+    (onAddDetalle)="onAddDetalle(tarjeta)"
+    (onEditDetalle)="onEditDetalle($event)"
+    (onDeleteDetalle)="onDeleteDetalle($event)"
+    >
     </app-tarjeta-base>
 </div>

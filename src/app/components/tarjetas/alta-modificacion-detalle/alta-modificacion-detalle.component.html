@@ -1,0 +1,81 @@
+<div>
+    <label>Tipo Tarjeta:</label>
+    <input 
+        type="text"
+        name="tipoTarjeta"
+        id="tipoTarjeta"
+        [(ngModel)]="tipo" 
+        disabled="disabled"
+    >
+</div>
+
+<div>
+    <label class="label" for="titulo">Titulo:</label>
+    <input
+        class="textbox"
+        type="text"
+        name="titulo"
+        id="titulo"
+        [(ngModel)]="titulo"
+    >
+</div>
+
+<div *ngIf="tipoBasico">    
+    <label class="label" for="urlImg">URL Imagen:</label>
+    <input 
+        class="textbox"
+        type="text"
+        name="urlImg"
+        id="urlImg"
+        [(ngModel)]="urlImg"
+    >
+</div>
+
+<div *ngIf="tipoBasico || tipoProyecto">
+    <label class="label" for="descripcion">Descripcion:</label>
+    <input 
+        class="textbox"
+        type="text"
+        name="descripcion"
+        id="descripcion"
+        [(ngModel)]="descripcion"
+    >
+</div>
+
+<div *ngIf="tipoBasico">
+    <label class="label" for="periodo">Perido:</label>
+    <input 
+        class="textbox"
+        type="text"
+        name="periodo"
+        id="periodo"
+        [(ngModel)]="periodo"
+    >
+</div>
+
+<div *ngIf="tipoPorcentaje">
+    <label class="label lblCantidad" for="cantidad">Cantidad:</label>
+    <input 
+        class="textbox txtCantidad"
+        type="number"
+        name="cantidad"
+        id="cantidad"
+        [(ngModel)]="cantidad"
+    >
+</div>
+
+<div *ngIf="tipoProyecto">
+    <label class="label" for="enlace">Enlace:</label>
+    <input 
+        class="textbox"
+        type="text"
+        name="enlace"
+        id="enlace"
+        [(ngModel)]="enlace"
+    >
+</div>
+
+<mat-dialog-actions class="botones">
+    <input mat-button [mat-dialog-close]="cancel()" type="button" value="Cancelar">
+    <input mat-button [mat-dialog-close]="submit()" type="submit">
+</mat-dialog-actions>

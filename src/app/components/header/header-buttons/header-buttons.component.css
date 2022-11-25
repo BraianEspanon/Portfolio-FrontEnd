@@ -1,16 +1,21 @@
 .login{
-    background-color: transparent;
     color: rgb(0, 189, 0);
     border-color: green;
-    border-style: solid;
-    border-radius: 2px;
-    border-width: 2px;
-    padding: 5px 10px;
 
 }
 
 .login:hover{
     background-color: green;
+    color: gainsboro;
+    cursor: pointer;
+}
+.logout{
+    color: rgb(189, 0, 0);
+    border-color: rgb(128, 0, 0);
+}
+
+.logout:hover{
+    background-color: rgb(128, 0, 0);
     color: gainsboro;
     cursor: pointer;
 }

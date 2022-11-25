@@ -4,6 +4,7 @@ header {
     display: flex;
     justify-content: space-between;
     color: gainsboro;
+    min-width: 375px;
 }
 
 a {

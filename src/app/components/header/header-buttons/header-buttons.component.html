@@ -1,3 +1,16 @@
-<button class="login">
+<button 
+    class="btn login"
+    routerLink="/login"
+    *ngIf="!loggedIn"
+>
     Login
+</button>
+
+<button 
+    class="btn logout"
+    routerLink=""
+    *ngIf="loggedIn"
+    (click)="logOut()"
+>
+    Log out
 </button>

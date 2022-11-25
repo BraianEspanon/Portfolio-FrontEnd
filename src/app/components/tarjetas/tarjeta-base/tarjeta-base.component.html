@@ -1,17 +1,35 @@
-<h2 class="titulo">
-    {{tarjeta.titulo}}
-</h2>
+<div class="container-titulo">
+    <h2 class="titulo">
+        {{tarjeta.titulo}}
+    </h2>
+    <fa-icon
+    class="btn-agregar"
+    [icon]="faPlus"
+    *ngIf="loggedIn"
+    (click)="openDialog()"
+    ></fa-icon>
+</div>
+
 <div *ngFor="let detalle of tarjeta.detalle">
     <app-tarjeta-basico
         *ngIf="tarjeta.tipo == 'Basico'"
         [detalle] = "detalle"
+        [loggedIn] = "loggedIn"
+        (onEditDetalle)="editDetalle($event)"
+        (onDeleteDetalle)="deleteDetalle($event)"
     ></app-tarjeta-basico>
     <app-tarjeta-porcentajes
         *ngIf="tarjeta.tipo == 'Porcentaje'"
         [detalle] = "detalle"
+        [loggedIn] = "loggedIn"
+        (onEditDetalle)="editDetalle($event)"
+        (onDeleteDetalle)="deleteDetalle($event)"
     ></app-tarjeta-porcentajes>
     <app-tarjeta-proyectos
         *ngIf="tarjeta.tipo == 'Proyectos'"
         [detalle] = "detalle"
+        [loggedIn] = "loggedIn"
+        (onEditDetalle)="editDetalle($event)"
+        (onDeleteDetalle)="deleteDetalle($event)"
     ></app-tarjeta-proyectos>
 </div>

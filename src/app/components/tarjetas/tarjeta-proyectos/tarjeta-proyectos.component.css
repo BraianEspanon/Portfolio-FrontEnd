@@ -1,5 +1,4 @@
 .titulo{
-    margin: 0px 30px;
     font-size: large;
     text-decoration: none;
     color: blue;
@@ -12,5 +11,33 @@
     color: rgb(110, 110, 110);
     font-size: small;
     line-height: 25px;
-    margin: 0px 30px 15px;
+    margin: 0px 00px 15px;
+
+}
+.container-proyecto{
+    margin: 0px 0px 0px 30px;
+    float: left;
+    width: 75%;
+}
+.container-proyecto-botones{
+    float: right;
+    width: 15%;
+    margin: 0px auto 20px;
+}
+
+.titulo-porcentaje{
+    margin: 0px 0px;
+    text-align: center;
+    width: 100%;
+}
+
+.btn-editar{
+    float: left;
+    cursor:pointer;
+    margin: 10px 5px 0px 10px;
+}
+.btn-eliminar{
+    float: left;
+    cursor: pointer;
+    margin: 10px 0px 0px 5px;
 }

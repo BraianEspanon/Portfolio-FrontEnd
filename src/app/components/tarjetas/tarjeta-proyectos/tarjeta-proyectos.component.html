@@ -1,10 +1,24 @@
-<a  class="titulo"
-    href="https://github.com/BraianEspanon/Portfolio-FrontEnd" 
-    target="_blank"
->
+<div class="container-proyecto">
+    <a  class="titulo"
+    href='{{detalle.enlace}}' 
+    target="_blank">
     {{detalle.titulo}}
 </a>
-
 <p class="descripcion">
     {{detalle.descripcion}}
 </p>
+</div>
+
+<div class="container-proyecto-botones">
+    <fa-icon class="btn-editar"
+    [icon]="faPen"
+    *ngIf="loggedIn"
+    (click)="editar()"
+    ></fa-icon>
+
+    <fa-icon class="btn-eliminar"
+    [icon]="faTrash"
+    (click)="eliminar()"
+    *ngIf="loggedIn"
+    ></fa-icon>
+</div> 

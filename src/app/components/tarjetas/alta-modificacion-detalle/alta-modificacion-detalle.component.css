@@ -1,0 +1,37 @@
+
+.botones{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#tipoTarjeta{
+    border:none;
+    width: 100px;
+}
+.label{
+    margin-top: 15px;
+    display: inline-block;
+    width: 100%;
+}
+.textbox{
+    border:none;
+    display: inline-block;
+    border-bottom: 1px solid rgb(29, 29, 29);
+    width: 100%;
+}
+.textbox:focus{
+    outline: none;
+}
+
+.lblCantidad {
+    margin-top: 15px;
+    float: left;
+    width: 65px;
+    margin: 15px 0px 0px 0px;
+}
+.txtCantidad {
+    display:inline;
+    width: 40px;
+    margin: 15px 0px 0px 0px;
+}

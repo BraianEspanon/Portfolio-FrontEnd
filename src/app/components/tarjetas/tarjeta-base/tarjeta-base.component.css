@@ -1,4 +1,15 @@
 .titulo{
-    margin: 20px;
-    width: 85%;   
+    float: left;
+    margin: 0px;
+}
+.btn-agregar{
+    float:right;
+    cursor:pointer;
+    margin: 5px 10px 0px 2%;
+    /*color:rgb(64, 0, 109);*/
+}
+.container-titulo{
+    margin: 15px 0px 20px 20px;
+    width: 95%;  
+    height: 27px;
 }
