@@ -30,12 +30,12 @@
 .btn-editar{
     float: left;
     cursor:pointer;
-    margin: 5px 0px 0px 2%;
+    margin: 10px 5px 0px 10px;
 }
 .btn-eliminar{
     float: left;
     cursor:pointer;
-    margin: 5px 0px 0px 10px;
+    margin: 10px 0px 0px 5px;
 }
 .descripcion{
     margin: 5px 0px 0px;
