@@ -1,8 +1,12 @@
 <div class="container-foto-portada">
-    <img class="img-portada" src='{{tarjeta.urlImgPortada}}' alt="Portada"/>
+    <img class="img-portada unselectable" src='{{tarjeta.urlImgPortada}}' alt="Portada"/>
 </div>
-<div class="container-foto-perfil">
-    <img class="img-perfil" src='{{tarjeta.urlImgPerfil}}' alt="Foto de perfil"/>
+<div class="container-foto-perfil unselectable">
+    <img 
+        class="img-perfil"
+        src='{{tarjeta.urlImgPerfil}}'
+        alt="Foto de perfil"
+        (load)="loaded()"/>
     <fa-icon
         class="btn-editar"
         [icon]="faPen"
@@ -23,11 +27,11 @@
 </div>
 <div class="container-botones-perfil">
     <button 
-        class="btn btn-contacto"
+        class="btn btn-contacto unselectable"
         routerLink="/contacto">
         Contacto
     </button>
-    <button class="btn btn-add-seccion"
+    <button class="btn btn-add-seccion unselectable"
         *ngIf="loggedIn"
         (click)="addTarjeta()"
     >

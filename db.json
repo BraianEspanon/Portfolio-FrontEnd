@@ -2,7 +2,7 @@
   "tarjetaPerfil": {
     "nombre": "Braian Españon",
     "urlImgPortada": "/assets/images/portada.jfif",
-    "urlImgPerfil": "/assets/images/pfp.jpg",
+    "urlImgPerfil": "/assets/images/f1.png",
     "detalle": "Estudiante de ingeniería en sistemas",
     "lugar": "Córdoba, Argentina"
   },
@@ -15,45 +15,81 @@
         {
           "id": 1,
           "titulo": "Universidad Tecnológica Nacional",
-          "urlImg": "/assets/images/UTN_logo.jpg",
+          "urlImg": "/assets/images/UTN_logo.png",
           "descripcion": "Ingeniería en sistemas de información",
           "periodo": "2020 - Actualidad"
         },
         {
           "id": 2,
-          "titulo": "Instituto Don Orione",
-          "urlImg": "/assets/images/UTN_logo.jpg",
-          "descripcion": "Bachillerato en comunicación",
+          "titulo": "Escuela secundaria",
+          "urlImg": "/assets/images/DonOrione.png",
+          "descripcion": "Instituto Don Orione. Bachillerato en comunicación",
           "periodo": "2014 - 2019"
-        },
-        {
-          "id": 3,
-          "titulo": "Universidad Desarrollo Web",
-          "urlImg": "https://logos-world.net/wp-content/uploads/2021/11/Udemy-Logo.png",
-          "descripcion": "FrontEnd Developer",
-          "periodo": "2021"
         }
       ]
     },
     {
       "id": 2,
-      "titulo": "Hard Skills & Soft Skills",
-      "tipo": "Porcentaje",
+      "titulo": "Cursos",
+      "tipo": "Basico",
       "detalle": [
         {
           "id": 1,
-          "titulo": "Diseño de sistemas",
-          "cantidad": 90
+          "titulo": "Argentina Programa #YoProgramo",
+          "urlImg": "/assets/images/AP_LogoInv.png",
+          "descripcion": "Curso orientado a formar programadores web full-stack junior (Angular, MySQL, GitHub, Java Spring Boot)",
+          "periodo": "Cursando"
         },
         {
           "id": 2,
-          "titulo": "Otra cosa",
-          "cantidad": 49
+          "titulo": "Argentina Programa #SeProgramar",
+          "urlImg": "/assets/images/AP_LogoInv.png",
+          "descripcion": "Curso introductorio de programación y lógica (Ruby, Javascript, Gobstones)",
+          "periodo": "2022"
+        },
+        {
+          "id": 3,
+          "titulo": "FrontEnd Web Developer",
+          "urlImg": "https://logos-world.net/wp-content/uploads/2021/11/Udemy-Logo.png",
+          "descripcion": "Curso en Udemy dictado por Global Mentoring. FronEnd Estático (HTML, CSS y JavaScript)",
+          "periodo": "2021"
         }
       ]
     },
     {
       "id": 3,
+      "titulo": "Hard Skills & Soft Skills",
+      "tipo": "Porcentaje",
+      "detalle": [
+        {
+          "id": 1,
+          "titulo": "Ganas de crecer",
+          "cantidad": 92
+        },
+        {
+          "id": 2,
+          "titulo": "Trabajo en equipo",
+          "cantidad": 85
+        },
+        {
+          "id": 3,
+          "titulo": "Inglés",
+          "cantidad": 75
+        },
+        {
+          "id": 4,
+          "titulo": "Diseño de sistemas",
+          "cantidad": 70
+        },
+        {
+          "id": 5,
+          "titulo": "Diseño de bases de datos",
+          "cantidad": 60
+        }
+      ]
+    },
+    {
+      "id": 4,
       "titulo": "Proyectos",
       "tipo": "Proyectos",
       "detalle": [

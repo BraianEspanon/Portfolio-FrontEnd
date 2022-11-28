@@ -13,7 +13,7 @@ const httpOptions = {
   providedIn: 'root'
 })
 export class TarjetasService {
-  private apiUrl: string = 'http://192.168.0.2:5000';
+  private apiUrl: string = 'http://localhost:5000';
 
   constructor(
     private http: HttpClient

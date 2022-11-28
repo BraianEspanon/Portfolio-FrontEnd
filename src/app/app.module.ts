@@ -9,6 +9,7 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule } from '@angular/forms';
 import { MatTooltipModule } from '@angular/material/tooltip';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 
 import { AppComponent } from './app.component';
 import { HeaderBarComponent } from './components/header/header-bar/header-bar.component';
@@ -61,7 +62,8 @@ const appRoutes: Routes = [
     CommonModule,
     MatDialogModule,
     BrowserAnimationsModule,
-    MatTooltipModule
+    MatTooltipModule,
+    MatProgressSpinnerModule
   ],
   entryComponents:[
     AltaModificacionDetalleComponent, 

@@ -15,7 +15,8 @@ import { MatDialog } from '@angular/material/dialog';
 export class TarjetasListadoComponent implements OnInit {
   listaTarjetas: Tarjeta[] = [];
   tarjetaPerfil: TarjetaPerfil = {} as TarjetaPerfil;
-  
+
+  isLoading: boolean = true;
   loggedIn: boolean = false;
   constructor(
     private tarjetasService: TarjetasService,
@@ -36,6 +37,9 @@ export class TarjetasListadoComponent implements OnInit {
     (
       this.tarjetaPerfil = tarjetas
     ));
+  }
+  onLoaded(): void {
+    this.isLoading = false;
   }
   onAddDetalle(tarjeta : Tarjeta){
     this.tarjetasService.updateTarjeta(tarjeta).subscribe();

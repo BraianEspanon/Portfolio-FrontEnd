@@ -29,8 +29,9 @@
 
 .img-perfil{
     width: 90px;
+    
     border-radius: 50%;
-    border: solid 1px steelblue;
+    border: solid 1px black;
     display: block;
     margin: 0;
     font-size: 1;

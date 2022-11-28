@@ -1,5 +1,5 @@
 <button 
-    class="btn login"
+    class="btn login unselectable"
     routerLink="/login"
     *ngIf="!loggedIn"
 >
@@ -7,10 +7,10 @@
 </button>
 
 <button 
-    class="btn logout"
+    class="btn logout unselectable"
     routerLink=""
     *ngIf="loggedIn"
     (click)="logOut()"
 >
-    Log out
+    Logout
 </button>

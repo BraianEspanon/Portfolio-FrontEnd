@@ -6,7 +6,7 @@ import { Router } from '@angular/router';
   providedIn: 'root'
 })
 export class AuthService {
-  uri = 'http://192.168.0.2:5000/';
+  uri = 'http://localhost:5000/';
 
   constructor(private http: HttpClient, private router: Router) { }
   //Toda la logica de aunteticacion debera ser cambiada cuando se incluya el backend

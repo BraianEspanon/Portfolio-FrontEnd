@@ -1,5 +1,6 @@
 .container-tarjeta{
     max-width: 600px;
+    width: 95%;
 }
 .titulo{
     text-align: center;
