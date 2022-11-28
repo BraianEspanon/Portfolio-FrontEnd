@@ -7,6 +7,7 @@ import { Tarjeta } from 'src/app/entity/Tarjeta'
 import { TarjetaDetalle } from 'src/app/entity/TarjetaDetalle'
 
 import { faPlus } from '@fortawesome/free-solid-svg-icons';
+import { faTrash } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-tarjeta-base',
@@ -16,19 +17,22 @@ import { faPlus } from '@fortawesome/free-solid-svg-icons';
 export class TarjetaBaseComponent implements OnInit {
   @Output() onAddDetalle: EventEmitter<Tarjeta> = new EventEmitter();
   @Output() onDeleteDetalle: EventEmitter<Tarjeta> = new EventEmitter();
+  @Output() onDeleteTarjeta: EventEmitter<Tarjeta> = new EventEmitter();
   @Output() onEditDetalle: EventEmitter<any> = new EventEmitter();
 
   @Input() tarjeta: Tarjeta = {} as Tarjeta;
   @Input() loggedIn: boolean = false;
+  
   faPlus = faPlus;
-
+  faTrash = faTrash;
+  
   constructor(public dialog: MatDialog) { }
 
   ngOnInit(): void {
   }
 
   calcularId() : number{
-    let maxId : number = 1;
+    let maxId : number = 0;
     for (let i = 0; i < this.tarjeta.detalle.length; i++){
       if (this.tarjeta.detalle[i].id >= maxId){
         maxId = this.tarjeta.detalle[i].id
@@ -37,7 +41,7 @@ export class TarjetaBaseComponent implements OnInit {
     return maxId + 1;
   }
   
-  openDialog(): void{
+  agregarDetalle(): void{
     // Calcular la ID deberá hacerlo la BD cuando se incluya
     var newId = this.calcularId();
     const dialogRef = this.dialog.open(AltaModificacionDetalleComponent, {
@@ -54,6 +58,11 @@ export class TarjetaBaseComponent implements OnInit {
         this.onAddDetalle.emit(this.tarjeta);
       }
     });
+  }
+  eliminarTarjeta():void{
+    if(confirm("Estás seguro que quieres eliminar la tarjeta: "+ this.tarjeta.titulo)){
+      this.onDeleteTarjeta.emit(this.tarjeta);
+    }
   }
 
   editDetalle(detalleEditado : TarjetaDetalle) {

@@ -1,0 +1,20 @@
+.container-tarjeta{
+    max-width: 600px;
+}
+.titulo{
+    text-align: center;
+}
+.container-contacto{
+    margin: 5px auto 15px;
+    width: 300px;
+
+}
+.mediocontacto-titulo{
+    margin: 0px;
+    width: 60px;
+    float: left;
+}
+.mediocontacto-descripcion{
+    margin: 0px;
+    text-align: center;
+}

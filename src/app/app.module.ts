@@ -8,6 +8,7 @@ import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { MatDialogModule } from '@angular/material/dialog';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule } from '@angular/forms';
+import { MatTooltipModule } from '@angular/material/tooltip';
 
 import { AppComponent } from './app.component';
 import { HeaderBarComponent } from './components/header/header-bar/header-bar.component';
@@ -21,12 +22,16 @@ import { TarjetaProyectosComponent } from './components/tarjetas/tarjeta-proyect
 import { LoginComponent } from './components/login/login.component';
 import { AltaModificacionDetalleComponent } from './components/tarjetas/alta-modificacion-detalle/alta-modificacion-detalle.component';
 import { ModificacionPerfilComponent } from './components/tarjetas/modificacion-perfil/modificacion-perfil.component';
+import { SubirImagenComponent } from './components/subir-imagen/subir-imagen.component';
+import { AgregarTarjetaComponent } from './components/tarjetas/agregar-tarjeta/agregar-tarjeta.component';
+import { ContactoComponent } from './components/contacto/contacto.component';
 
 
 const appRoutes: Routes = [
   {path: '', pathMatch: 'full', redirectTo: '/inicio'},
   {path: 'inicio', component: TarjetasListadoComponent},
-  {path: 'login', component: LoginComponent}
+  {path: 'login', component: LoginComponent},
+  {path: 'contacto', component: ContactoComponent}
 ]
 @NgModule({
   declarations: [
@@ -42,6 +47,9 @@ const appRoutes: Routes = [
     LoginComponent,
     AltaModificacionDetalleComponent,
     ModificacionPerfilComponent,
+    SubirImagenComponent,
+    AgregarTarjetaComponent,
+    ContactoComponent,
   ],
   imports: [
     BrowserModule,
@@ -52,7 +60,8 @@ const appRoutes: Routes = [
     FormsModule,
     CommonModule,
     MatDialogModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    MatTooltipModule
   ],
   entryComponents:[
     AltaModificacionDetalleComponent, 

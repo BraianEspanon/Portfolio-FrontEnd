@@ -10,16 +10,28 @@ export class AuthService {
 
   constructor(private http: HttpClient, private router: Router) { }
   //Toda la logica de aunteticacion debera ser cambiada cuando se incluya el backend
-  //Actualmente cualquier mail y contraseña es correcto
+  //Actualmente se hace acá para simular el funcionamiento del backend
   login(email: string, password:string){
-    this.http.post(this.uri + 'authenticate', {email: email, password: password})
+    let encontrado = false;
+    this.http.get(this.uri + 'authenticate')
       .subscribe((resp: any) => {
-        //localStorage.setItem('auth_token', resp.token);
-        localStorage.setItem('auth_token', resp.email);
-        this.router.navigate(["inicio"])
-          .then(
-            ()=>{window.location.reload()}
-          );
+        for (let i = 0; i < resp.length; i++) {
+          if (resp[i].email === email && resp[i].password === password){
+            encontrado = true;
+            break;
+          }
+        }
+        if (encontrado){
+          //localStorage.setItem('auth_token', resp.token);
+          localStorage.setItem('auth_token', resp.email);
+          this.router.navigate(["inicio"])
+            .then(
+              ()=>{window.location.reload()}
+            );
+        }
+        else{
+          alert("Usuario o contraseñas incorrectas")
+        }
       }
     )
   }

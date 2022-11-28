@@ -14,6 +14,7 @@ import { faPen } from '@fortawesome/free-solid-svg-icons';
 })
 export class TarjetaPerfilComponent implements OnInit {
   @Output() onEditPerfil: EventEmitter<TarjetaPerfil> = new EventEmitter();
+  @Output() onAddTarjeta: EventEmitter<TarjetaPerfil> = new EventEmitter();
 
   @Input() tarjeta : TarjetaPerfil = {} as TarjetaPerfil;
   @Input() loggedIn : boolean = false;
@@ -41,5 +42,9 @@ export class TarjetaPerfilComponent implements OnInit {
         this.onEditPerfil.emit(this.tarjeta);
       }
     });
+  }
+
+  addTarjeta(): void {
+    this.onAddTarjeta.emit();
   }
 }

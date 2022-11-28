@@ -14,9 +14,10 @@
 }
 .container-basico-botones{
     height: 30px;
-    width: 15%;
+    width: 40px;
     float: right;
     margin-bottom: 20px;
+    margin-right: 4%;
 }
 .img-basico {
     margin: 0px 10px;
@@ -30,7 +31,7 @@
 .btn-editar{
     float: left;
     cursor:pointer;
-    margin: 10px 5px 0px 10px;
+    margin: 10px 5px 0px 0px;
 }
 .btn-eliminar{
     float: left;

@@ -1,4 +1,12 @@
 <header>
-    <a routerLink="/inicio">Braian Españon</a>
-    <app-header-buttons></app-header-buttons>
+    <div
+    (click)="redireccionar()"
+    class="container-logo"
+    >
+        <img 
+        [src]="argentinaProgramaLogo"
+        class="logo">
+        <p>Argentina Programa #YoProgramo</p>
+    </div>
+    <app-header-buttons class="inicio-sesion"></app-header-buttons>
 </header>

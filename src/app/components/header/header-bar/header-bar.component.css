@@ -1,23 +1,36 @@
 header {
     background-color:rgb(28, 28, 56);
     padding: 10px;
-    display: flex;
-    justify-content: space-between;
     color: gainsboro;
     min-width: 375px;
+    height: 30px;
 }
 
-a {
+p {
     padding: 5px 10px;
+    margin: 0px;
     text-decoration: none;
     color: gainsboro;
     vertical-align: middle;
+    float: left;
 }
 
-a:hover{
+p:hover{
     color:White;
 }
 
-a:active{
+p:active{
     color:red;
+}
+
+.logo{
+    height: 30px;
+    float: left;
+}
+.inicio-sesion{
+    float: right;
+}
+.container-logo:hover{
+    cursor: pointer;
+
 }

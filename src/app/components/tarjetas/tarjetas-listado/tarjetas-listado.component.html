@@ -3,6 +3,7 @@
     [tarjeta] = "tarjetaPerfil"
     [loggedIn] = "loggedIn"
     (onEditPerfil)="onEditPerfil($event)"
+    (onAddTarjeta)="onAddTarjeta()"
     ></app-tarjeta-perfil>
 </div>
 <div class="container-tarjeta" *ngFor="let tarjeta of listaTarjetas">
@@ -12,6 +13,7 @@
     (onAddDetalle)="onAddDetalle(tarjeta)"
     (onEditDetalle)="onEditDetalle($event)"
     (onDeleteDetalle)="onDeleteDetalle($event)"
+    (onDeleteTarjeta)="onDeleteTarjeta($event)"
     >
     </app-tarjeta-base>
 </div>

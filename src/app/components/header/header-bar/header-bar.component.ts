@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-header-bar',
@@ -6,10 +7,12 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./header-bar.component.css']
 })
 export class HeaderBarComponent implements OnInit {
-
-  constructor() { }
+  argentinaProgramaLogo: string = "/assets/images/ArgentinaPrograma_logo.png"
+  constructor(private router: Router) { }
 
   ngOnInit(): void {
   }
-
+  redireccionar(): void {
+    this.router.navigate(["inicio"]);
+  }
 }

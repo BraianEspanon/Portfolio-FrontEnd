@@ -21,8 +21,9 @@
 }
 .container-proyecto-botones{
     float: right;
-    width: 15%;
-    margin: 0px auto 20px;
+    width: 40px;
+    margin-bottom: 20px;
+    margin-right: 4%;
 }
 
 .titulo-porcentaje{
@@ -34,7 +35,7 @@
 .btn-editar{
     float: left;
     cursor:pointer;
-    margin: 10px 5px 0px 10px;
+    margin: 10px 5px 0px 0px;
 }
 .btn-eliminar{
     float: left;

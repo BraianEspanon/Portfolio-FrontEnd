@@ -1,0 +1,32 @@
+<div>
+    <label class="lblId" for="id">ID:</label>
+    <input 
+        disabled="disabled"
+        class="textbox txtId"
+        type="text"
+        name="id"
+        id="id"
+        [(ngModel)]="id"
+    >
+</div>
+<div>
+    <label class="label" for="lugar">Titulo:</label>
+    <input 
+        class="textbox"
+        type="text"
+        name="titulo"
+        id="titulo"
+        [(ngModel)]="titulo"
+    >
+</div>
+<div>
+    <label class="label" for="lugar">Tipo:</label>
+    <select class="textbox" name="example" [(ngModel)]="tipoSeleccionado">
+        <option [value]="tipo" *ngFor="let tipo of listaTipos">{{tipo}}</option>
+    </select>
+</div>
+  
+<mat-dialog-actions class="botones">
+    <input mat-button [mat-dialog-close]="cancel()" type="button" value="Cancelar">
+    <input mat-button [mat-dialog-close]="submit()" type="submit">
+</mat-dialog-actions>

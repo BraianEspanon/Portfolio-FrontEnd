@@ -34,4 +34,13 @@ export class TarjetasService {
     const url = `${this.apiUrl}/tarjetaPerfil`;
     return this.http.put<TarjetaPerfil>(url, tarjetaPerfil, httpOptions);
   }
+  addTarjeta(nuevaTarjeta: Tarjeta) : Observable<Tarjeta>{
+    const url = `${this.apiUrl}/tarjetasInformacion`;
+    return this.http.post<Tarjeta>(url, nuevaTarjeta, httpOptions);
+  }
+
+  deleteTarjeta(tarjetaAEliminar: Tarjeta) {
+    const url = `${this.apiUrl}/tarjetasInformacion/${tarjetaAEliminar.id}`;
+    return this.http.delete<Tarjeta>(url, httpOptions);
+  }
 }

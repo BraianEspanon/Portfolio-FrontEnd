@@ -2,12 +2,22 @@
     <h2 class="titulo">
         {{tarjeta.titulo}}
     </h2>
-    <fa-icon
-    class="btn-agregar"
-    [icon]="faPlus"
-    *ngIf="loggedIn"
-    (click)="openDialog()"
-    ></fa-icon>
+    <div class="container-botones">
+        <fa-icon
+            class="btn-agregar"
+            [icon]="faPlus"
+            *ngIf="loggedIn"
+            (click)="agregarDetalle()"
+            matTooltip = "Agregar detalle"
+        ></fa-icon>
+        <fa-icon
+            class="btn-eliminar"
+            [icon]="faTrash"
+            *ngIf="loggedIn"
+            (click)="eliminarTarjeta()"
+            matTooltip = "Eliminar tarjeta"
+        ></fa-icon>
+    </div>
 </div>
 
 <div *ngFor="let detalle of tarjeta.detalle">

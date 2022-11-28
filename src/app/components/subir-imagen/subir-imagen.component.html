@@ -1,0 +1,10 @@
+
+<div>
+    <input (change)="capturarFile($event)" type="file">
+</div>
+<div>
+    <button type="button" (click)="subirArchivo()">Subir archivo</button>
+</div>
+<div *ngIf="previsualizacion !== ''"> 
+    <img width="300px" [src]="previsualizacion" alt="">
+</div>

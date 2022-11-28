@@ -6,16 +6,18 @@
     color=""
     ></mat-progress-bar>
 </div>
-<div class="container-porcentaje-botones">
+<div class="container-porcentaje-botones"  *ngIf="loggedIn">
     <fa-icon class="btn-editar"
     [icon]="faPen"
     *ngIf="loggedIn"
     (click)="editar()"
+    matTooltip = "Editar detalle"
     ></fa-icon>
 
     <fa-icon class="btn-eliminar"
     [icon]="faTrash"
     *ngIf="loggedIn"
     (click)="eliminar()"
+    matTooltip = "Eliminar detalle"
     ></fa-icon>
 </div>

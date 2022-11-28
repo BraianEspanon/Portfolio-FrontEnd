@@ -17,7 +17,7 @@ export class LoginComponent implements OnInit {
   }
   onSubmit(): void {
     if (this.email === "" || this.password === "" ) {
-      alert("Agregue un usuario y contraseña");
+      alert("Ingrese usuario y contraseña");
       return; 
     }
     this.authService.login(this.email, this.password)

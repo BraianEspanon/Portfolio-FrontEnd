@@ -4,9 +4,8 @@ import { Tarjeta } from 'src/app/entity/Tarjeta';
 import { TarjetaDetalle } from 'src/app/entity/TarjetaDetalle';
 import { TarjetaPerfil } from 'src/app/entity/TarjetaPerfil';
 import { AuthService } from 'src/app/service/auth.service';
-
-
-import { faTimes } from '@fortawesome/free-solid-svg-icons';
+import { AgregarTarjetaComponent } from '../agregar-tarjeta/agregar-tarjeta.component';
+import { MatDialog } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-tarjetas-listado',
@@ -20,7 +19,8 @@ export class TarjetasListadoComponent implements OnInit {
   loggedIn: boolean = false;
   constructor(
     private tarjetasService: TarjetasService,
-    private authService: AuthService
+    private authService: AuthService,
+    public dialog: MatDialog
   )
   { 
     this.loggedIn = this.authService.loggedIn
@@ -51,5 +51,43 @@ export class TarjetasListadoComponent implements OnInit {
 
   onEditPerfil(tarjetaPerfilEditado : TarjetaPerfil){
     this.tarjetasService.updateTarjetaPerfil(tarjetaPerfilEditado).subscribe();
+  }
+
+  onDeleteTarjeta(tarjetaAEliminar: Tarjeta){
+    let nuevaListaTarjetas = this.listaTarjetas.filter(tarjeta => tarjeta.id !== tarjetaAEliminar.id);
+    this.listaTarjetas = nuevaListaTarjetas;
+
+    this.tarjetasService.deleteTarjeta(tarjetaAEliminar).subscribe();
+  }
+
+  onAddTarjeta(){
+    const dialogRef = this.dialog.open(AgregarTarjetaComponent, {
+      panelClass: 'container-alta-modificacion',
+      data: {
+        id: this.calcularId(),
+        listaTipos: this.obtenerListaTipos()
+      }
+      });
+    
+    dialogRef.afterClosed().subscribe(result => {
+      if (result !== undefined) {
+        this.listaTarjetas.push(result);
+        this.tarjetasService.addTarjeta(result).subscribe();
+      }
+    });
+  }
+
+  calcularId() : number{
+    let maxId : number = 0;
+    for (let i = 0; i < this.listaTarjetas.length; i++){
+      if (this.listaTarjetas[i].id >= maxId){
+        maxId = this.listaTarjetas[i].id
+      }
+    }
+    return maxId + 1;
+  }
+  obtenerListaTipos():string[]{
+    let lista = ["Basico", "Porcentaje", "Proyectos"]
+    return lista
   }
 }

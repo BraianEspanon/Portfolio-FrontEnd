@@ -43,12 +43,12 @@
         {
           "id": 1,
           "titulo": "Diseño de sistemas",
-          "cantidad": 100
+          "cantidad": 90
         },
         {
           "id": 2,
           "titulo": "Otra cosa",
-          "cantidad": "30"
+          "cantidad": 49
         }
       ]
     },
@@ -59,21 +59,27 @@
       "detalle": [
         {
           "id": 1,
-          "titulo": "Mi Portfolio",
-          "descripcion": "Enlace al repositorio de GitHub de esta página web. (FrontEnd)",
+          "titulo": "Mi Portfolio (FrontEnd)",
+          "descripcion": "Enlace al repositorio de GitHub del FrontEnd de esta página web.",
           "enlace": "https://github.com/BraianEspanon/Portfolio-FrontEnd"
         },
         {
           "id": 2,
-          "titulo": "Mi Portfolio",
-          "descripcion": "Enlace al repositorio de GitHub de esta página web. (BackEnd)",
+          "titulo": "Mi Portfolio (BackEnd)",
+          "descripcion": "Enlace al repositorio de GitHub del BackEnd de esta página web.",
           "enlace": "https://github.com/BraianEspanon/Portfolio-Backend"
         }
       ]
     }
   ],
-  "authenticate": {
-    "email": "1",
-    "password": "1"
-  }
+  "authenticate": [
+    {
+      "email": "1",
+      "password": "1"
+    },
+    {
+      "email": "braianespanon@gmail.com",
+      "password": "123"
+    }
+  ]
 }

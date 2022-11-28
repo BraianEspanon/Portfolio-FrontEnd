@@ -8,6 +8,7 @@
         [icon]="faPen"
         *ngIf="loggedIn"
         (click)="editar()"
+        matTooltip = "Editar perfil"
     ></fa-icon>
 </div>
 
@@ -19,4 +20,17 @@
     <p class="detalle">
         {{tarjeta.lugar}}
     </p>
+</div>
+<div class="container-botones-perfil">
+    <button 
+        class="btn btn-contacto"
+        routerLink="/contacto">
+        Contacto
+    </button>
+    <button class="btn btn-add-seccion"
+        *ngIf="loggedIn"
+        (click)="addTarjeta()"
+    >
+        Añadir sección
+    </button>
 </div>
