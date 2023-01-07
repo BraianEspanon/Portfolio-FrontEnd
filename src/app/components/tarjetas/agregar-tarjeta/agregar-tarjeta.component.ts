@@ -12,7 +12,7 @@ import { Inject } from '@angular/core';
 export class AgregarTarjetaComponent implements OnInit {
   nuevaTarjeta: Tarjeta = {} as Tarjeta;  
 
-  id: number = {} as number;
+  idTarjeta: number = {} as number;
   titulo: string = "";
   tipoSeleccionado: string = "";
   detalle: TarjetaDetalle[] = [];
@@ -21,7 +21,7 @@ export class AgregarTarjetaComponent implements OnInit {
   constructor(
     @Inject(MAT_DIALOG_DATA) public data: any
   ) {
-    this.id = data.id;
+    this.idTarjeta = data.idTarjeta;
     this.listaTipos = data.listaTipos;
    }
 
@@ -29,7 +29,7 @@ export class AgregarTarjetaComponent implements OnInit {
   }
   
   submit(): Tarjeta{
-    this.nuevaTarjeta.id = this.id;
+    this.nuevaTarjeta.idTarjeta = this.idTarjeta;
     this.nuevaTarjeta.titulo = this.titulo;
     this.nuevaTarjeta.tipo = this.tipoSeleccionado;
     this.nuevaTarjeta.detalle = this.detalle;

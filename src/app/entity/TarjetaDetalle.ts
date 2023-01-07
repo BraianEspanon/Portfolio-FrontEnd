@@ -2,7 +2,7 @@
 export interface TarjetaDetalle {
     //No pude implementarlo con clases
     //Probablemente serán rediseñado los detalles
-    id: number;
+    idDetalle: number;
     titulo: string;
     urlImg: string;
     descripcion: string;

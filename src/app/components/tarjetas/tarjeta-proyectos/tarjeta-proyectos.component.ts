@@ -32,7 +32,7 @@ export class TarjetaProyectosComponent implements OnInit {
     const dialogRef = this.dialog.open(AltaModificacionDetalleComponent, {
       panelClass: 'container-alta-modificacion',
       data:{tipo : "Proyectos",
-            id : this.detalle.id,
+            idDetalle : this.detalle.idDetalle,
             titulo : this.detalle.titulo,
             enlace : this.detalle.enlace,
             descripcion : this.detalle.descripcion}

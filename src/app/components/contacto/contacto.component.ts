@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { MedioContacto } from 'src/app/entity/MedioContacto';
+import { ContactoService } from 'src/app/service/contacto.service';
 
 @Component({
   selector: 'app-contacto',
@@ -7,14 +9,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ContactoComponent implements OnInit {
   listaMedioContacto: MedioContacto[] = [];
-  constructor() { }
+  constructor(
+    private contactoService: ContactoService
+  ) { }
 
   ngOnInit(): void {
-    this.listaMedioContacto.push({titulo: "Teléfono:", descripcion: "+54 9 3513510812"})
-    this.listaMedioContacto.push({titulo: "Email:", descripcion: "braianespanon@gmail.com"})
+    this.listaMedioContacto.push({medio: "Teléfono:", contacto: "+54 9 3513510812"})
+    this.listaMedioContacto.push({medio: "Email:", contacto: "braianespanon@gmail.com"})
+    /*
+    Evaluar si implementar o no
+    this.contactoService.getMedioContacto().subscribe((medios) => {
+      this.listaMedioContacto = medios;
+    })
+    */
   }
-}
-interface MedioContacto {
-  titulo: string;
-  descripcion: string;
 }

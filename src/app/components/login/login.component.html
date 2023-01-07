@@ -1,26 +1,27 @@
 <form 
     class="container-tarjeta"
-    (ngSubmit)="onSubmit()"
+    (ngSubmit)="onLogin()"
 >
     <label><h1 class="titulo">Iniciar sesión</h1></label>
     <div class="container-login">
-        <label for="email" class="email">Email:</label>
+        <label for="nombreUsuario">Usuario:</label>
         <input 
-            class="email"
-            type="email"
-            name="email" 
-            id="email"
-            [(ngModel)]="email" 
+            type="nombreUsuario"
+            name="nombreUsuario" 
+            id="nombreUsuario"
+            [(ngModel)]="nombreUsuario" 
+            required
         >
     </div>
 
     <div class="container-login">
         <label for="password">Password:</label>
         <input 
-        type="password"
-        name="password" 
-        id="password"
-        [(ngModel)]="password" 
+            type="password"
+            name="password" 
+            id="password"
+            [(ngModel)]="password" 
+            required
         >
     </div>
     <div class="container-btn">

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from 'src/app/service/auth.service';
+import { TokenService } from 'src/app/service/token.service';
 
 @Component({
   selector: 'app-header-buttons',
@@ -9,13 +10,15 @@ import { AuthService } from 'src/app/service/auth.service';
 export class HeaderButtonsComponent implements OnInit {
   loggedIn: boolean = false;
 
-  constructor(private authService: AuthService) {
+  constructor(private authService: AuthService,
+    private tokenService: TokenService) {
         this.loggedIn = this.authService.loggedIn
   }
 
   ngOnInit(): void {
   }
+
   logOut(): void {
-    this.authService.logout()
+    this.tokenService.logOut()
   }
 }

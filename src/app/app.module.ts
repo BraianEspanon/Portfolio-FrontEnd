@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 import { BrowserModule } from '@angular/platform-browser';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { RouterModule, Routes } from '@angular/router';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { MatDialogModule } from '@angular/material/dialog';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -26,6 +26,8 @@ import { ModificacionPerfilComponent } from './components/tarjetas/modificacion-
 import { SubirImagenComponent } from './components/subir-imagen/subir-imagen.component';
 import { AgregarTarjetaComponent } from './components/tarjetas/agregar-tarjeta/agregar-tarjeta.component';
 import { ContactoComponent } from './components/contacto/contacto.component';
+import { InterceptorService } from 'src/app/service/interceptor.service';
+
 
 
 const appRoutes: Routes = [
@@ -69,7 +71,7 @@ const appRoutes: Routes = [
     AltaModificacionDetalleComponent, 
     ModificacionPerfilComponent
   ],
-  providers: [],
+  providers: [{ provide: HTTP_INTERCEPTORS, useClass:InterceptorService, multi: true}],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -17,7 +17,7 @@
             <app-tarjeta-base
             [tarjeta] = "tarjeta"
             [loggedIn] = "loggedIn"
-            (onAddDetalle)="onAddDetalle(tarjeta)"
+            (onAddDetalle)="onAddDetalle($event)"
             (onEditDetalle)="onEditDetalle($event)"
             (onDeleteDetalle)="onDeleteDetalle($event)"
             (onDeleteTarjeta)="onDeleteTarjeta($event)"

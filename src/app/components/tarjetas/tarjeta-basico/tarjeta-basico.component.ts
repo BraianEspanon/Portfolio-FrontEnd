@@ -30,7 +30,7 @@ export class TarjetaBasicoComponent implements OnInit {
     const dialogRef = this.dialog.open(AltaModificacionDetalleComponent, {
       panelClass: 'container-alta-modificacion',
       data:{tipo : "Basico",
-            id : this.detalle.id,
+            idDetalle : this.detalle.idDetalle,
             titulo : this.detalle.titulo,
             urlImg : this.detalle.urlImg,
             descripcion : this.detalle.descripcion,

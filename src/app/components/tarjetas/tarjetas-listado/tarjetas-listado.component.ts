@@ -17,7 +17,7 @@ export class TarjetasListadoComponent implements OnInit {
   tarjetaPerfil: TarjetaPerfil = {} as TarjetaPerfil;
 
   isLoading: boolean = true;
-  loggedIn: boolean = false;
+  loggedIn: boolean = true;
   constructor(
     private tarjetasService: TarjetasService,
     private authService: AuthService,
@@ -38,9 +38,11 @@ export class TarjetasListadoComponent implements OnInit {
       this.tarjetaPerfil = tarjetas
     ));
   }
+  
   onLoaded(): void {
     this.isLoading = false;
   }
+
   onAddDetalle(tarjeta : Tarjeta){
     this.tarjetasService.updateTarjeta(tarjeta).subscribe();
   }
@@ -58,7 +60,7 @@ export class TarjetasListadoComponent implements OnInit {
   }
 
   onDeleteTarjeta(tarjetaAEliminar: Tarjeta){
-    let nuevaListaTarjetas = this.listaTarjetas.filter(tarjeta => tarjeta.id !== tarjetaAEliminar.id);
+    let nuevaListaTarjetas = this.listaTarjetas.filter(tarjeta => tarjeta.idTarjeta !== tarjetaAEliminar.idTarjeta);
     this.listaTarjetas = nuevaListaTarjetas;
 
     this.tarjetasService.deleteTarjeta(tarjetaAEliminar).subscribe();
@@ -68,7 +70,6 @@ export class TarjetasListadoComponent implements OnInit {
     const dialogRef = this.dialog.open(AgregarTarjetaComponent, {
       panelClass: 'container-alta-modificacion',
       data: {
-        id: this.calcularId(),
         listaTipos: this.obtenerListaTipos()
       }
       });
@@ -81,15 +82,6 @@ export class TarjetasListadoComponent implements OnInit {
     });
   }
 
-  calcularId() : number{
-    let maxId : number = 0;
-    for (let i = 0; i < this.listaTarjetas.length; i++){
-      if (this.listaTarjetas[i].id >= maxId){
-        maxId = this.listaTarjetas[i].id
-      }
-    }
-    return maxId + 1;
-  }
   obtenerListaTipos():string[]{
     let lista = ["Basico", "Porcentaje", "Proyectos"]
     return lista

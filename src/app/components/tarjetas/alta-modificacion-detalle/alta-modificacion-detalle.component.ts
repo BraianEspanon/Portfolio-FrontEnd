@@ -12,7 +12,7 @@ export class AltaModificacionDetalleComponent implements OnInit {
   nuevaTarjetaDetalle : TarjetaDetalle = {} as TarjetaDetalle
   tipo: string = "";
 
-  id: number = {} as number;
+  idDetalle: number = {} as number;
   titulo: string = "";
   urlImg: string = "";
   descripcion: string = "";
@@ -27,7 +27,7 @@ export class AltaModificacionDetalleComponent implements OnInit {
   constructor(
     @Inject(MAT_DIALOG_DATA) public data: any
   ) {
-      this.id = data.id;
+      this.idDetalle = data.idDetalle;
       this.titulo = data.titulo;
       this.urlImg = data.urlImg;
       this.descripcion = data.descripcion;
@@ -52,7 +52,7 @@ export class AltaModificacionDetalleComponent implements OnInit {
     }
   }
   submit(): TarjetaDetalle{
-    this.nuevaTarjetaDetalle.id = this.id; 
+    this.nuevaTarjetaDetalle.idDetalle = this.idDetalle; 
     this.nuevaTarjetaDetalle.titulo = this.titulo;
     this.nuevaTarjetaDetalle.urlImg = this.urlImg;
     this.nuevaTarjetaDetalle.descripcion = this.descripcion;

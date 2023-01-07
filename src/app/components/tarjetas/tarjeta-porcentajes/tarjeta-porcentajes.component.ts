@@ -33,7 +33,7 @@ export class TarjetaPorcentajesComponent implements OnInit {
     const dialogRef = this.dialog.open(AltaModificacionDetalleComponent, {
       panelClass: 'container-alta-modificacion',
       data:{tipo : "Porcentaje",
-            id : this.detalle.id,
+            idDetalle : this.detalle.idDetalle,
             titulo : this.detalle.titulo,
             cantidad : this.detalle.cantidad}
     });

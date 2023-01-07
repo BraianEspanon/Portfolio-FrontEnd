@@ -31,25 +31,11 @@ export class TarjetaBaseComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  calcularId() : number{
-    let maxId : number = 0;
-    for (let i = 0; i < this.tarjeta.detalle.length; i++){
-      if (this.tarjeta.detalle[i].id >= maxId){
-        maxId = this.tarjeta.detalle[i].id
-      }
-    }
-    return maxId + 1;
-  }
-  
   agregarDetalle(): void{
-    // Calcular la ID deberá hacerlo la BD cuando se incluya
-    var newId = this.calcularId();
     const dialogRef = this.dialog.open(AltaModificacionDetalleComponent, {
       panelClass: 'container-alta-modificacion',
       data: {
-        id: newId,
         tipo : this.tarjeta.tipo}
-      
     });
 
     dialogRef.afterClosed().subscribe(result => {
@@ -66,13 +52,21 @@ export class TarjetaBaseComponent implements OnInit {
   }
 
   editDetalle(detalleEditado : TarjetaDetalle) {
-    let indDetalle = this.tarjeta.detalle.findIndex(x => x.id === detalleEditado.id)
+    let indDetalle = this.tarjeta.detalle.findIndex(x => x.idDetalle === detalleEditado.idDetalle)
     this.tarjeta.detalle[indDetalle] = detalleEditado
+    console.log(detalleEditado);
+    console.log(indDetalle);
+    /*
+    console.log(detalleEditado)
+    console.log(this.tarjeta.detalle[indDetalle])
+    console.log(this.tarjeta.detalle)
+    console.log(this.tarjeta)
+    */
     this.onEditDetalle.emit(this.tarjeta);
   }
 
   deleteDetalle(detalleAEliminar : TarjetaDetalle){
-    let tarjetaConDetalleEliminado = this.tarjeta.detalle.filter(detalle => detalle.id !== detalleAEliminar.id)
+    let tarjetaConDetalleEliminado = this.tarjeta.detalle.filter(detalle => detalle.idDetalle !== detalleAEliminar.idDetalle)
     this.tarjeta.detalle = tarjetaConDetalleEliminado;
     this.onDeleteDetalle.emit(this.tarjeta);
   }
