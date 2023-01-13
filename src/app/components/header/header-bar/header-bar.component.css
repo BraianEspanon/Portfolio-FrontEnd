@@ -1,18 +1,19 @@
 header {
     background-color:rgb(28, 28, 56);
-    padding: 10px;
+    padding: 10px 5px;
     color: gainsboro;
     min-width: 375px;
     height: 30px;
 }
 
 p {
-    padding: 5px 10px;
+    padding: 6px 0px 6px 5px;
     margin: 0px;
     text-decoration: none;
     color: gainsboro;
     vertical-align: middle;
     float: left;
+    font-size:15px;
 }
 
 p:hover{
@@ -20,7 +21,7 @@ p:hover{
 }
 
 p:active{
-    color:red;
+    color:crimson;
 }
 
 .logo{
@@ -32,5 +33,25 @@ p:active{
 }
 .container-logo:hover{
     cursor: pointer;
+}
 
+.redes-sociales{
+    height: 100%;
+    float: right;
+    margin-right: 5px;
+}
+
+.icono-red{
+    font-size: 27px;
+    margin: 3px;
+    color: gainsboro;
+}
+
+.icono-red:hover{
+    cursor: pointer;
+    color: white;
+}
+
+.icono-red:active{
+    color:crimson;
 }
