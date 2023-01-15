@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { MedioContacto } from 'src/app/entity/MedioContacto';
+import { MedioContacto } from 'src/app/Interfaces/MedioContacto';
 import { ContactoService } from 'src/app/service/contacto.service';
 
 @Component({
@@ -7,6 +7,11 @@ import { ContactoService } from 'src/app/service/contacto.service';
   templateUrl: './contacto.component.html',
   styleUrls: ['./contacto.component.css']
 })
+/*
+  Componente contacto
+  Contiene medios de contacto, más allá de las redes sociales.
+  Reconsiderar la implementación de ContactoService
+*/
 export class ContactoComponent implements OnInit {
   listaMedioContacto: MedioContacto[] = [];
   constructor(

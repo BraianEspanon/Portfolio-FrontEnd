@@ -10,8 +10,11 @@ const httpOptions = {
 @Injectable({
   providedIn: 'root'
 })
+/*
+  Servicio pensado para facilitar la selección, subida y actualización de las imágenes.
+  Será implementado en futuras versiones.
+*/
 export class ImagenesService {
-  //Servicio a implementar/utilizar cuando se haya hecho el backend
   private apiUrl: string = 'http://192.168.0.2:5000';
 
   constructor(

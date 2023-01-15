@@ -27,15 +27,9 @@ import { SubirImagenComponent } from './components/subir-imagen/subir-imagen.com
 import { AgregarTarjetaComponent } from './components/tarjetas/agregar-tarjeta/agregar-tarjeta.component';
 import { ContactoComponent } from './components/contacto/contacto.component';
 import { InterceptorService } from 'src/app/service/interceptor.service';
+import { AppRoutingModule } from './app-routing.module';
 
 
-
-const appRoutes: Routes = [
-  {path: '', pathMatch: 'full', redirectTo: '/inicio'},
-  {path: 'inicio', component: TarjetasListadoComponent},
-  {path: 'login', component: LoginComponent},
-  {path: 'contacto', component: ContactoComponent}
-]
 @NgModule({
   declarations: [
     AppComponent,
@@ -58,14 +52,14 @@ const appRoutes: Routes = [
     BrowserModule,
     FontAwesomeModule,  
     HttpClientModule,
-    RouterModule.forRoot(appRoutes, {enableTracing: true}),
     MatProgressBarModule,
     FormsModule,
     CommonModule,
     MatDialogModule,
     BrowserAnimationsModule,
     MatTooltipModule,
-    MatProgressSpinnerModule
+    MatProgressSpinnerModule,
+    AppRoutingModule
   ],
   entryComponents:[
     AltaModificacionDetalleComponent, 

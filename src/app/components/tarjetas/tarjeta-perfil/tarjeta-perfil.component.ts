@@ -1,21 +1,24 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
-import { TarjetaPerfil } from 'src/app/entity/TarjetaPerfil';
+import { TarjetaPerfil } from 'src/app/Interfaces/TarjetaPerfil';
 
 import { MatDialog } from '@angular/material/dialog';
 import { ModificacionPerfilComponent } from '../modificacion-perfil/modificacion-perfil.component';
 
 
 import { faPen } from '@fortawesome/free-solid-svg-icons';
+import { AgregarTarjetaComponent } from '../agregar-tarjeta/agregar-tarjeta.component';
 
 @Component({
   selector: 'app-tarjeta-perfil',
   templateUrl: './tarjeta-perfil.component.html',
   styleUrls: ['./tarjeta-perfil.component.css']
 })
+/*
+  TarjetaPerfil es la primera tarjeta a mostrar. Contiene datos personales y una breve descripción.
+*/
 export class TarjetaPerfilComponent implements OnInit {
   @Output() onEditPerfil: EventEmitter<TarjetaPerfil> = new EventEmitter();
   @Output() onAddTarjeta: EventEmitter<TarjetaPerfil> = new EventEmitter();
-  @Output() onLoaded: EventEmitter<any> = new EventEmitter();
 
   @Input() tarjeta : TarjetaPerfil = {} as TarjetaPerfil;
   @Input() loggedIn : boolean = false;
@@ -46,10 +49,14 @@ export class TarjetaPerfilComponent implements OnInit {
   }
 
   addTarjeta(): void {
-    this.onAddTarjeta.emit();
-  }
-
-  loaded(): void {
-    this.onLoaded.emit();
+    const dialogRef = this.dialog.open(AgregarTarjetaComponent, {
+      panelClass: 'container-alta-modificacion',
+      });
+    
+    dialogRef.afterClosed().subscribe(result => {
+      if (result !== undefined) {
+        this.onAddTarjeta.emit(result);
+      }
+    })
   }
 }

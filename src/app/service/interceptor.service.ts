@@ -8,6 +8,10 @@ import {catchError} from 'rxjs/operators';
 @Injectable({
   providedIn: 'root'
 })
+/*
+  Servicio de Interceptor
+  Permite añadir el token a las peticiones, logrando autentificar si se tienen permisos para las acciones desde el lado del backend. 
+*/
 export class InterceptorService implements HttpInterceptor {
 
   constructor(private token: TokenService) { }
@@ -23,14 +27,6 @@ export class InterceptorService implements HttpInterceptor {
       });
     }
 
-    return next.handle(req).pipe(
-      catchError(error => {
-        if (error.status === 401 || error.status === 403){
-          alert("No tienes permiso para esta acción. Por favor inicie sesión nuevamente.");
-          this.token.logOut();
-        }
-        return throwError(error)
-      })
-    );
+    return next.handle(req)
   }
 }

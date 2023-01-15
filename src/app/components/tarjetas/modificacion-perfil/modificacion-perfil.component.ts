@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { TarjetaPerfil } from 'src/app/entity/TarjetaPerfil';
+import { TarjetaPerfil } from 'src/app/Interfaces/TarjetaPerfil';
 import { MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { Inject } from '@angular/core';
 
@@ -9,6 +9,10 @@ import { Inject } from '@angular/core';
   templateUrl: './modificacion-perfil.component.html',
   styleUrls: ['./modificacion-perfil.component.css']
 })
+/*
+  Componente pensado para ser abierto en forma de MatDialog.
+  Contiene un formulario para modificar la TarjetaPerfil.
+*/
 export class ModificacionPerfilComponent implements OnInit {
   nuevaTarjetaPerfil: TarjetaPerfil = {} as TarjetaPerfil;  
 

@@ -12,13 +12,14 @@ import { TokenService } from './token.service';
 @Injectable({
   providedIn: 'root'
 })
+/*
+  Servicio de autenticación.
+*/
 export class AuthService {
   authURL = 'https://portfolio-jcdt.onrender.com/auth';
 
   
-  constructor(private http: HttpClient,
-    private router: Router,
-    private tokenService: TokenService) { }
+  constructor(private http: HttpClient) { }
 
   public nuevo(nuevoUsuario: NuevoUsuario): Observable<any>{
     return this.http.post<any>(this.authURL + "/nuevo", nuevoUsuario)

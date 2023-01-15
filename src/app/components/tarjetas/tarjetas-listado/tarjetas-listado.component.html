@@ -9,7 +9,7 @@
             [tarjeta] = "tarjetaPerfil"
             [loggedIn] = "loggedIn"
             (onEditPerfil)="onEditPerfil($event)"
-            (onAddTarjeta)="onAddTarjeta()"
+            (onAddTarjeta)="onAddTarjeta($event)"
             (onLoaded)="onLoaded()"
             ></app-tarjeta-perfil>
         </div>
@@ -25,3 +25,6 @@
         </app-tarjeta-base>
     </div>
 </div>
+<p class="mensaje-error">
+    {{errorMessage}}
+</p>

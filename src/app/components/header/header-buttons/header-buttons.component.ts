@@ -7,6 +7,9 @@ import { TokenService } from 'src/app/service/token.service';
   templateUrl: './header-buttons.component.html',
   styleUrls: ['./header-buttons.component.css']
 })
+/*
+  Header Buttons es un componente que cambia entre el botón login y logout, según sea necesario.
+*/
 export class HeaderButtonsComponent implements OnInit {
   loggedIn: boolean = false;
 

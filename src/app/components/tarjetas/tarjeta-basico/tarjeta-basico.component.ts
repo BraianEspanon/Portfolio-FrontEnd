@@ -1,5 +1,5 @@
 import { Component, OnInit, Input, Output, EventEmitter  } from '@angular/core';
-import { TarjetaDetalle } from 'src/app/entity/TarjetaDetalle';
+import { TarjetaDetalle } from 'src/app/Interfaces/TarjetaDetalle';
 
 import { MatDialog } from '@angular/material/dialog';
 import { AltaModificacionDetalleComponent } from '../alta-modificacion-detalle/alta-modificacion-detalle.component';
@@ -12,6 +12,10 @@ import { faTrash } from '@fortawesome/free-solid-svg-icons';
   templateUrl: './tarjeta-basico.component.html',
   styleUrls: ['./tarjeta-basico.component.css']
 })
+/*
+  TarjetaBasico es un tipo de detalle de tarjeta.
+  Se trata de una tarjeta con un titulo, imagen, descripcion y periodo.
+*/
 export class TarjetaBasicoComponent implements OnInit {
   @Output() onEditDetalle: EventEmitter<TarjetaDetalle> = new EventEmitter();
   @Output() onDeleteDetalle: EventEmitter<TarjetaDetalle> = new EventEmitter();

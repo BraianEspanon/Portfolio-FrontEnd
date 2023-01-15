@@ -7,6 +7,11 @@ import { faInstagram, faTwitter } from '@fortawesome/free-brands-svg-icons';
   templateUrl: './header-bar.component.html',
   styleUrls: ['./header-bar.component.css']
 })
+
+/*
+  Componente barra del header.
+*/
+
 export class HeaderBarComponent implements OnInit {
   argentinaProgramaLogo: string = "/assets/images/ArgentinaPrograma_logo.png";
   faInstagram = faInstagram;

@@ -11,43 +11,37 @@
     overflow: hidden;
 }
 .container-foto-perfil{
-    width: 100px;
+    width: 100%;
     height: 100px;
     position: relative;
-    left: 65px;
     top: -20px;
     float: left;
     line-height: 1px;
 }
 .container-detalleylugar{
-    height: 80px;
+    margin-bottom: 15px;
 }
 .container-botones-perfil{
-    margin-left: 40px;
-    margin-bottom: 10px;
+    margin-left: 25px;
+    margin-bottom: 15px;
 }
 
 .img-perfil{
-    width: 90px;
-    
+    width: 100px;
+    position: relative;
+    left: 65px;
     border-radius: 50%;
     border: solid 1px black;
-    display: block;
     margin: 0;
     font-size: 1;
     
 }
 
 .nombre {
-    position: relative;
-    top: 50px;
-    left: -50px;
+    margin: 0px 20px;
 }
 
 .detalle {
-    position: relative;
-    top: 25px;
-    left: -50px;
     margin: 0px 25px;
     color: rgb(110, 110, 110);
     font-size: small;
@@ -55,11 +49,10 @@
 }
 
 .btn-editar{
-    float:right;
     width: 18px;
     position: relative;
-    bottom: 60px;
-    left: 15px;
+    bottom: 50px;
+    left: 70px;
     cursor:pointer;
 }
 

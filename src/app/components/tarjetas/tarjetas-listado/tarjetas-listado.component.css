@@ -1,3 +1,9 @@
 .loading-spinner{
     margin: 25px auto;
 }
+
+.mensaje-error{
+    color: red;
+    text-align: center;
+    margin: 10px;
+}

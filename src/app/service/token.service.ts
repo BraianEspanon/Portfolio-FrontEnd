@@ -8,7 +8,10 @@ const AUTHORITIES_KEY = "AuthAuthorities";
 @Injectable({
   providedIn: 'root'
 })
-
+/*
+  Servicio de token.
+  Permite almacenar el token e información relacionada en la sessionStorage. 
+*/
 export class TokenService {
   roles: Array<string> = [];
 

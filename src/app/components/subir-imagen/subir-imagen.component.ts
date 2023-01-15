@@ -6,6 +6,10 @@ import { ImagenesService } from 'src/app/service/imagenes.service';
   templateUrl: './subir-imagen.component.html',
   styleUrls: ['./subir-imagen.component.css']
 })
+/*
+  Componente relacionado al servicio Imagenes.
+  Se planifica simplificar la tarea de subir y elegir imagenes, sin tener que usar URLs como se hace actualmente.
+*/
 export class SubirImagenComponent implements OnInit {
   previsualizacion : string = "";
   archivos : any = [];
@@ -15,8 +19,7 @@ export class SubirImagenComponent implements OnInit {
   ngOnInit(): void {
   }
   /*
-  Continuar con esto cuando haya backend.
-  Tutoriales:
+  Tutoriales a seguir:
   https://www.youtube.com/watch?v=U-Nbjphc29U&ab_channel=LeiferMendez
   https://www.youtube.com/watch?v=8GJgfk1rFUQ&ab_channel=LeiferMendez
   */

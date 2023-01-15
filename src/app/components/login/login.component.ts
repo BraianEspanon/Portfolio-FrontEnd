@@ -9,6 +9,10 @@ import { TokenService } from 'src/app/service/token.service';
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css']
 })
+/*
+  Componente Login.
+  Utiliza los servicios Token y Auth para el inicio de sesión.
+*/
 export class LoginComponent implements OnInit {
   isLogged = false;
   isLogginFail = false;
@@ -40,7 +44,9 @@ export class LoginComponent implements OnInit {
       this.tokenService.setAuthorities(data.authorities);
       this.router.navigate(['inicio']).then( () => 
       {window.location.reload()})
-      }, err => { console.log(err.error.mensaje); }
+      }, err => { 
+        alert("Usuario o contraseña incorrectas."); 
+      }
     )
   }
 }

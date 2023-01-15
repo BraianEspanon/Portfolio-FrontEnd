@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { TarjetaDetalle } from 'src/app/entity/TarjetaDetalle';
+import { TarjetaDetalle } from 'src/app/Interfaces/TarjetaDetalle';
 import { MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { Inject } from '@angular/core';
 
@@ -8,6 +8,11 @@ import { Inject } from '@angular/core';
   templateUrl: './alta-modificacion-detalle.component.html',
   styleUrls: ['./alta-modificacion-detalle.component.css']
 })
+/*
+  Componente pensado para ser abierto en forma de MatDialog.
+  Contiene un formulario para modificar o crear el detalle de una tarjeta.
+  Según el tipo de tarjeta, será los campos que deje rellenar.
+*/
 export class AltaModificacionDetalleComponent implements OnInit {
   nuevaTarjetaDetalle : TarjetaDetalle = {} as TarjetaDetalle
   tipo: string = "";

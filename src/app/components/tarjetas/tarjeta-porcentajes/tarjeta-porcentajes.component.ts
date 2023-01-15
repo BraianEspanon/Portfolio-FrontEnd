@@ -1,6 +1,6 @@
 
 import { Component, OnInit, Input, Output, EventEmitter} from '@angular/core';
-import { TarjetaDetalle } from 'src/app/entity/TarjetaDetalle';
+import { TarjetaDetalle } from 'src/app/Interfaces/TarjetaDetalle';
 
 import { MatDialog } from '@angular/material/dialog';
 import { AltaModificacionDetalleComponent } from '../alta-modificacion-detalle/alta-modificacion-detalle.component';
@@ -14,6 +14,10 @@ import { faTrash } from '@fortawesome/free-solid-svg-icons';
   templateUrl: './tarjeta-porcentajes.component.html',
   styleUrls: ['./tarjeta-porcentajes.component.css']
 })
+/*
+  TarjetaPorcentajes se trata de un tipo de detalle.
+  Sirve para detalles con cantidades, mostrando una barra debajo del título
+*/
 export class TarjetaPorcentajesComponent implements OnInit {
   @Output() onEditDetalle: EventEmitter<TarjetaDetalle> = new EventEmitter();
   @Output() onDeleteDetalle: EventEmitter<TarjetaDetalle> = new EventEmitter();

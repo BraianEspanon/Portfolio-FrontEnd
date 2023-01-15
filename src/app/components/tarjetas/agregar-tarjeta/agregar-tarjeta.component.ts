@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { MAT_DIALOG_DATA } from '@angular/material/dialog';
-import { TarjetaDetalle } from 'src/app/entity/TarjetaDetalle';
-import { Tarjeta } from 'src/app/entity/Tarjeta';
+import { TarjetaDetalle } from 'src/app/Interfaces/TarjetaDetalle';
+import { Tarjeta } from 'src/app/Interfaces/Tarjeta';
 import { Inject } from '@angular/core';
 
 @Component({
@@ -9,27 +9,24 @@ import { Inject } from '@angular/core';
   templateUrl: './agregar-tarjeta.component.html',
   styleUrls: ['./agregar-tarjeta.component.css']
 })
+/*
+  Componente pensado para ser abierto en forma de MatDialog.
+  Contiene un formulario para crear una nueva tarjeta. Eligiendo su tipo de detalle.
+*/
 export class AgregarTarjetaComponent implements OnInit {
   nuevaTarjeta: Tarjeta = {} as Tarjeta;  
 
-  idTarjeta: number = {} as number;
   titulo: string = "";
   tipoSeleccionado: string = "";
   detalle: TarjetaDetalle[] = [];
-  listaTipos: string[] = [];
+  listaTipos: string[] = ["Basico", "Porcentaje", "Proyectos"];
 
-  constructor(
-    @Inject(MAT_DIALOG_DATA) public data: any
-  ) {
-    this.idTarjeta = data.idTarjeta;
-    this.listaTipos = data.listaTipos;
-   }
+  constructor() { }
 
   ngOnInit(): void {
   }
   
   submit(): Tarjeta{
-    this.nuevaTarjeta.idTarjeta = this.idTarjeta;
     this.nuevaTarjeta.titulo = this.titulo;
     this.nuevaTarjeta.tipo = this.tipoSeleccionado;
     this.nuevaTarjeta.detalle = this.detalle;

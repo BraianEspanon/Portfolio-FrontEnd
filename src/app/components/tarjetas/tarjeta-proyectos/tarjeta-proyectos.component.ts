@@ -1,5 +1,5 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
-import { TarjetaDetalle } from 'src/app/entity/TarjetaDetalle';
+import { TarjetaDetalle } from 'src/app/Interfaces/TarjetaDetalle';
 
 
 import { MatDialog } from '@angular/material/dialog';
@@ -13,6 +13,10 @@ import { faTrash } from '@fortawesome/free-solid-svg-icons';
   templateUrl: './tarjeta-proyectos.component.html',
   styleUrls: ['./tarjeta-proyectos.component.css']
 })
+/*
+  TarjetaProyecto se trata de un tipo de detalle.
+  Permite hacer links a proyectos (O lo que se requiera), mostrando un título y una breve descripción.
+*/
 export class TarjetaProyectosComponent implements OnInit {
   @Output() onEditDetalle: EventEmitter<TarjetaDetalle> = new EventEmitter();
   @Output() onDeleteDetalle: EventEmitter<TarjetaDetalle> = new EventEmitter();

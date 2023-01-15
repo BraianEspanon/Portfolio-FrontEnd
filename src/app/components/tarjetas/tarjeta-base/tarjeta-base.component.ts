@@ -3,8 +3,8 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { AltaModificacionDetalleComponent } from '../alta-modificacion-detalle/alta-modificacion-detalle.component';
 
-import { Tarjeta } from 'src/app/entity/Tarjeta'
-import { TarjetaDetalle } from 'src/app/entity/TarjetaDetalle'
+import { Tarjeta } from 'src/app/Interfaces/Tarjeta'
+import { TarjetaDetalle } from 'src/app/Interfaces/TarjetaDetalle'
 
 import { faPlus } from '@fortawesome/free-solid-svg-icons';
 import { faTrash } from '@fortawesome/free-solid-svg-icons';
@@ -14,6 +14,11 @@ import { faTrash } from '@fortawesome/free-solid-svg-icons';
   templateUrl: './tarjeta-base.component.html',
   styleUrls: ['./tarjeta-base.component.css']
 })
+
+/*
+  TarjetaBase es un componente genérico que sirve para ser base de los detalles más específicos.
+  NOTA: Los nombres de los componentes podrían ser modificados en el futuro, cambiando la palabra tarjeta por detalle.
+*/
 export class TarjetaBaseComponent implements OnInit {
   @Output() onAddDetalle: EventEmitter<Tarjeta> = new EventEmitter();
   @Output() onDeleteDetalle: EventEmitter<Tarjeta> = new EventEmitter();
