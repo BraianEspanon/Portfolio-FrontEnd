@@ -61,10 +61,6 @@ import { AppRoutingModule } from './app-routing.module';
     MatProgressSpinnerModule,
     AppRoutingModule
   ],
-  entryComponents:[
-    AltaModificacionDetalleComponent, 
-    ModificacionPerfilComponent
-  ],
   providers: [{ provide: HTTP_INTERCEPTORS, useClass:InterceptorService, multi: true}],
   bootstrap: [AppComponent]
 })
