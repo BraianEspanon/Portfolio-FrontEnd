@@ -5,7 +5,7 @@ import { TarjetaDetalle } from 'src/app/Interfaces/TarjetaDetalle';
 import { TarjetaPerfil } from 'src/app/Interfaces/TarjetaPerfil';
 import { AuthService } from 'src/app/service/auth.service';
 import { AgregarTarjetaComponent } from '../agregar-tarjeta/agregar-tarjeta.component';
-import { MatLegacyDialog as MatDialog } from '@angular/material/legacy-dialog';
+import { MatDialog } from '@angular/material/dialog';
 import { HttpErrorResponse } from '@angular/common/http';
 import { TokenService } from 'src/app/service/token.service';
 import { Observable } from 'rxjs';

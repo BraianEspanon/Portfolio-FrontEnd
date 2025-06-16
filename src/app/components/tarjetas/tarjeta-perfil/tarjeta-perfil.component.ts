@@ -1,7 +1,7 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { TarjetaPerfil } from 'src/app/Interfaces/TarjetaPerfil';
 
-import { MatLegacyDialog as MatDialog } from '@angular/material/legacy-dialog';
+import { MatDialog } from '@angular/material/dialog';
 import { ModificacionPerfilComponent } from '../modificacion-perfil/modificacion-perfil.component';
 
 

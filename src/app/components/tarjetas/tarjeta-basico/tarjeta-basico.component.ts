@@ -1,7 +1,7 @@
 import { Component, OnInit, Input, Output, EventEmitter  } from '@angular/core';
 import { TarjetaDetalle } from 'src/app/Interfaces/TarjetaDetalle';
 
-import { MatLegacyDialog as MatDialog } from '@angular/material/legacy-dialog';
+import { MatDialog } from '@angular/material/dialog';
 import { AltaModificacionDetalleComponent } from '../alta-modificacion-detalle/alta-modificacion-detalle.component';
 
 import { faPen } from '@fortawesome/free-solid-svg-icons';
