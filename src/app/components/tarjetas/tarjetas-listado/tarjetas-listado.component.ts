@@ -7,7 +7,6 @@ import { AuthService } from 'src/app/service/auth.service';
 import { AgregarTarjetaComponent } from '../agregar-tarjeta/agregar-tarjeta.component';
 import { MatDialog } from '@angular/material/dialog';
 import { HttpErrorResponse } from '@angular/common/http';
-import { TokenService } from 'src/app/service/token.service';
 import { Observable } from 'rxjs';
 
 @Component({
@@ -33,12 +32,8 @@ export class TarjetasListadoComponent implements OnInit {
   constructor(
     private tarjetasService: TarjetasService,
     private authService: AuthService,
-    public dialog: MatDialog,
-    private token: TokenService
-  )
-  {
-    this.loggedIn = this.authService.loggedIn
-  }
+    public dialog: MatDialog
+  ) { }
 
   ngOnInit(): void {
     this.tarjetasService.getTarjetasInformacion().subscribe((tarjetas) => 
@@ -54,7 +49,10 @@ export class TarjetasListadoComponent implements OnInit {
     }, (error) => {
       this.errorMessage = "¡Error! No se pudo conectar al servidor BackEnd. No se pudo obtener la tarjeta del perfil.";
     });
-    
+    this.authService.loggedIn$.subscribe((isLogged) => {
+      this.loggedIn = isLogged;
+    });
+
   }
 
   
@@ -115,7 +113,8 @@ export class TarjetasListadoComponent implements OnInit {
   handleError(error: HttpErrorResponse){
     if (error.status === 401 || error.status === 403){
       alert("No tienes permiso para esta acción. Por favor inicie sesión nuevamente.");
-      this.token.logOut();
+      this.authService.logout();
+      window.location.reload();
     }
   }
 }

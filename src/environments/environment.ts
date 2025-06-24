@@ -2,8 +2,15 @@
 // `ng build` replaces `environment.ts` with `environment.prod.ts`.
 // The list of file replacements can be found in `angular.json`.
 
+//Asegurarse de añadir environment.prod.ts con los datos reales que se buscan importar desde app.module.ts
 export const environment = {
-  production: false
+  production: false,
+  
+  firebaseConfig: {
+    apiKey: "...",
+    authDomain: "...",
+    projectId: "...",
+  }
 };
 
 /*

@@ -30,6 +30,12 @@ import { InterceptorService } from 'src/app/service/interceptor.service';
 import { AppRoutingModule } from './app-routing.module';
 
 
+
+import { provideFirebaseApp, initializeApp } from '@angular/fire/app';
+import { provideAuth, getAuth } from '@angular/fire/auth';
+
+import { environment } from '../environments/environment';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -59,7 +65,10 @@ import { AppRoutingModule } from './app-routing.module';
     BrowserAnimationsModule,
     MatTooltipModule,
     MatProgressSpinnerModule,
-    AppRoutingModule
+    AppRoutingModule,
+    provideFirebaseApp(() => initializeApp(environment.firebaseConfig)),
+    provideAuth(() => getAuth()),
+
   ],
   providers: [{ provide: HTTP_INTERCEPTORS, useClass:InterceptorService, multi: true}],
   bootstrap: [AppComponent]

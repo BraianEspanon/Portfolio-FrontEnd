@@ -13,7 +13,8 @@ import { MedioContacto } from '../Interfaces/MedioContacto';
   Se mantiene por posible cambios en el futuro.
 */
 export class ContactoService {
-  private apiUrl: string = 'https://portfolio-jcdt.onrender.com';
+  //private apiUrl: string = 'https://portfolio-jcdt.onrender.com';
+  private apiUrl: string = 'http://localhost:8080';
 
   constructor(
     private http: HttpClient
