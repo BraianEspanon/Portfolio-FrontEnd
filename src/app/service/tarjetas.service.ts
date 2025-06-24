@@ -19,7 +19,8 @@ const httpOptions = {
   Contiene todas las peticions HTTP al servidor backend relacionadas con las tarjetas.
 */
 export class TarjetasService {
-  private apiUrl: string = 'https://portfolio-jcdt.onrender.com';
+  //private apiUrl: string = 'https://portfolio-jcdt.onrender.com';
+  private apiUrl: string = 'http://localhost:8080';
   
   constructor(
     private http: HttpClient

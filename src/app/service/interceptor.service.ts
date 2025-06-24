@@ -1,8 +1,8 @@
 import { HttpEvent, HttpHandler, HttpInterceptor, HttpRequest } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable, throwError } from 'rxjs';
-import { TokenService } from 'src/app/service/token.service';
-import {catchError} from 'rxjs/operators'; 
+import { from, Observable } from 'rxjs';
+import { switchMap} from 'rxjs/operators'; 
+import { AuthService } from './auth.service';
 
 
 @Injectable({
@@ -14,19 +14,18 @@ import {catchError} from 'rxjs/operators';
 */
 export class InterceptorService implements HttpInterceptor {
 
-  constructor(private token: TokenService) { }
+  constructor(private authFirebase: AuthService) { }
 
   intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
-    var token = this.token.getToken();
-
-    if (token){
-      req = req.clone({
-        setHeaders:{
-          Authorization: `Bearer ${token}`
-        }
-      });
-    }
-
-    return next.handle(req)
+    return from(this.authFirebase.getToken()).pipe(
+      switchMap(token => {
+        if (!token) return next.handle(req);
+        
+        const authReq = req.clone({
+          headers: req.headers.set('Authorization', `Bearer ${token}`)
+        });
+        return next.handle(authReq);
+      })
+    )
   }
 }

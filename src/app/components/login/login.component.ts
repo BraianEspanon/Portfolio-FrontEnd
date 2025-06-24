@@ -1,8 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { FirebaseError } from '@angular/fire/app';
 import { Router } from '@angular/router';
-import { LoginUsuario } from 'src/app/model/login-usuario';
 import { AuthService } from 'src/app/service/auth.service';
-import { TokenService } from 'src/app/service/token.service';
 
 @Component({
   selector: 'app-login',
@@ -16,37 +15,58 @@ import { TokenService } from 'src/app/service/token.service';
 export class LoginComponent implements OnInit {
   isLogged = false;
   isLogginFail = false;
-  loginUsuario!: LoginUsuario;
-  nombreUsuario!: string;
+  email!: string;
   password!: string;
   roles: string[] = [];
   errMsj!: string;
 
   constructor(
-    private tokenService: TokenService,
     private authService: AuthService,
     private router: Router
   ) { }
 
   ngOnInit(): void {
-    if (this.tokenService.getToken()){
-      this.isLogged = true;
-      this.isLogginFail = false;
-      this.roles = this.tokenService.getAuthorities();
-    }
+    //Si ingreso a login, pero ya estoy logueado, me redirecciona al inicio
+    this.authService.loggedIn$.subscribe((isLogged) => {
+      if (isLogged){
+        this.router.navigate(['inicio'])
+      }
+    });
   }
 
-  onLogin(): void {
-    this.loginUsuario = new LoginUsuario(this.nombreUsuario, this.password);
-    this.authService.login(this.loginUsuario).subscribe(data => {
-      this.tokenService.setToken(data.token);
-      this.tokenService.setUsername(data.nombreUsuario);
-      this.tokenService.setAuthorities(data.authorities);
-      this.router.navigate(['inicio']).then( () => 
-      {window.location.reload()})
-      }, err => { 
-        alert("Usuario o contraseña incorrectas."); 
+  onLogin(){
+    this.authService.login(this.email, this.password).subscribe({
+      next: () => {
+        this.router.navigate(['inicio']).then( () => 
+        {window.location.reload()})
+
+      },
+      error: (err:FirebaseError) => {
+        let mensajeError:string = "Error al intentar inicio de sesión";
+
+        switch (err.code) {
+          case "auth/missing-email":
+            mensajeError = "Ingrese un correo";
+            break;
+          case "auth/invalid-email":
+            mensajeError = "El correo ingresado no es válido";
+            break;
+          case "auth/too-many-requests":
+            mensajeError = "Demasiados intentos. Espere un momento e intente de nuevo";
+            break;
+          case "auth/missing-password":
+            mensajeError = "Debe ingresar una contraseña";
+            break;
+          case "auth/invalid-credential":
+            mensajeError = "Usuario o contraseña incorrecto";
+            break;
+
+          default:
+            console.log("Error.");
+            break;
+        }
+        alert(mensajeError)
       }
-    )
+    })
   }
 }

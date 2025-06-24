@@ -1,14 +1,9 @@
-import { Injectable } from '@angular/core';
-import { HttpClient  } from '@angular/common/http';
-import { Router } from '@angular/router';
+import { inject, Injectable } from '@angular/core';
 
-import { Observable } from 'rxjs';
+import { BehaviorSubject, from, Observable } from 'rxjs';
 
-import { NuevoUsuario } from '../model/nuevo-usuario';
-import { LoginUsuario } from '../model/login-usuario';
-import { JwtDto } from '../model/jwt-dto';
-import { TokenService } from './token.service';
-
+import { Auth, onAuthStateChanged, signInWithEmailAndPassword } from '@angular/fire/auth';
+import { signOut } from 'firebase/auth';
 @Injectable({
   providedIn: 'root'
 })
@@ -16,20 +11,40 @@ import { TokenService } from './token.service';
   Servicio de autenticación.
 */
 export class AuthService {
-  authURL = 'https://portfolio-jcdt.onrender.com/auth';
-
+  private firebaseAuth = inject(Auth)
+  private loggedInSubject = new BehaviorSubject<boolean>(false);
+  public loggedIn$ = this.loggedInSubject.asObservable();
   
-  constructor(private http: HttpClient) { }
-
-  public nuevo(nuevoUsuario: NuevoUsuario): Observable<any>{
-    return this.http.post<any>(this.authURL + "/nuevo", nuevoUsuario)
+  constructor() {
+    onAuthStateChanged(this.firebaseAuth, user => {
+      this.loggedInSubject.next(!!user);
+    });
   }
 
-  public login(loginUsuario: LoginUsuario): Observable<JwtDto>{
-    return this.http.post<JwtDto>(this.authURL + "/login", loginUsuario)
+  login(email: string, password: string): Observable<void>{
+    const promise = signInWithEmailAndPassword(
+      this.firebaseAuth, 
+      email, 
+      password
+    ).then(() => {})
+    return from(promise)
   }
   
-  public get loggedIn(): boolean {
-    return (sessionStorage.getItem('AuthToken') !== null)
+  logout():Observable<void> {
+    const promise = signOut(this.firebaseAuth)
+    return from(promise)
+  }
+
+  public isLoggedIn(): boolean {
+    return this.firebaseAuth.currentUser !== null;
+  }
+  
+  public getToken(): Promise<string | null> {
+    if (this.firebaseAuth.currentUser){
+      return this.firebaseAuth.currentUser.getIdToken()
+    }
+    else{
+      return Promise.resolve(null);
+    }
   }
 }
