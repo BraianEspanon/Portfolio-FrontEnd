@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FirebaseError } from '@angular/fire/app';
 import { Router } from '@angular/router';
-import { LoginUsuario } from 'src/app/model/login-usuario';
 import { AuthService } from 'src/app/service/auth.service';
 
 @Component({
@@ -16,7 +15,6 @@ import { AuthService } from 'src/app/service/auth.service';
 export class LoginComponent implements OnInit {
   isLogged = false;
   isLogginFail = false;
-  loginUsuario!: LoginUsuario;
   email!: string;
   password!: string;
   roles: string[] = [];

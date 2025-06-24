@@ -1,14 +1,7 @@
 import { inject, Injectable } from '@angular/core';
-import { HttpClient  } from '@angular/common/http';
-import { Router } from '@angular/router';
 
 import { BehaviorSubject, from, Observable } from 'rxjs';
 
-import { NuevoUsuario } from '../model/nuevo-usuario';
-import { LoginUsuario } from '../model/login-usuario';
-import { JwtDto } from '../model/jwt-dto';
-
-import firebase from 'firebase/compat/app';
 import { Auth, onAuthStateChanged, signInWithEmailAndPassword } from '@angular/fire/auth';
 import { signOut } from 'firebase/auth';
 @Injectable({

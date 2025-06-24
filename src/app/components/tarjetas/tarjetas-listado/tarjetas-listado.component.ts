@@ -1,13 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { TarjetasService } from 'src/app/service/tarjetas.service';
 import { Tarjeta } from 'src/app/Interfaces/Tarjeta';
-import { TarjetaDetalle } from 'src/app/Interfaces/TarjetaDetalle';
 import { TarjetaPerfil } from 'src/app/Interfaces/TarjetaPerfil';
 import { AuthService } from 'src/app/service/auth.service';
-import { AgregarTarjetaComponent } from '../agregar-tarjeta/agregar-tarjeta.component';
 import { MatDialog } from '@angular/material/dialog';
 import { HttpErrorResponse } from '@angular/common/http';
-import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-tarjetas-listado',
