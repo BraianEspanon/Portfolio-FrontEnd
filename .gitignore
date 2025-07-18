@@ -43,3 +43,5 @@ Thumbs.db
 
 # Variables del entorno de produccion
 src/environments/environment.prod.ts
+
+.firebase/

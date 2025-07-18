@@ -5,7 +5,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { ModificacionPerfilComponent } from '../modificacion-perfil/modificacion-perfil.component';
 
 
-import { faPen } from '@fortawesome/free-solid-svg-icons';
+import { faPlus, faPen } from '@fortawesome/free-solid-svg-icons';
 import { AgregarTarjetaComponent } from '../agregar-tarjeta/agregar-tarjeta.component';
 
 @Component({
@@ -23,7 +23,12 @@ export class TarjetaPerfilComponent implements OnInit {
   @Input() tarjeta : TarjetaPerfil = {} as TarjetaPerfil;
   @Input() loggedIn : boolean = false;
 
+  faPlus = faPlus;
   faPen = faPen;
+
+  linkCV = "https://drive.google.com/file/d/1k7KJnzUN8_BF5Elet5fzsgnqiNOaqfRy/view?usp=drive_link"
+  linkGitHub = "https://github.com/BraianEspanon"
+  linkLinkedIn = "https://www.linkedin.com/in/braian-espa%C3%B1on-064501353/"
 
   constructor(public dialog: MatDialog) { }
 
@@ -46,6 +51,16 @@ export class TarjetaPerfilComponent implements OnInit {
         this.onEditPerfil.emit(this.tarjeta);
       }
     });
+  }
+  
+  abrirCurriculum(){
+      window.open(this.linkCV, '_blank');
+  }
+  abrirGitHub(){
+      window.open(this.linkGitHub, '_blank');
+  }
+  abrirLinkedIn(){
+      window.open(this.linkLinkedIn, '_blank');
   }
 
   addTarjeta(): void {

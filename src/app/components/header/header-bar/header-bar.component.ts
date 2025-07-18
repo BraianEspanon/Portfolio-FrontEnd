@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { faInstagram, faTwitter } from '@fortawesome/free-brands-svg-icons';
+import { faGithub, faLinkedin } from '@fortawesome/free-brands-svg-icons';
 
 @Component({
   selector: 'app-header-bar',
@@ -13,15 +13,17 @@ import { faInstagram, faTwitter } from '@fortawesome/free-brands-svg-icons';
 */
 
 export class HeaderBarComponent implements OnInit {
-  argentinaProgramaLogo: string = "/assets/images/ArgentinaPrograma_logo.png";
-  faInstagram = faInstagram;
-  faTwitter = faTwitter
+  //argentinaProgramaLogo: string = "/assets/images/ArgentinaPrograma_logo.png";
+  faGithub = faGithub
+  faLinkedin = faLinkedin
 
   constructor(private router: Router) { }
 
   ngOnInit(): void {
   }
   redireccionar(): void {
-    this.router.navigate(["inicio"]);
+    this.router.navigate(["inicio"]).then(()=> {
+      window.location.reload()
+    });
   }
 }

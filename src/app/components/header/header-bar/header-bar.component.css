@@ -28,9 +28,6 @@ p:active{
     height: 30px;
     float: left;
 }
-.inicio-sesion{
-    float: right;
-}
 .container-logo:hover{
     cursor: pointer;
 }
@@ -54,4 +51,14 @@ p:active{
 
 .icono-red:active{
     color:crimson;
+}
+
+.redes-sociales {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 10px; /* Espacio entre iconos y botón */
+    height: 100%;
+    float: right;
+    margin-right: 10px;
 }

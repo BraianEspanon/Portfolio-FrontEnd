@@ -13,12 +13,6 @@
     cursor:pointer;
     margin: 10px 0px 0px 5px;
 }
-.container-botones{
-    height: 30px;
-    width: 40px;
-    float: right;
-    margin-right: 4%;
-}
 .container-titulo{
     margin: 15px 0px 20px 0px;
     width: 100%;  

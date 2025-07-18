@@ -1,44 +1,39 @@
-.img-portada{
-    margin: 0px;
-    width:100%;
-    min-height: 300px;
-    display: block;
-    margin: 0;
-    font-size: 1;
+.img-perfil{
+    position: absolute;
+    top: 60px; 
+    left: 50%;
+    transform: translateX(-50%);
+    width: 125px;
+    height: 125px;
+    border-radius: 50%;
+    outline: 1px solid rgb(20, 40, 70);
+    outline-offset: -1px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+    background-color: rgb(20, 40, 70);
+    object-fit: cover;
+    
 }
-.container-foto-portada{
-    height: 300px;
-    overflow: hidden;
-}
-.container-foto-perfil{
-    width: 100%;
-    height: 100px;
-    position: relative;
-    top: -20px;
-    float: left;
-    line-height: 1px;
-}
+
+
 .container-detalleylugar{
     margin-bottom: 15px;
 }
 .container-botones-perfil{
-    margin-left: 25px;
     margin-bottom: 15px;
+    justify-content: center;
+    display: flex;
+    gap: 10px;
+}
+.container-titulo{
+    margin: 15px 0px 40px;
+    width: 100%;
+    height: 30px;
 }
 
-.img-perfil{
-    width: 100px;
-    position: relative;
-    left: 65px;
-    border-radius: 50%;
-    border: solid 1px black;
-    margin: 0;
-    font-size: 1;
-    
-}
 
 .nombre {
-    margin: 0px 20px;
+    margin: 0px 20px 0px;
+    text-align: center;
 }
 
 .detalle {
@@ -46,31 +41,23 @@
     color: rgb(110, 110, 110);
     font-size: small;
     line-height: 25px;
+    text-align: center;
 }
 
+
 .btn-editar{
-    width: 18px;
-    position: relative;
-    bottom: 50px;
-    left: 70px;
+    float: left;
     cursor:pointer;
 }
 
-.btn-add-seccion{
-    color: rgb(0, 0, 0);
-    border-color: rgb(39, 39, 39);
+.btn-agregar{
+    float: right;
+    cursor:pointer;
 }
 
-.btn-add-seccion:hover{
-    background-color: rgb(0, 0, 0);
-    border-color: rgb(0, 0, 0);
-    color: gainsboro;
-    cursor: pointer;
-}
 .btn-contacto{
     color: rgb(0, 64, 255);
     border-color: rgb(0, 64, 255);
-    margin-right: 10px;
 }
 
 .btn-contacto:hover{

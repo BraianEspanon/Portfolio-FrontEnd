@@ -1,19 +1,26 @@
-<div class="container-foto-portada">
-    <img class="img-portada unselectable" src='{{tarjeta.urlImgPortada}}' alt="Portada"/>
-</div>
-<div class="container-foto-perfil unselectable">
-    <img 
-        class="img-perfil"
-        src='{{tarjeta.urlImgPerfil}}'
-        alt="Foto de perfil"
-        />
-    <fa-icon
-        class="btn-editar"
-        [icon]="faPen"
-        *ngIf="loggedIn"
-        (click)="editar()"
-        matTooltip = "Editar perfil"
-    ></fa-icon>
+
+<img 
+    class="img-perfil unselectable"
+    src='{{tarjeta.urlImgPerfil}}'
+    alt="Foto de perfil"
+/>
+<div class="container-titulo">
+    <div class="container-botones">
+        <fa-icon
+            class="btn-editar"
+            [icon]="faPen"
+            *ngIf="loggedIn"
+            (click)="editar()"
+            matTooltip = "Editar perfil"
+        ></fa-icon>
+        <fa-icon
+            class="btn-agregar"
+            [icon]="faPlus"
+            *ngIf="loggedIn"
+            (click)="addTarjeta()"
+            matTooltip = "Agregar detalle"
+        ></fa-icon>
+    </div>
 </div>
 
 <h2 class="nombre">{{tarjeta.nombre}}</h2>
@@ -31,10 +38,19 @@
         routerLink="/contacto">
         Contacto
     </button>
-    <button class="btn btn-add-seccion unselectable"
-        *ngIf="loggedIn"
-        (click)="addTarjeta()"
-    >
-        Añadir sección
+    <button 
+        class="btn btn-contacto unselectable"
+        (click)="abrirCurriculum()">
+        Curriculum
+    </button>
+    <button 
+        class="btn btn-contacto unselectable"
+        (click)="abrirGitHub()">
+        GitHub
+    </button>
+    <button 
+        class="btn btn-contacto unselectable"
+        (click)="abrirLinkedIn()">
+        LinkedIn
     </button>
 </div>

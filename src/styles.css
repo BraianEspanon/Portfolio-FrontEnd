@@ -17,6 +17,12 @@ body{
     overflow: hidden;
 }
 
+.container-botones{
+    height: 30px;
+    width: 40px;
+    float: right;
+    margin-right: 4%;
+}
 .btn{
     background-color: transparent;
     border-style: solid;
