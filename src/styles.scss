@@ -1,0 +1,72 @@
+
+// styles.scss
+@use 'styles/variables' as *;
+@use 'styles/themes';
+
+/* You can add global styles to this file, and also import other style files */
+*{
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif
+}
+html {
+  height: 100%;
+}
+
+body {
+  min-height: 100vh;
+  margin: 0px;
+  padding-bottom: 10px;
+  background: linear-gradient(to bottom, $azul-fondo-claro, $azul-fondo-oscuro);
+  background-attachment: fixed; /* 🔑 clave para que no se reinicie el gradiente al scrollear */
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.container-tarjeta {
+    min-width: 375px;
+    width: 85%;
+    margin: 20px auto;
+    min-height: 100px;
+    border-radius: 20px;
+    background: linear-gradient(to bottom, $azul-tarjeta-claro, $azul-tarjeta-oscuro);
+    overflow: hidden;
+    color: $blanco-suave;
+    box-shadow: 1px 1px 6px rgba($blanco-suave, 0.2);
+    transition: box-shadow 0.1s ease;
+}
+
+.container-tarjeta:hover {
+    box-shadow: 2px 2px 10px rgba($blanco-suave, 0.333);
+}
+
+.container-tarjeta:hover .img-perfil{
+    box-shadow: 0px 1px 20px rgba($blanco-suave, 0.216);
+}
+
+.container-botones{
+    height: 30px;
+    width: 40px;
+    float: right;
+    margin-right: 4%;
+}
+.btn{
+    background-color: transparent;
+    border-style: solid;
+    border-radius: 5px;
+    border-width: 2px;
+    padding: 5px 10px;
+}
+
+.container-alta-modificacion{
+    min-width: 300px;
+    max-width: 500px;
+    width: 30%;
+}
+
+.unselectable {
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}

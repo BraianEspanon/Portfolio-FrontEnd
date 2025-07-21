@@ -11,7 +11,7 @@ import { faTrash } from '@fortawesome/free-solid-svg-icons';
 @Component({
   selector: 'app-tarjeta-proyectos',
   templateUrl: './tarjeta-proyectos.component.html',
-  styleUrls: ['./tarjeta-proyectos.component.css']
+  styleUrls: ['./tarjeta-proyectos.component.scss']
 })
 /*
   TarjetaProyecto se trata de un tipo de detalle.

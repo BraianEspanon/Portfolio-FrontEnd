@@ -5,7 +5,7 @@ import { AuthService } from 'src/app/service/auth.service';
 @Component({
   selector: 'app-header-buttons',
   templateUrl: './header-buttons.component.html',
-  styleUrls: ['./header-buttons.component.css']
+  styleUrls: ['./header-buttons.component.scss']
 })
 /*
   Header Buttons es un componente que cambia entre el botón login y logout, según sea necesario.

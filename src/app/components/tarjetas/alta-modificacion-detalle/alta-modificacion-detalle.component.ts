@@ -6,7 +6,7 @@ import { Inject } from '@angular/core';
 @Component({
   selector: 'app-alta-modificacion-detalle',
   templateUrl: './alta-modificacion-detalle.component.html',
-  styleUrls: ['./alta-modificacion-detalle.component.css']
+  styleUrls: ['./alta-modificacion-detalle.component.scss']
 })
 /*
   Componente pensado para ser abierto en forma de MatDialog.

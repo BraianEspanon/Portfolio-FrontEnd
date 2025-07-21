@@ -12,7 +12,7 @@ import { faTrash } from '@fortawesome/free-solid-svg-icons';
 @Component({
   selector: 'app-tarjeta-base',
   templateUrl: './tarjeta-base.component.html',
-  styleUrls: ['./tarjeta-base.component.css']
+  styleUrls: ['./tarjeta-base.component.scss']
 })
 
 /*

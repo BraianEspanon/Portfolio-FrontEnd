@@ -9,7 +9,7 @@ import { HttpErrorResponse } from '@angular/common/http';
 @Component({
   selector: 'app-tarjetas-listado',
   templateUrl: './tarjetas-listado.component.html',
-  styleUrls: ['./tarjetas-listado.component.css']
+  styleUrls: ['./tarjetas-listado.component.scss']
 })
 /*
   Este componente funciona como el inicio del portfolio.

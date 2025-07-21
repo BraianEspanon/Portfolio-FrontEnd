@@ -4,7 +4,7 @@ import { ImagenesService } from 'src/app/service/imagenes.service';
 @Component({
   selector: 'app-subir-imagen',
   templateUrl: './subir-imagen.component.html',
-  styleUrls: ['./subir-imagen.component.css']
+  styleUrls: ['./subir-imagen.component.scss']
 })
 /*
   Componente relacionado al servicio Imagenes.

@@ -28,7 +28,7 @@ import { AgregarTarjetaComponent } from './components/tarjetas/agregar-tarjeta/a
 import { ContactoComponent } from './components/contacto/contacto.component';
 import { InterceptorService } from 'src/app/service/interceptor.service';
 import { AppRoutingModule } from './app-routing.module';
-
+import { MatButtonModule } from '@angular/material/button';
 
 
 import { provideFirebaseApp, initializeApp } from '@angular/fire/app';
@@ -66,6 +66,7 @@ import { environment } from '../environments/environment.prod';
     MatTooltipModule,
     MatProgressSpinnerModule,
     AppRoutingModule,
+    MatButtonModule,
     provideFirebaseApp(() => initializeApp(environment.firebaseConfig)),
     provideAuth(() => getAuth()),
 

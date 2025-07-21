@@ -10,7 +10,7 @@ import { faTrash } from '@fortawesome/free-solid-svg-icons';
 @Component({
   selector: 'app-tarjeta-basico',
   templateUrl: './tarjeta-basico.component.html',
-  styleUrls: ['./tarjeta-basico.component.css']
+  styleUrls: ['./tarjeta-basico.component.scss']
 })
 /*
   TarjetaBasico es un tipo de detalle de tarjeta.

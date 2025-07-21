@@ -6,13 +6,12 @@ import { MatDialog } from '@angular/material/dialog';
 import { AltaModificacionDetalleComponent } from '../alta-modificacion-detalle/alta-modificacion-detalle.component';
 
 
-import { faPen } from '@fortawesome/free-solid-svg-icons';
-import { faTrash } from '@fortawesome/free-solid-svg-icons';
+import { faPen, faTrash } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-tarjeta-porcentajes',
   templateUrl: './tarjeta-porcentajes.component.html',
-  styleUrls: ['./tarjeta-porcentajes.component.css']
+  styleUrls: ['./tarjeta-porcentajes.component.scss']
 })
 /*
   TarjetaPorcentajes se trata de un tipo de detalle.

@@ -1,7 +1,13 @@
+@use '/src/styles/variables.scss' as *;
+
 .titulo{
     float: left;
     margin: 0px;
     margin-left: 20px;
+    border-bottom: 2px solid map-get($my-primary, 500);
+    margin-bottom: 1rem;
+    font-size: 1.4rem;
+    color: map-get($my-primary, 500);
 }
 .btn-agregar{
     float: left;

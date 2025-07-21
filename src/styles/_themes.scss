@@ -1,0 +1,16 @@
+
+@use '@angular/material' as mat;
+@use 'variables.scss' as var;
+
+$my-theme: mat.define-light-theme((
+  color: (
+    primary: var.$my-primary,
+    accent: var.$my-accent,
+    warn: var.$my-warn,
+  ),
+));
+
+@include mat.core();
+
+@include mat.all-component-themes($my-theme);
+

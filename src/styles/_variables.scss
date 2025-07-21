@@ -1,0 +1,47 @@
+@use '@angular/material' as mat;
+
+// 1. Definí tu color principal (naranja)
+$my-primary: mat.define-palette((
+  50: #fbe9e7,
+  100: #ffccbc,
+  200: #ffab91,
+  300: #ff8a65,
+  400: #ff7043,
+  500: #f57c00, // tu color principal
+  600: #ef6c00,
+  700: #e65100,
+  800: #dd2c00,
+  900: #bf360c,
+  A100: #ffd180,
+  A200: #ffab40,
+  A400: #ff9100,
+  A700: #ff6d00,
+  contrast: (
+    50: black,
+    100: black,
+    200: black,
+    300: black,
+    400: black,
+    500: white,
+    600: white,
+    700: white,
+    800: white,
+    900: white,
+    A100: black,
+    A200: black,
+    A400: black,
+    A700: white,
+  )
+), 500);
+
+$my-accent: mat.define-palette(mat.$pink-palette, A200);
+$my-warn: mat.define-palette(mat.$red-palette);
+
+$gray-subtitle: #b8b8b8;
+$gray-buttons: #dadada;
+$blanco-suave: #f1f1f1;
+$blanco-fuerte: #ffffff;
+$azul-fondo-claro: #2a2a46;
+$azul-fondo-oscuro: #101020;
+$azul-tarjeta-claro: #2d2d52;
+$azul-tarjeta-oscuro: #222242;

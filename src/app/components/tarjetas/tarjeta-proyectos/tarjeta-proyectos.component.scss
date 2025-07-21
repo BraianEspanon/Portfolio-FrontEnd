@@ -1,14 +1,20 @@
+@use '/src/styles/variables.scss' as *;
+
 .titulo{
     font-size: large;
     text-decoration: none;
-    color: blue;
+    color: map-get($my-primary, 500);
+    border-bottom: 1px solid map-get($my-primary, 500);
+    color: map-get($my-primary, 500);
 }
 
 .titulo:active{
-    color:red;
+    color:$blanco-suave;
+    border-bottom: 1px solid $blanco-suave;
 }
+
 .descripcion{
-    color: rgb(110, 110, 110);
+    color: $gray-subtitle;
     font-size: small;
     line-height: 25px;
     margin: 0px 00px 15px;

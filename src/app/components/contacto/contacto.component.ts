@@ -5,7 +5,7 @@ import { ContactoService } from 'src/app/service/contacto.service';
 @Component({
   selector: 'app-contacto',
   templateUrl: './contacto.component.html',
-  styleUrls: ['./contacto.component.css']
+  styleUrls: ['./contacto.component.scss']
 })
 /*
   Componente contacto

@@ -11,7 +11,7 @@ import { AgregarTarjetaComponent } from '../agregar-tarjeta/agregar-tarjeta.comp
 @Component({
   selector: 'app-tarjeta-perfil',
   templateUrl: './tarjeta-perfil.component.html',
-  styleUrls: ['./tarjeta-perfil.component.css']
+  styleUrls: ['./tarjeta-perfil.component.scss']
 })
 /*
   TarjetaPerfil es la primera tarjeta a mostrar. Contiene datos personales y una breve descripción.

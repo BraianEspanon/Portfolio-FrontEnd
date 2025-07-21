@@ -1,7 +1,8 @@
+@use '/src/styles/variables.scss' as *;
+
 header {
-    background-color:rgb(28, 28, 56);
     padding: 10px 5px;
-    color: gainsboro;
+    color: $gray-buttons;
     min-width: 375px;
     height: 30px;
 }
@@ -10,18 +11,18 @@ p {
     padding: 6px 0px 6px 5px;
     margin: 0px;
     text-decoration: none;
-    color: gainsboro;
+    color: $gray-buttons;
     vertical-align: middle;
     float: left;
     font-size:15px;
 }
 
 p:hover{
-    color:White;
+    color:$blanco-suave;
 }
 
 p:active{
-    color:crimson;
+    color: map-get($my-primary, 500);
 }
 
 .logo{
@@ -41,16 +42,16 @@ p:active{
 .icono-red{
     font-size: 27px;
     margin: 3px;
-    color: gainsboro;
+    color: $gray-buttons;
 }
 
 .icono-red:hover{
     cursor: pointer;
-    color: white;
+    color: $blanco-suave;
 }
 
 .icono-red:active{
-    color:crimson;
+    color: map-get($my-primary, 500);
 }
 
 .redes-sociales {

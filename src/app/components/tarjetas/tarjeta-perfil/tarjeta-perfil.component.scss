@@ -1,3 +1,5 @@
+@use '/src/styles/variables.scss' as *;
+
 .img-perfil{
     position: absolute;
     top: 60px; 
@@ -6,13 +8,12 @@
     width: 125px;
     height: 125px;
     border-radius: 50%;
-    outline: 1px solid rgb(20, 40, 70);
-    outline-offset: -1px;
-    box-shadow: 0 2px 6px rgba(0,0,0,0.2);
-    background-color: rgb(20, 40, 70);
-    object-fit: cover;
     
+    outline: 1px solid rgba($blanco-suave, 0.051);
+    outline-offset: -1px;
+    box-shadow: 0px 1px 20px rgba($blanco-suave, 0.145);
 }
+
 
 
 .container-detalleylugar{
@@ -38,7 +39,7 @@
 
 .detalle {
     margin: 0px 25px;
-    color: rgb(110, 110, 110);
+    color: $gray-subtitle;
     font-size: small;
     line-height: 25px;
     text-align: center;
@@ -56,12 +57,17 @@
 }
 
 .btn-contacto{
-    color: rgb(0, 64, 255);
-    border-color: rgb(0, 64, 255);
+    color: map-get($my-primary, 500);
+    border-color: map-get($my-primary, 500);
+    transition: background-color 0.15s ease-out, color 0.15s ease-out;
 }
 
 .btn-contacto:hover{
-    background-color: rgb(0, 64, 255);
-    color: gainsboro;
+    background-color: map-get($my-primary, 500);
+    color: $gray-buttons;
     cursor: pointer;
+}
+
+.btn-perfil{
+    font-size: small;
 }

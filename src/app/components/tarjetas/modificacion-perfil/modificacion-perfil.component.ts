@@ -7,7 +7,7 @@ import { Inject } from '@angular/core';
 @Component({
   selector: 'app-modificacion-perfil',
   templateUrl: './modificacion-perfil.component.html',
-  styleUrls: ['./modificacion-perfil.component.css']
+  styleUrls: ['./modificacion-perfil.component.scss']
 })
 /*
   Componente pensado para ser abierto en forma de MatDialog.
