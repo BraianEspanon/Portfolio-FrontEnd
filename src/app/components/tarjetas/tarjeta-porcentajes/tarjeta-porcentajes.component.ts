@@ -37,6 +37,7 @@ export class TarjetaPorcentajesComponent implements OnInit {
       panelClass: 'container-alta-modificacion',
       data:{tipo : "Porcentaje",
             idDetalle : this.detalle.idDetalle,
+            prioridad : this.detalle.prioridad,
             titulo : this.detalle.titulo,
             cantidad : this.detalle.cantidad}
     });

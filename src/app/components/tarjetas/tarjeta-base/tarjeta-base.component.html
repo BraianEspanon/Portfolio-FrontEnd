@@ -4,18 +4,25 @@
     </h2>
     <div class="container-botones">
         <fa-icon
-            class="btn-agregar"
-            [icon]="faPlus"
-            *ngIf="loggedIn"
-            (click)="agregarDetalle()"
-            matTooltip = "Agregar detalle"
-        ></fa-icon>
-        <fa-icon
             class="btn-eliminar"
             [icon]="faTrash"
             *ngIf="loggedIn"
             (click)="eliminarTarjeta()"
             matTooltip = "Eliminar tarjeta"
+        ></fa-icon>
+        <fa-icon 
+            class="btn-editar"
+            [icon]="faPen"
+            *ngIf="loggedIn"
+            (click)="editarTarjeta()"
+            matTooltip = "Editar tarjeta"
+        ></fa-icon>
+        <fa-icon
+            class="btn-agregar"
+            [icon]="faPlus"
+            *ngIf="loggedIn"
+            (click)="agregarDetalle()"
+            matTooltip = "Agregar detalle"
         ></fa-icon>
     </div>
 </div>

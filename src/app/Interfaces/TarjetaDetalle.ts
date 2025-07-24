@@ -6,4 +6,5 @@ export interface TarjetaDetalle {
     periodo: string;
     cantidad: number;
     enlace: string;
+    prioridad: number
 }

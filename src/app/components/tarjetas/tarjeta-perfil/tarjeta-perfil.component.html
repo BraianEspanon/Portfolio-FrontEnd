@@ -7,18 +7,18 @@
 <div class="container-titulo">
     <div class="container-botones">
         <fa-icon
-            class="btn-editar"
-            [icon]="faPen"
-            *ngIf="loggedIn"
-            (click)="editar()"
-            matTooltip = "Editar perfil"
-        ></fa-icon>
-        <fa-icon
             class="btn-agregar"
             [icon]="faPlus"
             *ngIf="loggedIn"
             (click)="addTarjeta()"
             matTooltip = "Agregar detalle"
+        ></fa-icon>
+        <fa-icon
+            class="btn-editar"
+            [icon]="faPen"
+            *ngIf="loggedIn"
+            (click)="editar()"
+            matTooltip = "Editar perfil"
         ></fa-icon>
     </div>
 </div>

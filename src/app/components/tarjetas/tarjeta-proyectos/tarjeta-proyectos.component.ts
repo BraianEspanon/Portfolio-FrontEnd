@@ -37,6 +37,7 @@ export class TarjetaProyectosComponent implements OnInit {
       panelClass: 'container-alta-modificacion',
       data:{tipo : "Proyectos",
             idDetalle : this.detalle.idDetalle,
+            prioridad : this.detalle.prioridad,
             titulo : this.detalle.titulo,
             enlace : this.detalle.enlace,
             descripcion : this.detalle.descripcion}

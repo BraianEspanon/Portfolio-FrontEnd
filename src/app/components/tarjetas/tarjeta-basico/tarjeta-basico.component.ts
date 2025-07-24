@@ -35,6 +35,7 @@ export class TarjetaBasicoComponent implements OnInit {
       panelClass: 'container-alta-modificacion',
       data:{tipo : "Basico",
             idDetalle : this.detalle.idDetalle,
+            prioridad : this.detalle.prioridad,
             titulo : this.detalle.titulo,
             urlImg : this.detalle.urlImg,
             descripcion : this.detalle.descripcion,

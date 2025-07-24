@@ -20,6 +20,17 @@
     >
 </div>
 
+<div>    
+    <label class="label" for="prioridad">Prioridad:</label>
+    <input 
+        class="textbox"
+        type="text"
+        name="prioridad"
+        id="prioridad"
+        [(ngModel)]="prioridad"
+    >
+</div>
+
 <div *ngIf="tipoBasico">    
     <label class="label" for="urlImg">URL Imagen: (Provisional)</label>
     <input 

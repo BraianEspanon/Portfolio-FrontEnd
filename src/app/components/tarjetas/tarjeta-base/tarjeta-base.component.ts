@@ -6,8 +6,8 @@ import { AltaModificacionDetalleComponent } from '../alta-modificacion-detalle/a
 import { Tarjeta } from 'src/app/Interfaces/Tarjeta'
 import { TarjetaDetalle } from 'src/app/Interfaces/TarjetaDetalle'
 
-import { faPlus } from '@fortawesome/free-solid-svg-icons';
-import { faTrash } from '@fortawesome/free-solid-svg-icons';
+import { faPlus, faPen, faTrash  } from '@fortawesome/free-solid-svg-icons';
+import { AgregarTarjetaComponent } from '../agregar-tarjeta/agregar-tarjeta.component';
 
 @Component({
   selector: 'app-tarjeta-base',
@@ -22,14 +22,16 @@ import { faTrash } from '@fortawesome/free-solid-svg-icons';
 export class TarjetaBaseComponent implements OnInit {
   @Output() onAddDetalle: EventEmitter<Tarjeta> = new EventEmitter();
   @Output() onDeleteDetalle: EventEmitter<Tarjeta> = new EventEmitter();
-  @Output() onDeleteTarjeta: EventEmitter<Tarjeta> = new EventEmitter();
   @Output() onEditDetalle: EventEmitter<any> = new EventEmitter();
+  @Output() onDeleteTarjeta: EventEmitter<Tarjeta> = new EventEmitter();
+  @Output() onEditTarjeta: EventEmitter<any> = new EventEmitter();
 
   @Input() tarjeta: Tarjeta = {} as Tarjeta;
   @Input() loggedIn: boolean = false;
   
   faPlus = faPlus;
   faTrash = faTrash;
+  faPen = faPen;
   
   constructor(public dialog: MatDialog) { }
 
@@ -47,6 +49,24 @@ export class TarjetaBaseComponent implements OnInit {
       if (result !== undefined) {
         this.tarjeta.detalle.push(result);
         this.onAddDetalle.emit(this.tarjeta);
+      }
+    });
+  }
+  editarTarjeta(){
+    console.log("Editar")
+    console.log(this.tarjeta)
+    
+    const dialogRef = this.dialog.open(AgregarTarjetaComponent, {
+      panelClass: 'container-alta-modificacion',
+      data:{
+        tarjeta: this.tarjeta
+      }
+    });
+    
+    dialogRef.afterClosed().subscribe(result => {
+      if (result !== undefined) {
+        this.tarjeta = result
+        this.onEditTarjeta.emit(this.tarjeta)
       }
     });
   }

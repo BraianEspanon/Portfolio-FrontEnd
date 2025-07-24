@@ -10,12 +10,18 @@
     color: map-get($my-primary, 500);
 }
 .btn-agregar{
-    float: left;
+    float: right;
     cursor:pointer;
-    margin: 10px 7px 0px 0px;
+    margin: 10px 5px 0px 0px;
+}
+.btn-editar{
+    float: right;
+    cursor:pointer;
+    margin: 10px 5px 0px 5px;
+
 }
 .btn-eliminar{
-    float: left;
+    float: right;
     cursor:pointer;
     margin: 10px 0px 0px 5px;
 }

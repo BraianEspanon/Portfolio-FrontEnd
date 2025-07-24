@@ -1,6 +1,6 @@
 export interface TarjetaPerfil {
     nombre: string;
-    urlImgPortada: string;
+    urlCV: string;
     urlImgPerfil: string;
     detalle: string;
     lugar: string;

@@ -16,21 +16,34 @@ import { Inject } from '@angular/core';
 export class AgregarTarjetaComponent implements OnInit {
   nuevaTarjeta: Tarjeta = {} as Tarjeta;  
 
+  idTarjeta: number = {} as number;
   titulo: string = "";
   tipoSeleccionado: string = "";
+  prioridad: number = {} as number;
   detalle: TarjetaDetalle[] = [];
   listaTipos: string[] = ["Basico", "Porcentaje", "Proyectos"];
 
-  constructor() { }
+  
+  constructor(
+    @Inject(MAT_DIALOG_DATA) public data: any
+  ) {
+      this.idTarjeta = data.tarjeta.idTarjeta;
+      this.titulo = data.tarjeta.titulo;
+      this.tipoSeleccionado = data.tarjeta.tipo;
+      this.prioridad = data.tarjeta.prioridad;
+      this.detalle = data.tarjeta.detalle;
+   }
 
   ngOnInit(): void {
   }
   
   submit(): Tarjeta{
+    this.nuevaTarjeta.idTarjeta = this.idTarjeta
     this.nuevaTarjeta.titulo = this.titulo;
     this.nuevaTarjeta.tipo = this.tipoSeleccionado;
     this.nuevaTarjeta.detalle = this.detalle;
-
+    this.nuevaTarjeta.prioridad = this.prioridad;
+    
     return this.nuevaTarjeta;
   }
   cancel():undefined{

@@ -1,5 +1,6 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { TarjetaPerfil } from 'src/app/Interfaces/TarjetaPerfil';
+import { Tarjeta } from 'src/app/Interfaces/Tarjeta';
 
 import { MatDialog } from '@angular/material/dialog';
 import { ModificacionPerfilComponent } from '../modificacion-perfil/modificacion-perfil.component';
@@ -39,7 +40,7 @@ export class TarjetaPerfilComponent implements OnInit {
       panelClass: 'container-alta-modificacion',
       data: {
         nombre: this.tarjeta.nombre,
-        urlImgPortada: this.tarjeta.urlImgPortada,
+        urlCV: this.tarjeta.urlCV,
         urlImgPerfil: this.tarjeta.urlImgPerfil,
         detalle: this.tarjeta.detalle,
         lugar: this.tarjeta.lugar,
@@ -54,6 +55,7 @@ export class TarjetaPerfilComponent implements OnInit {
   }
   
   abrirCurriculum(){
+      this.linkCV = this.tarjeta.urlCV
       window.open(this.linkCV, '_blank');
   }
   abrirGitHub(){
@@ -66,7 +68,10 @@ export class TarjetaPerfilComponent implements OnInit {
   addTarjeta(): void {
     const dialogRef = this.dialog.open(AgregarTarjetaComponent, {
       panelClass: 'container-alta-modificacion',
-      });
+      data: {
+        tarjeta: {} as Tarjeta
+      }
+    });
     
     dialogRef.afterClosed().subscribe(result => {
       if (result !== undefined) {

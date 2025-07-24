@@ -17,7 +17,7 @@ export class ModificacionPerfilComponent implements OnInit {
   nuevaTarjetaPerfil: TarjetaPerfil = {} as TarjetaPerfil;  
 
   nombre: string = "";
-  urlImgPortada: string = "";
+  urlCV: string = "";
   urlImgPerfil: string = "";
   detalle: string = "";
   lugar: string = "";
@@ -26,7 +26,7 @@ export class ModificacionPerfilComponent implements OnInit {
     @Inject(MAT_DIALOG_DATA) public data: any
     ) {
       this.nombre = data.nombre;
-      this.urlImgPortada = data.urlImgPortada;
+      this.urlCV = data.urlCV;
       this.urlImgPerfil = data.urlImgPerfil;
       this.detalle = data.detalle;
       this.lugar = data.lugar;
@@ -37,7 +37,7 @@ export class ModificacionPerfilComponent implements OnInit {
   
   submit(): TarjetaPerfil{
     this.nuevaTarjetaPerfil.nombre = this.nombre; 
-    this.nuevaTarjetaPerfil.urlImgPortada = this.urlImgPortada; 
+    this.nuevaTarjetaPerfil.urlCV = this.urlCV; 
     this.nuevaTarjetaPerfil.urlImgPerfil = this.urlImgPerfil; 
     this.nuevaTarjetaPerfil.detalle = this.detalle; 
     this.nuevaTarjetaPerfil.lugar = this.lugar; 

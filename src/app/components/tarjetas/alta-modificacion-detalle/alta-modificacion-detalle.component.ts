@@ -24,6 +24,7 @@ export class AltaModificacionDetalleComponent implements OnInit {
   periodo: string = "";
   cantidad: number = {} as number;
   enlace: string = "";
+  prioridad: number = {} as number;
 
   tipoBasico: boolean = false;
   tipoPorcentaje: boolean = false;
@@ -39,6 +40,7 @@ export class AltaModificacionDetalleComponent implements OnInit {
       this.periodo = data.periodo;
       this.cantidad = data.cantidad;
       this.enlace = data.enlace;
+      this.prioridad = data.prioridad;
    }
 
   ngOnInit(): void {
@@ -64,6 +66,7 @@ export class AltaModificacionDetalleComponent implements OnInit {
     this.nuevaTarjetaDetalle.periodo = this.periodo;
     this.nuevaTarjetaDetalle.cantidad = this.cantidad;
     this.nuevaTarjetaDetalle.enlace = this.enlace;
+    this.nuevaTarjetaDetalle.prioridad = this.prioridad;
     
     return this.nuevaTarjetaDetalle;
   }

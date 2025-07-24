@@ -106,6 +106,13 @@ export class TarjetasListadoComponent implements OnInit {
       this.handleError(error)
     });
   }
+  onEditTarjeta(tarjetaAEditar: any){
+    this.tarjetasService.updateTarjeta(tarjetaAEditar).subscribe(result => {
+
+    }, (error) => {
+      this.handleError(error)
+    });
+  }
 
   handleError(error: HttpErrorResponse){
     if (error.status === 401 || error.status === 403){

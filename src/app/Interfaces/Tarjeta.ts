@@ -5,4 +5,5 @@ export interface Tarjeta{
     titulo: string;
     detalle: TarjetaDetalle[];
     tipo: string;
+    prioridad: number
 }

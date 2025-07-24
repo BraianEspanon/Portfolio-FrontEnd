@@ -19,8 +19,8 @@ const httpOptions = {
   Contiene todas las peticions HTTP al servidor backend relacionadas con las tarjetas.
 */
 export class TarjetasService {
-  //private apiUrl: string = 'https://api.portfolio-braianespanon.com';
-  private apiUrl: string = 'http://localhost:8080';
+  private apiUrl: string = 'https://api.portfolio-braianespanon.com';
+  //private apiUrl: string = 'http://localhost:8080';
   
   constructor(
     private http: HttpClient
@@ -35,6 +35,7 @@ export class TarjetasService {
   }
   
   updateTarjeta(tarjeta: Tarjeta) : Observable<Tarjeta>{
+    console.log(tarjeta)
     const url = `${this.apiUrl}/tarjetasInformacion`;
     return this.http.put<Tarjeta>(url, tarjeta, httpOptions).pipe(
       catchError(this.handleError)

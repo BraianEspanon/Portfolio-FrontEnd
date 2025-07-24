@@ -15,14 +15,17 @@ p {
     vertical-align: middle;
     float: left;
     font-size:15px;
+    text-shadow: 0px 1px 3px rgba($gray-buttons, 0.25);
 }
 
 p:hover{
     color:$blanco-suave;
+    text-shadow: 0px 1px 5px rgba($blanco-suave, 0.25);
 }
 
 p:active{
     color: map-get($my-primary, 500);
+    text-shadow: 0px 1px 5px rgba(map-get($my-primary, 500), 0.25);
 }
 
 .logo{
