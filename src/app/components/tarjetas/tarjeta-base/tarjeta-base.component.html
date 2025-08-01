@@ -2,51 +2,53 @@
     <h2 class="titulo">
         {{tarjeta.titulo}}
     </h2>
-    <div class="container-botones">
+    <div class="container-botones" *ngIf="loggedIn">
         <fa-icon
-            class="btn-eliminar"
+            class=""
             [icon]="faTrash"
-            *ngIf="loggedIn"
+            
             (click)="eliminarTarjeta()"
             matTooltip = "Eliminar tarjeta"
         ></fa-icon>
         <fa-icon 
-            class="btn-editar"
+            class=""
             [icon]="faPen"
-            *ngIf="loggedIn"
             (click)="editarTarjeta()"
             matTooltip = "Editar tarjeta"
         ></fa-icon>
         <fa-icon
-            class="btn-agregar"
+            class=""
             [icon]="faPlus"
-            *ngIf="loggedIn"
             (click)="agregarDetalle()"
             matTooltip = "Agregar detalle"
         ></fa-icon>
     </div>
 </div>
 
-<div *ngFor="let detalle of tarjeta.detalle">
-    <app-tarjeta-basico
-        *ngIf="tarjeta.tipo == 'Basico'"
-        [detalle] = "detalle"
-        [loggedIn] = "loggedIn"
-        (onEditDetalle)="editDetalle($event)"
-        (onDeleteDetalle)="deleteDetalle($event)"
-    ></app-tarjeta-basico>
-    <app-tarjeta-porcentajes
-        *ngIf="tarjeta.tipo == 'Porcentaje'"
-        [detalle] = "detalle"
-        [loggedIn] = "loggedIn"
-        (onEditDetalle)="editDetalle($event)"
-        (onDeleteDetalle)="deleteDetalle($event)"
-    ></app-tarjeta-porcentajes>
-    <app-tarjeta-proyectos
-        *ngIf="tarjeta.tipo == 'Proyectos'"
-        [detalle] = "detalle"
-        [loggedIn] = "loggedIn"
-        (onEditDetalle)="editDetalle($event)"
-        (onDeleteDetalle)="deleteDetalle($event)"
-    ></app-tarjeta-proyectos>
+<div [ngClass]="{'fila-detalles': tarjeta.tipo !== 'Porcentaje'}">
+    <div [ngClass]="{'ancho': tarjeta.tipo !== 'Porcentaje',
+                    'proyecto': tarjeta.tipo === 'Proyectos'}" 
+    *ngFor="let detalle of tarjeta.detalle">
+        <app-tarjeta-basico
+            *ngIf="tarjeta.tipo == 'Basico'"
+            [detalle] = "detalle"
+            [loggedIn] = "loggedIn"
+            (onEditDetalle)="editDetalle($event)"
+            (onDeleteDetalle)="deleteDetalle($event)"
+        ></app-tarjeta-basico>
+        <app-tarjeta-porcentajes
+            *ngIf="tarjeta.tipo == 'Porcentaje'"
+            [detalle] = "detalle"
+            [loggedIn] = "loggedIn"
+            (onEditDetalle)="editDetalle($event)"
+            (onDeleteDetalle)="deleteDetalle($event)"
+        ></app-tarjeta-porcentajes>
+        <app-tarjeta-proyectos
+            *ngIf="tarjeta.tipo == 'Proyectos'"
+            [detalle] = "detalle"
+            [loggedIn] = "loggedIn"
+            (onEditDetalle)="editDetalle($event)"
+            (onDeleteDetalle)="deleteDetalle($event)"
+        ></app-tarjeta-proyectos>
+    </div>
 </div>

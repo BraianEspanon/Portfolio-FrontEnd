@@ -54,17 +54,6 @@ export class TarjetaPerfilComponent implements OnInit {
     });
   }
   
-  abrirCurriculum(){
-      this.linkCV = this.tarjeta.urlCV
-      window.open(this.linkCV, '_blank');
-  }
-  abrirGitHub(){
-      window.open(this.linkGitHub, '_blank');
-  }
-  abrirLinkedIn(){
-      window.open(this.linkLinkedIn, '_blank');
-  }
-
   addTarjeta(): void {
     const dialogRef = this.dialog.open(AgregarTarjetaComponent, {
       panelClass: 'container-alta-modificacion',

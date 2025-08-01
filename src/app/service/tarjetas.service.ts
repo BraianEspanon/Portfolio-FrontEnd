@@ -3,7 +3,7 @@ import { HttpClient, HttpErrorResponse, HttpHeaders } from '@angular/common/http
 import { Observable, of, throwError } from 'rxjs';
 import { Tarjeta } from 'src/app/Interfaces/Tarjeta';
 import { TarjetaPerfil } from '../Interfaces/TarjetaPerfil';
-import { catchError } from 'rxjs/operators'; 
+import { catchError, tap } from 'rxjs/operators'; 
 
 const httpOptions = {
   headers : new HttpHeaders({
@@ -19,19 +19,34 @@ const httpOptions = {
   Contiene todas las peticions HTTP al servidor backend relacionadas con las tarjetas.
 */
 export class TarjetasService {
-  private apiUrl: string = 'https://api.portfolio-braianespanon.com';
-  //private apiUrl: string = 'http://localhost:8080';
+  //private apiUrl: string = 'https://api.portfolio-braianespanon.com';
+  private apiUrl: string = 'http://localhost:8080';
+  //private apiUrl: string = 'http://192.168.0.16:8080';
+  private tarjetasCache: Tarjeta[] | null = null;
+  private tarjetaPerfilCache: TarjetaPerfil | null = null;
   
   constructor(
     private http: HttpClient
   ) { }
   
   getTarjetasInformacion() : Observable<Tarjeta[]> {
-    return this.http.get<Tarjeta[]>(this.apiUrl + '/tarjetasInformacion');
+    if (this.tarjetasCache) {
+      return of(this.tarjetasCache); // devuelve cache
+    } else{
+      return this.http.get<Tarjeta[]>(this.apiUrl + '/tarjetasInformacion').pipe(
+        tap(data => this.tarjetasCache = data)
+      );
+    }
   }
 
   getTarjetaPerfil() : Observable<TarjetaPerfil> {
-    return this.http.get<TarjetaPerfil>(this.apiUrl + '/tarjetaPerfil');
+    if (this.tarjetaPerfilCache){
+      return of(this.tarjetaPerfilCache);
+    } else{
+      return this.http.get<TarjetaPerfil>(this.apiUrl + '/tarjetaPerfil').pipe(
+        tap(data => this.tarjetaPerfilCache = data)
+      );
+    }
   }
   
   updateTarjeta(tarjeta: Tarjeta) : Observable<Tarjeta>{

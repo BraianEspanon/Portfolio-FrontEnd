@@ -7,28 +7,59 @@
 *{
     font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif
 }
+.background-fixed {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-image: url('assets/images/bg2.jpg'); // ruta a tu fondo
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  z-index: -1; // detrás de todo
+  pointer-events: none; // para que no bloquee clics
+}
+
 html {
   height: 100%;
 }
 
 body {
-  min-height: 100vh;
+  height: 100%;
   margin: 0px;
-  padding-bottom: 10px;
-  background: linear-gradient(to bottom, $azul-fondo-claro, $azul-fondo-oscuro);
-  background-attachment: fixed; /* 🔑 clave para que no se reinicie el gradiente al scrollear */
-  background-repeat: no-repeat;
-  background-size: cover;
+  margin: 0;
+  padding: 0;
+  background-color: #191930; //Poner variable. Sirve para color durante carga mobile
 }
 
+app-root {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+router-outlet {
+  flex: 1;
+  display: block; // Necesario porque por defecto es un "ng-component" invisible
+}
+.contenedor-principal {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  flex: 1;
+  min-height: calc(100vh - 210px - 50px);
+  width: 100%;
+}
 .container-tarjeta {
-    min-width: 375px;
+    scroll-margin-top: 15px; /* o el valor que quieras como offset */
+    min-width: 325px;
     width: 85%;
     margin: 20px auto;
-    min-height: 100px;
+    padding: 3px;
+    min-height: 80px;
     border-radius: 20px;
     background: linear-gradient(to bottom, $azul-tarjeta-claro, $azul-tarjeta-oscuro);
-    overflow: hidden;
     color: $blanco-suave;
     box-shadow: 1px 1px 6px rgba($blanco-suave, 0.2);
     transition: box-shadow 0.1s ease;
@@ -39,21 +70,48 @@ body {
 }
 
 .container-tarjeta:hover .img-perfil{
-    box-shadow: 0px 1px 20px rgba($blanco-suave, 0.216);
+    box-shadow: 1px 2px 25px rgba($blanco-suave, 0.333);
+}
+
+.fila-tarjetas {
+  margin: 20px auto;
+  min-width: 325px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  width: 85%;
+}
+.tarjeta-porcentaje{
+    margin: 20px 3px;
+    min-width: 225px;
+    width: 30%;
+}
+
+@media(max-width:850px){
+  .tarjeta-porcentaje {
+        width: 45%;
+        margin: 20px auto
+    }
+}
+
+@media(max-width:600px){
+  .tarjeta-porcentaje {
+    width: 100%;
+    margin: 0px 0px 20px;
+  }
 }
 
 .container-botones{
-    height: 30px;
-    width: 70px;
-    float: right;
-    margin-right: 4%;
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+  gap:10px;
 }
 .btn{
     background-color: transparent;
     border-style: solid;
     border-radius: 5px;
     border-width: 2px;
-    padding: 5px 10px;
 }
 
 .container-alta-modificacion{
@@ -69,4 +127,25 @@ body {
     -moz-user-select: none;
     -ms-user-select: none;
     user-select: none;
+}
+
+::-webkit-scrollbar {
+    width: 5px; 
+    background: linear-gradient(to bottom, $azul-fondo-claro, $azul-fondo-oscuro);
+}
+
+::-webkit-scrollbar-track {
+    background: linear-gradient(to bottom, $azul-fondo-claro, $azul-fondo-oscuro);
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {    
+    background-color: $gray-buttons;
+    border-radius: 10px;
+    
+    border: 2px solid $gray-buttons;
+  }
+
+.no-scroll {
+  overflow: hidden;
 }

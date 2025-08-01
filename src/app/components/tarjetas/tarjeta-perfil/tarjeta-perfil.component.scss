@@ -1,23 +1,46 @@
 @use '/src/styles/variables.scss' as *;
 
+.container-perfil{
+    position: relative;
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.container-img-perfil{
+  position: relative; // Centrado horizontal con ancho de 200px
+  width: 1px;
+  height: 1px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 .img-perfil{
-    position: absolute;
-    top: 60px; 
-    left: 50%;
-    transform: translateX(-50%);
-    width: 125px;
-    height: 125px;
-    border-radius: 50%;
-    
-    outline: 1px solid rgba($blanco-suave, 0.051);
-    outline-offset: -1px;
-    box-shadow: 0px 1px 20px rgba($blanco-suave, 0.145);
+  position: relative;
+  left: 50px;
+  width: 175px;
+  height: 175px;
+  z-index: 2;
+  object-fit: cover;
+  border-radius: 50%;
+  outline: 5px solid $blanco-suave;
+}
+
+.container-datos {
+  margin: auto;
+  z-index: 1;
+  height: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 
 
+
 .container-detalleylugar{
-    margin-bottom: 15px;
+    margin-bottom: 0px;
 }
 .container-botones-perfil{
     margin-bottom: 15px;
@@ -33,12 +56,12 @@
 
 
 .nombre {
-    margin: 0px 20px 0px;
+    margin: 0px;
     text-align: center;
 }
 
 .detalle {
-    margin: 0px 25px;
+    margin: 0px;
     color: $gray-subtitle;
     font-size: small;
     line-height: 25px;
@@ -72,4 +95,28 @@
 
 .btn-perfil{
     font-size: small;
+}
+
+@media(max-width:900px){
+    .container-img-perfil{
+        width: 100px;
+        height: 100px;
+    }
+    .img-perfil{
+        left: 0px;
+    }
+}
+
+@media(max-width:600px){
+    .container-perfil {
+        flex-direction: column; // Cambia a vertical
+        align-items: center;    // Centra los elementos
+    }
+    .container-img-perfil{
+        margin-bottom: 45px;
+    }
+}
+
+.container-botones{
+    margin-right: 5px;
 }

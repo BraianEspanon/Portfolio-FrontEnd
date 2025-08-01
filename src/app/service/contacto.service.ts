@@ -7,20 +7,32 @@ import { MedioContacto } from '../Interfaces/MedioContacto';
   providedIn: 'root'
 })
 /*
-  Servicio en desuso.
+  Servicio resignificado.
+  Se usa para que los componentes sepan la información de contacto.
+  Previamente:
   Se planeaba obtener los medios de contacto mediante el backend.
   Debido a que no lo consideré necesario en el momento, este servicio no está siendo utilizado.
   Se mantiene por posible cambios en el futuro.
 */
 export class ContactoService {
-  //private apiUrl: string = 'https://portfolio-jcdt.onrender.com';
-  private apiUrl: string = 'http://localhost:8080';
 
-  constructor(
-    private http: HttpClient
-  ) { }
+  email: string = 'braianespanon@gmail.com';
+  telefono:string = '3513510812'
 
-  getMedioContacto() : Observable<MedioContacto[]>{
-    return this.http.get<MedioContacto[]>(this.apiUrl + '/contacto');
+  constructor() { }
+
+  getCorreo(){
+    return this.email
+  }
+
+  getTelefono(){
+    return this.telefono
+  }
+
+  getPlantilla(){
+    const asunto = encodeURIComponent('Contacto desde portfolio');
+    const cuerpo = encodeURIComponent('Hola Braian, me gustaria contactarte porque...');
+
+    return `mailto:${this.email}?subject=${asunto}&body=${cuerpo}`;
   }
 }

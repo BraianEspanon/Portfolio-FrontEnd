@@ -3,7 +3,7 @@
         <img class="img-basico unselectable" src='{{detalle.urlImg}}' alt="Imagen detalle"/>
     </div>
 
-    <div class="container-basico-titulo">
+    <div class="container-basico-datos">
         <h2 class="titulo">
             {{detalle.titulo}}
         </h2>
@@ -15,13 +15,13 @@
         </p>
     </div>
     
-    <div class="container-basico-botones" *ngIf="loggedIn">
-        <fa-icon class="btn-editar"
+    <div class="container-botones" *ngIf="loggedIn">
+        <fa-icon class=""
         [icon]="faPen"
         (click)="editar()"
         matTooltip = "Editar detalle"
         ></fa-icon>
-        <fa-icon class="btn-eliminar"
+        <fa-icon class=""
         [icon]="faTrash"
         (click)="eliminar()"
         matTooltip = "Eliminar detalle"

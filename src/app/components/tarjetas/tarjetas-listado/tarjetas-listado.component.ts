@@ -1,10 +1,11 @@
-import { Component, OnInit } from '@angular/core';
+import { AfterViewInit, Component, OnInit } from '@angular/core';
 import { TarjetasService } from 'src/app/service/tarjetas.service';
 import { Tarjeta } from 'src/app/Interfaces/Tarjeta';
 import { TarjetaPerfil } from 'src/app/Interfaces/TarjetaPerfil';
 import { AuthService } from 'src/app/service/auth.service';
 import { MatDialog } from '@angular/material/dialog';
 import { HttpErrorResponse } from '@angular/common/http';
+import { ScrollService } from 'src/app/service/scroll.service';
 
 @Component({
   selector: 'app-tarjetas-listado',
@@ -18,8 +19,12 @@ import { HttpErrorResponse } from '@angular/common/http';
   Hay varios tipos de tarjetas, pero las más importantes son la del perfil y la tarjeta genérica/base (Aunque estas cambian según su tipo de detalle).
    
 */
-export class TarjetasListadoComponent implements OnInit {
+export class TarjetasListadoComponent implements OnInit, AfterViewInit {
   listaTarjetas: Tarjeta[] = [];
+  tarjetasPorcentaje: Tarjeta[] = [];
+  otrasTarjetas: Tarjeta[] = [];
+
+  
   tarjetaPerfil: TarjetaPerfil = {} as TarjetaPerfil;
   errorMessage: string = "";
 
@@ -29,14 +34,21 @@ export class TarjetasListadoComponent implements OnInit {
   constructor(
     private tarjetasService: TarjetasService,
     private authService: AuthService,
-    public dialog: MatDialog
+    public dialog: MatDialog,
+    private scrollService: ScrollService
   ) { }
 
   ngOnInit(): void {
     this.tarjetasService.getTarjetasInformacion().subscribe((tarjetas) => 
-    (
+    {
       this.listaTarjetas = tarjetas
-    ), (error) => {
+      this.tarjetasPorcentaje = this.listaTarjetas.filter(t => t.tipo === 'Porcentaje');
+      this.otrasTarjetas = this.listaTarjetas.filter(t => t.tipo !== 'Porcentaje');
+
+      
+      const nombres = this.otrasTarjetas.map(t => this.idFromNombre(t.titulo)); // 👈
+      this.scrollService.setSecciones(nombres); // 👈
+    }, (error) => {
       this.errorMessage = "¡Error! Ha ocurrido un error al intentar conectar al servidor BackEnd. No se pudieron obtener las tarjetas de información.";
     });
 
@@ -52,6 +64,15 @@ export class TarjetasListadoComponent implements OnInit {
 
   }
 
+  
+  ngAfterViewInit(): void {
+    // Intentamos realizar el scroll si hay uno pendiente
+    this.scrollService['intentarScrollDesdeComponente']?.();
+  }
+  
+  idFromNombre(nombre: string): string {
+    return nombre.toLowerCase().replace(/\s/g, '-');
+  }
   
   onLoaded(): void {
     this.isLoading = false;

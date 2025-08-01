@@ -1,0 +1,72 @@
+<div class="contenedor-footer">
+  <div class="contenedor-secciones-footer">
+    
+    <div class="seccion-footer" *ngIf="secciones.length">
+      <p>Navegacion</p>
+        <div class="contenedor-botones">
+          <p class="btn btn-foot unselectable" *ngFor="let sec of secciones" (click)="irASeccion(sec)">
+            {{ sec | titlecase }}
+          </p>
+        </div>
+    </div>
+    
+    <div class="seccion-footer">
+      <p>Redes</p>
+      <div class="contenedor-botones">
+        <a href="https://github.com/BraianEspanon" target="_blank" 
+          class="btn btn-foot unselectable">
+          GitHub
+        </a>
+
+        <a href="https://www.linkedin.com/in/braian-espa%C3%B1on-064501353/" target="_blank" 
+          class="btn btn-foot unselectable">
+          LinkedIn
+        </a>
+      </div>
+    </div>
+    
+    <div class="seccion-footer">
+      <p>Sobre mi</p>
+      <div class="contenedor-botones">
+      <a class="btn btn-foot unselectable" 
+        href="https://api.portfolio-braianespanon.com/imagenes/CVBraian.pdf" target="_blank">
+        Curriculum
+      </a>
+      <a class="btn btn-foot unselectable" [href]="mailtoLink">
+        Contacto
+      </a>
+      </div>
+    </div>
+    
+    <div class="seccion-footer datos-contacto">
+      <div *ngIf="telefono">
+        <p>Telefono</p>
+        <p>{{telefono}}</p>
+      </div>
+      <div *ngIf="correo">
+        <p>Correo</p>
+        <p>{{correo}}</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="bottom">
+    <p>Desarrollado por Braian Españon. Derechos Reservados.</p>
+  </div>
+  <div class="div-log unselectable">
+      <a 
+        class="btn-log"
+        routerLink="/login"
+        *ngIf="!loggedIn"
+      >
+        Login
+      </a>
+      <a 
+        class="btn btn-log logout"
+        *ngIf="loggedIn"
+        (click)="logOut()"
+      >
+        Logout
+      </a>
+    </div>
+</div>

@@ -1,16 +1,27 @@
 .container-porcentaje{
-    height: 30px;
-    width: 75%;
-    float: left;
-    margin-bottom: 20px;
-    margin-left: 9%;
+    height: 40px;
+    padding: 0px 25px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
 }
-.container-porcentaje-botones{
-    height: 30px;
-    width: 40px;
-    float: right;
-    margin-bottom: 20px;
-    margin-right: 4%;
+.container-datos{
+    width: 100%;
+    padding: 0px 3px;
+
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+.container-botones{
+    padding: 3px;
+    
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
 }
 
 .titulo-porcentaje{
@@ -19,10 +30,8 @@
     width: 100%;
 }
 .barra-porcentaje{
-    height: 10px;
-    width: 100%;
-    margin: 0px 0px 10px;
-    border-radius: 20px;
+    
+    border-radius: 5px;
 }
 
 .btn-editar{

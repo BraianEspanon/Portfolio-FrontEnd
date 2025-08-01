@@ -1,7 +1,8 @@
 <header>
+  <div class="izquierda unselectable">
     <div
     (click)="redireccionar()"
-    class="container-logo unselectable"
+    class="container-logo"
     >
     <!--
     Revisar que imagen se puede agregar
@@ -9,9 +10,33 @@
         [src]="argentinaProgramaLogo"
         class="logo">
     -->
-        <p>Braian Españon</p>
+        <p class="nombre">Braian Españon</p>
     </div>
-    <div class="redes-sociales">
-        <app-header-buttons class="inicio-sesion"></app-header-buttons>
-    </div>
+    <p class="separador" *ngIf="secciones.length">|</p>
+    <nav class="nav" *ngIf="secciones.length">
+      <p class="btn-nav" *ngFor="let sec of secciones" (click)="irASeccion(sec)">
+        {{ sec | titlecase }}
+      </p>
+    </nav>
+  </div>
+  <div class="hamburguesa icono-red" *ngIf="!menuVisible" (click)="mostrarMenu()">
+    <fa-icon [icon]="faBars"></fa-icon> <!-- Ícono de menú -->
+  </div>
+  <!-- Menú normal -->
+  <div class="redes-sociales">
+    <a href="https://github.com/BraianEspanon" target="_blank">
+      <fa-icon class="icono-red" [icon]="faGithub"></fa-icon>
+    </a>
+    <a href="https://www.linkedin.com/in/braian-espa%C3%B1on-064501353/" target="_blank">
+      <fa-icon class="icono-red" [icon]="faLinkedin"></fa-icon>
+    </a>
+    <a class="btn btn-head unselectable" 
+      href="https://api.portfolio-braianespanon.com/imagenes/CVBraian.pdf" target="_blank">
+      Curriculum
+    </a>
+    <a class="btn btn-head unselectable" [href]="mailtoLink">
+      Contacto
+    </a>
+  </div>
+  <app-menu *ngIf="menuVisible" (cerrar)="ocultarMenu()" ></app-menu>
 </header>

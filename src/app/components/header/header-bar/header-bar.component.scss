@@ -1,45 +1,110 @@
 @use '/src/styles/variables.scss' as *;
-
+/*
 header {
-    padding: 10px 5px;
+    padding: 10px;
     color: $gray-buttons;
-    min-width: 375px;
+    min-width: 350px;
     height: 30px;
 }
+    
+.redes-sociales {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: clamp(3px, 0.75vw, 10px);
+    height: 100%;
+    float: right;
+}
+*/
+header {
+    min-width: 320px;
+    height: 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    color: $gray-buttons;
+}
+.hamburguesa {
+    display: none;
+}
 
-p {
-    padding: 6px 0px 6px 5px;
+.redes-sociales {
+    display: flex;
+    align-items: center;
+    gap: clamp(5px, 0.75vw, 10px);
+    z-index: 1;
+}
+
+.izquierda{
+    min-width: 333px;
+    width: 40%;
+    max-width: 450px;
+    display: flex;
+    align-items: center;
+}
+.nav{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+// Menú móvil
+@media (max-width: 600px) {
+    .hamburguesa {
+        display: block;
+    }
+
+    .redes-sociales {
+        display: none;
+    }
+    .nav{
+        display: none;
+    }
+    .btn-nav{
+        display: none;
+    }
+    .separador{
+        display: none;
+    }
+}
+
+.nombre {
     margin: 0px;
     text-decoration: none;
     color: $gray-buttons;
     vertical-align: middle;
     float: left;
     font-size:15px;
+    width: 110px;
+    text-align: center;
     text-shadow: 0px 1px 3px rgba($gray-buttons, 0.25);
 }
 
-p:hover{
+
+.nombre:hover{
     color:$blanco-suave;
     text-shadow: 0px 1px 5px rgba($blanco-suave, 0.25);
+    cursor: pointer;
 }
 
-p:active{
+
+.nombre:active{
     color: map-get($my-primary, 500);
     text-shadow: 0px 1px 5px rgba(map-get($my-primary, 500), 0.25);
 }
-
+.separador{
+    font-family: Arial, Helvetica, sans-serif;
+    width: 10%;
+    text-align: center;
+}
 .logo{
     height: 30px;
     float: left;
 }
 .container-logo:hover{
     cursor: pointer;
-}
-
-.redes-sociales{
-    height: 100%;
-    float: right;
-    margin-right: 5px;
 }
 
 .icono-red{
@@ -57,12 +122,57 @@ p:active{
     color: map-get($my-primary, 500);
 }
 
-.redes-sociales {
+
+
+.btn-head{
+    text-decoration: none;
+    font-size:13px;
     display: flex;
-    align-items: center;
-    justify-content: flex-end;
-    gap: 10px; /* Espacio entre iconos y botón */
-    height: 100%;
-    float: right;
-    margin-right: 10px;
+    align-items: center; /* centra vertical */
+    justify-content: center; /* centra horizontal (opcional) */
+
+    width: 70px;
+    height: 23px;
+    color: $azul-fondo-oscuro;
+    background-color: $gray-buttons;
+    border-color: $gray-buttons;
+    transition: background-color 0.15s ease-out, color 0.15s ease-out;
 }
+
+.btn-head:hover{
+    background-color: $gray-buttons;
+    border-color: $gray-buttons;
+    color: $azul-fondo-oscuro;
+    cursor: pointer;
+}
+.btn-head:active{
+    background-color: $blanco-fuerte;
+    border-color: $blanco-fuerte;
+    color: $azul-fondo-oscuro;
+}
+
+
+.btn-nav{
+    margin: 0px;
+    text-decoration: none;
+    color: $gray-buttons;
+    vertical-align: middle;
+    float: left;
+    font-size:15px;
+    width: 100%;
+    max-width: 75px;
+    text-align: center;
+    text-shadow: 0px 1px 3px rgba($gray-buttons, 0.25);
+}
+
+.btn-nav:hover{
+    color:$blanco-suave;
+    text-shadow: 0px 1px 5px rgba($blanco-suave, 0.25);
+    cursor: pointer;
+}
+
+.btn-nav:active{
+    color: map-get($my-primary, 500);
+    text-shadow: 0px 1px 5px rgba(map-get($my-primary, 500), 0.25);
+}
+

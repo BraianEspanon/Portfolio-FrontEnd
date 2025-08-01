@@ -13,7 +13,6 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 
 import { AppComponent } from './app.component';
 import { HeaderBarComponent } from './components/header/header-bar/header-bar.component';
-import { HeaderButtonsComponent } from './components/header/header-buttons/header-buttons.component';
 import { TarjetaBaseComponent } from './components/tarjetas/tarjeta-base/tarjeta-base.component';
 import { TarjetasListadoComponent } from './components/tarjetas/tarjetas-listado/tarjetas-listado.component';
 import { TarjetaPerfilComponent } from './components/tarjetas/tarjeta-perfil/tarjeta-perfil.component';
@@ -35,12 +34,14 @@ import { provideFirebaseApp, initializeApp } from '@angular/fire/app';
 import { provideAuth, getAuth } from '@angular/fire/auth';
 
 import { environment } from '../environments/environment.prod';
+import { FooterBarComponent } from './components/footer/footer-bar/footer-bar.component';
+import { CargandoComponent } from './components/cargando/cargando.component';
+import { MenuComponent } from './components/header/menu/menu.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderBarComponent,
-    HeaderButtonsComponent,
     TarjetaBaseComponent,
     TarjetasListadoComponent,
     TarjetaPerfilComponent,
@@ -53,6 +54,9 @@ import { environment } from '../environments/environment.prod';
     SubirImagenComponent,
     AgregarTarjetaComponent,
     ContactoComponent,
+    FooterBarComponent,
+    CargandoComponent,
+    MenuComponent
   ],
   imports: [
     BrowserModule,

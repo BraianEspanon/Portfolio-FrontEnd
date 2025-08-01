@@ -40,7 +40,8 @@ export class TarjetaProyectosComponent implements OnInit {
             prioridad : this.detalle.prioridad,
             titulo : this.detalle.titulo,
             enlace : this.detalle.enlace,
-            descripcion : this.detalle.descripcion}
+            descripcion : this.detalle.descripcion,
+            urlImg : this.detalle.urlImg}
     });
 
     dialogRef.afterClosed().subscribe(result => {

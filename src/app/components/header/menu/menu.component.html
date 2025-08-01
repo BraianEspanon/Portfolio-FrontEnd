@@ -1,0 +1,30 @@
+<div class="fondo-menu" (click)="cerrarMenu()">
+  <div class="contenido-menu" (click)="$event.stopPropagation()">
+    <a href="https://github.com/BraianEspanon" target="_blank" 
+      class="btn btn-menu" (click)="cerrarMenu()">
+      GitHub
+    </a>
+
+    <a href="https://www.linkedin.com/in/braian-espa%C3%B1on-064501353/" target="_blank" 
+      class="btn btn-menu" (click)="cerrarMenu()">
+      LinkedIn
+    </a>
+
+    <a href="https://api.portfolio-braianespanon.com/imagenes/CVBraian.pdf" target="_blank" 
+      class="btn btn-menu" (click)="cerrarMenu()">
+      Curriculum
+    </a>
+
+    <a [href]="mailtoLink" 
+      class="btn btn-menu" (click)="cerrarMenu()">
+      Contacto
+    </a>
+    
+    <a *ngFor="let sec of secciones"  
+      class="btn btn-menu" (click)="irASeccion(sec)">
+      {{ sec | titlecase }}
+    </a>
+
+    <button class="btn btn-menu cerrar" (click)="cerrarMenu()">Cerrar</button>
+  </div>
+</div>

@@ -1,5 +1,5 @@
 
-import { Component, OnInit, Input, Output, EventEmitter} from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter, AfterViewInit, ElementRef} from '@angular/core';
 import { TarjetaDetalle } from 'src/app/Interfaces/TarjetaDetalle';
 
 import { MatDialog } from '@angular/material/dialog';
@@ -17,7 +17,7 @@ import { faPen, faTrash } from '@fortawesome/free-solid-svg-icons';
   TarjetaPorcentajes se trata de un tipo de detalle.
   Sirve para detalles con cantidades, mostrando una barra debajo del título
 */
-export class TarjetaPorcentajesComponent implements OnInit {
+export class TarjetaPorcentajesComponent implements AfterViewInit  {
   @Output() onEditDetalle: EventEmitter<TarjetaDetalle> = new EventEmitter();
   @Output() onDeleteDetalle: EventEmitter<TarjetaDetalle> = new EventEmitter();
 
@@ -26,10 +26,42 @@ export class TarjetaPorcentajesComponent implements OnInit {
 
   faPen = faPen;
   faTrash = faTrash;
+  
+  animatedValue = 0;
 
-  constructor(public dialog: MatDialog) { }
+  constructor(public dialog: MatDialog,
+    private elRef: ElementRef
+  ) { }
 
-  ngOnInit(): void {
+
+  ngAfterViewInit(): void {
+    const observer = new IntersectionObserver(entries => {
+      for (const entry of entries) {
+        if (entry.isIntersecting) {
+          this.animateProgress();
+          observer.disconnect(); // solo una vez
+        }
+      }
+    }, { threshold: 0.1 });
+
+    observer.observe(this.elRef.nativeElement);
+  }
+
+  animateProgress(): void {
+    const duration = 1000; // duración total en milisegundos
+    const steps = 15;
+    const stepTime = duration / steps;
+    let currentStep = 0;
+
+    const interval = setInterval(() => {
+      currentStep++;
+      this.animatedValue = (this.detalle.cantidad / steps) * currentStep;
+
+      if (currentStep >= steps) {
+        this.animatedValue = this.detalle.cantidad;
+        clearInterval(interval);
+      }
+    }, stepTime);
   }
 
   editar(): void {
