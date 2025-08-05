@@ -1,5 +1,4 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
-import { Router } from '@angular/router';
 import { ContactoService } from 'src/app/service/contacto.service';
 import { ScrollService } from 'src/app/service/scroll.service';
 
@@ -23,7 +22,7 @@ export class MenuComponent implements OnInit{
     this.scrollService.secciones$.subscribe((sec) => {
       this.secciones = sec;
     });
-    this.mailtoLink = this.contactoService.getPlantilla()
+    this.mailtoLink = this.contactoService.getPlantillaCorreo()
   }
   
   irASeccion(id: string) {

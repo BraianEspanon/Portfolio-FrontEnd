@@ -1,6 +1,12 @@
 <div class="container-basico">
     <div class="container-basico-imagen">
-        <img class="img-basico unselectable" src='{{detalle.urlImg}}' alt="Imagen detalle"/>
+        <img 
+            #imgElement
+            class="img-basico unselectable fade-in-img" 
+            [class.visible]="isVisible && imgLoaded" 
+            [src]="detalle.urlImg"
+            (load)="onImgLoad()"
+            alt="Imagen detalle"/>
     </div>
 
     <div class="container-basico-datos">

@@ -7,34 +7,34 @@
     <!--
     Revisar que imagen se puede agregar
         <img 
-        [src]="argentinaProgramaLogo"
+        [src]=""
         class="logo">
     -->
-        <p class="nombre">Braian Españon</p>
+        <p class="nombre">Braian Españón</p>
     </div>
     <p class="separador" *ngIf="secciones.length">|</p>
-    <nav class="nav" *ngIf="secciones.length">
+    <nav class="navegacion" *ngIf="secciones.length">
       <p class="btn-nav" *ngFor="let sec of secciones" (click)="irASeccion(sec)">
         {{ sec | titlecase }}
       </p>
     </nav>
   </div>
   <div class="hamburguesa icono-red" *ngIf="!menuVisible" (click)="mostrarMenu()">
-    <fa-icon [icon]="faBars"></fa-icon> <!-- Ícono de menú -->
+    <fa-icon class="cursor" [icon]="faBars"></fa-icon> <!-- Ícono de menú -->
   </div>
   <!-- Menú normal -->
-  <div class="redes-sociales">
+  <div class="container-derecha">
     <a href="https://github.com/BraianEspanon" target="_blank">
-      <fa-icon class="icono-red" [icon]="faGithub"></fa-icon>
+      <fa-icon class="icono-red cursor" [icon]="faGithub"></fa-icon>
     </a>
     <a href="https://www.linkedin.com/in/braian-espa%C3%B1on-064501353/" target="_blank">
-      <fa-icon class="icono-red" [icon]="faLinkedin"></fa-icon>
+      <fa-icon class="icono-red cursor" [icon]="faLinkedin"></fa-icon>
     </a>
-    <a class="btn btn-head unselectable" 
+    <a class="btn btn-secundario unselectable" 
       href="https://api.portfolio-braianespanon.com/imagenes/CVBraian.pdf" target="_blank">
       Curriculum
     </a>
-    <a class="btn btn-head unselectable" [href]="mailtoLink">
+    <a class="btn btn-secundario unselectable" routerLink="/contacto">
       Contacto
     </a>
   </div>

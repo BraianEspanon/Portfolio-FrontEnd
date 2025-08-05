@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { faGithub, faLinkedin } from '@fortawesome/free-brands-svg-icons';
 import { faBars } from '@fortawesome/free-solid-svg-icons';
-import { ContactoService } from 'src/app/service/contacto.service';
 import { ScrollService } from 'src/app/service/scroll.service';
 
 @Component({
@@ -16,7 +15,6 @@ import { ScrollService } from 'src/app/service/scroll.service';
 */
 
 export class HeaderBarComponent implements OnInit{
-  //argentinaProgramaLogo: string = "/assets/images/ArgentinaPrograma_logo.png";
   faGithub = faGithub
   faLinkedin = faLinkedin
   faBars = faBars;
@@ -24,22 +22,19 @@ export class HeaderBarComponent implements OnInit{
   menuVisible = false;
 
   secciones: string[] = [];
-  mailtoLink:string = "";
 
   constructor(private router: Router, 
-    private scrollService: ScrollService,
-    private contactoService: ContactoService) { }
+    private scrollService: ScrollService) { }
 
 
   ngOnInit() {
     this.scrollService.secciones$.subscribe((sec) => {
       this.secciones = sec;
     });
-    this.mailtoLink = this.contactoService.getPlantilla()
   }
 
   redireccionar(): void {
-    this.router.navigate(["inicio"]);
+    this.router.navigate([""]);
   }
   
   abrirCurriculum(){

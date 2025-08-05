@@ -1,26 +1,37 @@
 <div class="container-proyecto">
-    <div class="container-basico-imagen">
-        <img class="img-basico unselectable" src='{{detalle.urlImg}}' alt="Imagen detalle"/>
+    <div class="container-datos">
+        <div class="container-basico-imagen">
+            <img 
+            #imgElement
+            class="img-basico unselectable fade-in-img" 
+            [class.visible]="isVisible && imgLoaded" 
+            [src]="detalle.urlImg"
+            (load)="onImgLoad()"
+            alt="Imagen detalle"/>
+        </div>
+        <p  class="titulo">
+            {{detalle.titulo}}
+        </p>
+        <p class="descripcion">
+            {{detalle.descripcion}}
+        </p>
     </div>
-    <a  class="titulo"
-    href='{{detalle.enlace}}' 
-    target="_blank">
-    {{detalle.titulo}}
-    </a>
-    <p class="descripcion">
-        {{detalle.descripcion}}
-    </p>
-    <div class="container-botones"  *ngIf="loggedIn">
-        <fa-icon class=""
-        [icon]="faPen"
-        (click)="editar()"
-        matTooltip = "Editar detalle"
-        ></fa-icon>
+    <div class="container-auxiliar">
+        <a class="btn btn-principal btn-proyecto unselectable" href='{{detalle.enlace}}' target="_blank">
+            Ver proyecto
+        </a>
+        <div class="container-botones"  *ngIf="loggedIn">
+            <fa-icon class=""
+            [icon]="faPen"
+            (click)="editar()"
+            matTooltip = "Editar detalle"
+            ></fa-icon>
 
-        <fa-icon class=""
-        [icon]="faTrash"
-        (click)="eliminar()"
-        matTooltip = "Eliminar detalle"
-        ></fa-icon>
-    </div> 
+            <fa-icon class=""
+            [icon]="faTrash"
+            (click)="eliminar()"
+            matTooltip = "Eliminar detalle"
+            ></fa-icon>
+        </div> 
+    </div>
 </div>

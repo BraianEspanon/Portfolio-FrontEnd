@@ -1,21 +1,47 @@
+@use '/src/styles/variables.scss' as *;
+
 .container-tarjeta{
-    max-width: 600px;
-    width: 95%;
+    max-width: 500px;
+    width: 55%;
+    min-width: 325px;
 }
 .titulo{
+    width: 300px;
+    font-size: 26px;
     text-align: center;
+    margin: 20px auto;
 }
 .container-contacto{
+    display: flex;
+    align-items: center;
+    justify-content: center;
     margin: 5px auto 15px;
+    gap: 8px;
     width: 300px;
-
+}
+.mediocontacto-icono{
+    color: map-get($my-primary, 500)
 }
 .mediocontacto-titulo{
     margin: 0px;
     width: 60px;
-    float: left;
+    text-align: center;
 }
 .mediocontacto-descripcion{
     margin: 0px;
     text-align: center;
+}
+
+.container-botones{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 10px auto;
+    gap: 8px;
+    width: 300px;
+}
+.btn{
+    width: 115px;
+    text-align: center;
+    padding: 1px;
 }

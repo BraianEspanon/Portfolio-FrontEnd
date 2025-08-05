@@ -5,7 +5,10 @@
         [errorMessage]="errorMessage">
     </app-cargando>
     <div class="listado" [hidden]="isLoading">
-        <div class="container-tarjeta margin-perfil">
+        <div 
+        #contenedorPerfil 
+        [class.visible]="isVisiblePerfil" 
+        class="container-tarjeta margin-perfil fade-in-div">
             <app-tarjeta-perfil
             [tarjeta] = "tarjetaPerfil"
             [loggedIn] = "loggedIn"
@@ -15,10 +18,12 @@
             ></app-tarjeta-perfil>
         </div>
         <div 
-        class="container-tarjeta" 
+        #fadeTarjetas
+        class="container-tarjeta fade-in-div"
+        [class.visible]="tarjeta.visible"
         *ngFor="let tarjeta of otrasTarjetas" 
-        [id]="idFromNombre(tarjeta.titulo)"
-        >
+        [id]="idFromNombre(tarjeta.titulo)">
+
             <app-tarjeta-base
             [tarjeta] = "tarjeta"
             [loggedIn] = "loggedIn"
@@ -31,10 +36,11 @@
             </app-tarjeta-base>
         </div>
         <div class="fila-tarjetas">
-            <div 
-            class="container-tarjeta tarjeta-porcentaje" 
-            *ngFor="let tarjeta of tarjetasPorcentaje"
-            >
+            <div
+            #fadeTarjetasPorcentaje
+            [class.visible]="tarjeta.visible"
+            class="container-tarjeta tarjeta-porcentaje fade-in-div" 
+            *ngFor="let tarjeta of tarjetasPorcentaje">
                 <app-tarjeta-base
                 [tarjeta] = "tarjeta"
                 [loggedIn] = "loggedIn"

@@ -1,7 +1,6 @@
-import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
 import { MedioContacto } from '../Interfaces/MedioContacto';
+import { faEnvelope, faPhoneAlt } from '@fortawesome/free-solid-svg-icons';
 
 @Injectable({
   providedIn: 'root'
@@ -15,11 +14,15 @@ import { MedioContacto } from '../Interfaces/MedioContacto';
   Se mantiene por posible cambios en el futuro.
 */
 export class ContactoService {
+  listaMedioContacto: MedioContacto[] = [];
 
   email: string = 'braianespanon@gmail.com';
   telefono:string = '3513510812'
-
-  constructor() { }
+  mensaje:string = 'Hola Braian, vi tu portfolio y quiero contactarte.'
+  constructor() { 
+    this.listaMedioContacto.push({medio: "Teléfono", dato: this.telefono, icono: faPhoneAlt})
+    this.listaMedioContacto.push({medio: "Correo", dato: this.email, icono: faEnvelope})
+  }
 
   getCorreo(){
     return this.email
@@ -29,10 +32,19 @@ export class ContactoService {
     return this.telefono
   }
 
-  getPlantilla(){
+  getListaMedios(){
+    return this.listaMedioContacto
+  }
+
+  getPlantillaCorreo(){
     const asunto = encodeURIComponent('Contacto desde portfolio');
-    const cuerpo = encodeURIComponent('Hola Braian, me gustaria contactarte porque...');
+    const cuerpo = encodeURIComponent(this.mensaje);
 
     return `mailto:${this.email}?subject=${asunto}&body=${cuerpo}`;
   }
+  getPlantillaWhatsApp() {
+    const mensaje = encodeURIComponent(this.mensaje);
+    const numeroConCodigo = `+549${this.telefono}`;
+    return `https://wa.me/${numeroConCodigo}?text=${mensaje}`;
+}
 }

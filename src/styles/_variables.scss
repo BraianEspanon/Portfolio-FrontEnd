@@ -7,7 +7,7 @@ $my-primary: mat.define-palette((
   200: #ffab91,
   300: #ff8a65,
   400: #ff7043,
-  500: #f57c00, // tu color principal
+  500: #f57c00, // color principal
   600: #ef6c00,
   700: #e65100,
   800: #dd2c00,
@@ -43,6 +43,15 @@ $blanco-suave: #f1f1f1;
 $blanco-fuerte: #ffffff;
 $azul-fondo-claro: #2a2a46;
 $azul-fondo-oscuro: #101020;
-$azul-tarjeta-claro: #2d2d52;
-$azul-tarjeta-oscuro: #222242;
+$azul-tarjeta-claro: #1d1d32;
+$azul-tarjeta-oscuro: #121222;
 $azul: #252535;
+
+$azul-footer-claro: #191930;
+$azul-footer-oscuro: #121222;
+
+
+//----------------------------
+$azul-tarjeta-claro2: #000018;
+$azul-tarjeta-oscuro2: #000010;
+$negro: #000000

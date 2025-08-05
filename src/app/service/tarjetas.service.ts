@@ -21,7 +21,6 @@ const httpOptions = {
 export class TarjetasService {
   //private apiUrl: string = 'https://api.portfolio-braianespanon.com';
   private apiUrl: string = 'http://localhost:8080';
-  //private apiUrl: string = 'http://192.168.0.16:8080';
   private tarjetasCache: Tarjeta[] | null = null;
   private tarjetaPerfilCache: TarjetaPerfil | null = null;
   

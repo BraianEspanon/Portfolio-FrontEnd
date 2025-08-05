@@ -6,4 +6,5 @@ export interface Tarjeta{
     detalle: TarjetaDetalle[];
     tipo: string;
     prioridad: number
+    visible: boolean;
 }

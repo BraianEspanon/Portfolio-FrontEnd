@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter, AfterViewInit, ViewChild, ElementRef } from '@angular/core';
 import { TarjetaDetalle } from 'src/app/Interfaces/TarjetaDetalle';
 
 
@@ -15,9 +15,9 @@ import { faTrash } from '@fortawesome/free-solid-svg-icons';
 })
 /*
   TarjetaProyecto se trata de un tipo de detalle.
-  Permite hacer links a proyectos (O lo que se requiera), mostrando un título y una breve descripción.
+  Permite hacer links a proyectos, mostrando un título, una imagen y una breve descripción.
 */
-export class TarjetaProyectosComponent implements OnInit {
+export class TarjetaProyectosComponent implements OnInit, AfterViewInit {
   @Output() onEditDetalle: EventEmitter<TarjetaDetalle> = new EventEmitter();
   @Output() onDeleteDetalle: EventEmitter<TarjetaDetalle> = new EventEmitter();
 
@@ -27,14 +27,36 @@ export class TarjetaProyectosComponent implements OnInit {
   faPen = faPen;
   faTrash = faTrash;
 
+  @ViewChild('imgElement') imgElement!: ElementRef;
+  isVisible: boolean = false;
+  imgLoaded: boolean = false;
+
   constructor(public dialog: MatDialog) { }
 
   ngOnInit(): void {
   }
 
+  ngAfterViewInit(): void {
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          this.isVisible = true;
+          observer.unobserve(entry.target); // dejar de observar después del primer fade-in
+        }
+      });
+    }, { threshold: 0.1 });
+
+    if (this.imgElement) {
+      observer.observe(this.imgElement.nativeElement);
+    }
+  }
+  onImgLoad() {
+    this.imgLoaded = true;
+  }
+
   editar(): void {
     const dialogRef = this.dialog.open(AltaModificacionDetalleComponent, {
-      panelClass: 'container-alta-modificacion',
+      panelClass: 'custom-dialog-container',
       data:{tipo : "Proyectos",
             idDetalle : this.detalle.idDetalle,
             prioridad : this.detalle.prioridad,

@@ -1,6 +1,8 @@
 <div class="contenedor-principal">
 <form 
-    class="container-tarjeta"
+    #contenedorLogin
+    class="container-tarjeta fade-in-div"
+    [class.visible]="isVisible"
     (ngSubmit)="onLogin()"
 >
     <label><h1 class="titulo">Iniciar sesión</h1></label>
@@ -26,7 +28,7 @@
         >
     </div>
     <div class="container-btn">
-        <input type="submit" value="Iniciar Sesion" class="btn btn-iniciar-sesion">
+        <input type="submit" value="Iniciar Sesion" class="btn btn-principal ">
     </div>
 </form>
 </div>

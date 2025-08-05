@@ -2,7 +2,9 @@
     <h2 class="titulo">
         {{tarjeta.titulo}}
     </h2>
-    <div class="container-botones" *ngIf="loggedIn">
+    
+</div>
+<div class="container-botones" *ngIf="loggedIn">
         <fa-icon
             class=""
             [icon]="faTrash"
@@ -23,8 +25,6 @@
             matTooltip = "Agregar detalle"
         ></fa-icon>
     </div>
-</div>
-
 <div [ngClass]="{'fila-detalles': tarjeta.tipo !== 'Porcentaje'}">
     <div [ngClass]="{'ancho': tarjeta.tipo !== 'Porcentaje',
                     'proyecto': tarjeta.tipo === 'Proyectos'}" 

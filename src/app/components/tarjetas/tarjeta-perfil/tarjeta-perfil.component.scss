@@ -8,7 +8,7 @@
     justify-content: space-between;
 }
 .container-img-perfil{
-  position: relative; // Centrado horizontal con ancho de 200px
+  position: relative;
   width: 1px;
   height: 1px;
   border-radius: 50%;
@@ -56,46 +56,26 @@
 
 
 .nombre {
+    color: map-get($my-primary, 500);
     margin: 0px;
     text-align: center;
 }
 
 .detalle {
-    margin: 0px;
-    color: $gray-subtitle;
-    font-size: small;
-    line-height: 25px;
+    margin: 5px 50px;
+    color: $blanco-suave;
+    font-size: 1.25em;
     text-align: center;
+    font-weight: 300;
 }
-
-
-.btn-editar{
-    float: right;
-    cursor:pointer;
-    margin: 10px 7px 0px 0px;
-}
-
-.btn-agregar{
-    float: right;
-    cursor:pointer;
-    margin: 10px 0px 0px 0px;
-}
-
-.btn-contacto{
-    color: map-get($my-primary, 500);
-    border-color: map-get($my-primary, 500);
-    transition: background-color 0.15s ease-out, color 0.15s ease-out;
-}
-
-.btn-contacto:hover{
-    background-color: map-get($my-primary, 500);
-    color: $gray-buttons;
-    cursor: pointer;
-}
-
-.btn-perfil{
+.lugar {
+    margin: 15px 0px 5px;
+    color: $blanco-suave;
     font-size: small;
+    text-align: center;
+    font-weight: 100;
 }
+
 
 @media(max-width:900px){
     .container-img-perfil{
@@ -114,6 +94,9 @@
     }
     .container-img-perfil{
         margin-bottom: 45px;
+    }
+    .container-datos{
+        height: 150px;
     }
 }
 

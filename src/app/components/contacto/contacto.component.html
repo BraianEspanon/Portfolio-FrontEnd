@@ -1,13 +1,24 @@
 <div class="contenedor-principal">
-    <div class="container-tarjeta">
+    <div class="container-tarjeta fade-in-div"
+    [class.visible]="isVisible"
+    #contenedorContacto>
         <h2 class="titulo">Información de contacto</h2>
-        <div class="container-contacto" *ngFor="let medioContacto of listaMedioContacto">
-            <p class="mediocontacto-titulo">
-                {{medioContacto.medio}}
+        <div class="container-contacto" *ngFor="let medioContacto of listaMedioContacto; let i = index">
+
+            <fa-icon class="mediocontacto-icono" [icon]="medioContacto.icono" (click)="seleccionarTexto(i)"></fa-icon>
+
+            <p class="mediocontacto-descripcion" #descripcion>
+                {{medioContacto.dato}}
             </p>
-            <p class="mediocontacto-descripcion">
-                {{medioContacto.contacto}}
-            </p>
+
+        </div>
+        <div class="container-botones">
+            <a class="btn btn-principal unselectable" [href]="whatsappLink" target="_blank">
+                Enviar WhatsApp
+            </a>
+            <a class="btn btn-principal unselectable" [href]="mailtoLink">
+                Enviar correo
+            </a>
         </div>
     </div>
 </div>

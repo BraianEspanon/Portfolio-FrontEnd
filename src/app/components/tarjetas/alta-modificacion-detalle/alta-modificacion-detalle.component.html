@@ -1,92 +1,95 @@
-<div>
-    <label>Tipo Tarjeta:</label>
-    <input 
-        type="text"
-        name="tipoTarjeta"
-        id="tipoTarjeta"
-        [(ngModel)]="tipo" 
-        disabled="disabled"
-    >
-</div>
+<div class="container-matdialog">
+    <div class="container-dato-matdialog">
+        <label class="label-matdialog">Tipo Tarjeta</label>
+        <input 
+            class="textbox-matdialog"
+            type="text"
+            name="tipoTarjeta"
+            id="tipoTarjeta"
+            [(ngModel)]="tipo" 
+            disabled="disabled"
+        >
+    </div>
 
-<div>
-    <label class="label" for="titulo">Titulo:</label>
-    <input
-        class="textbox"
-        type="text"
-        name="titulo"
-        id="titulo"
-        [(ngModel)]="titulo"
-    >
-</div>
+    <div class="container-dato-matdialog">
+        <label class="label-matdialog" for="titulo">Titulo</label>
+        <input
+            class="textbox-matdialog"
+            type="text"
+            name="titulo"
+            id="titulo"
+            [(ngModel)]="titulo"
+        >
+    </div>
 
-<div>    
-    <label class="label" for="prioridad">Prioridad:</label>
-    <input 
-        class="textbox"
-        type="text"
-        name="prioridad"
-        id="prioridad"
-        [(ngModel)]="prioridad"
-    >
-</div>
+    <div class="container-dato-matdialog">
+        <label class="label-matdialog" for="prioridad">Prioridad</label>
+        <input 
+            class="textbox-matdialog"
+            type="text"
+            name="prioridad"
+            id="prioridad"
+            [(ngModel)]="prioridad"
+        >
+    </div>
 
-<div *ngIf="tipoBasico || tipoProyecto">    
-    <label class="label" for="urlImg">URL Imagen: (Provisional)</label>
-    <input 
-        class="textbox"
-        type="text"
-        name="urlImg"
-        id="urlImg"
-        [(ngModel)]="urlImg"
-    >
-</div>
+    <div class="container-dato-matdialog" *ngIf="tipoBasico || tipoProyecto">    
+        <label class="label-matdialog" for="urlImg">URL Imagen</label>
+        <input 
+            class="textbox-matdialog"
+            type="text"
+            name="urlImg"
+            id="urlImg"
+            [(ngModel)]="urlImg"
+        >
+    </div>
 
-<div *ngIf="tipoBasico || tipoProyecto">
-    <label class="label" for="descripcion">Descripcion:</label>
-    <input 
-        class="textbox"
-        type="text"
-        name="descripcion"
-        id="descripcion"
-        [(ngModel)]="descripcion"
-    >
-</div>
+    <div class="container-dato-matdialog" *ngIf="tipoBasico || tipoProyecto">
+        <label class="label-matdialog" for="descripcion">Descripcion</label>
+        <input 
+            class="textbox-matdialog"
+            type="text"
+            name="descripcion"
+            id="descripcion"
+            [(ngModel)]="descripcion"
+        >
+    </div>
 
-<div *ngIf="tipoBasico">
-    <label class="label" for="periodo">Perido:</label>
-    <input 
-        class="textbox"
-        type="text"
-        name="periodo"
-        id="periodo"
-        [(ngModel)]="periodo"
-    >
-</div>
+    <div class="container-dato-matdialog" *ngIf="tipoBasico">
+        <label class="label-matdialog" for="periodo">Perido</label>
+        <input 
+            class="textbox-matdialog"
+            type="text"
+            name="periodo"
+            id="periodo"
+            [(ngModel)]="periodo"
+        >
+    </div>
 
-<div *ngIf="tipoPorcentaje">
-    <label class="label lblCantidad" for="cantidad">Cantidad:</label>
-    <input 
-        class="textbox txtCantidad"
-        type="number"
-        name="cantidad"
-        id="cantidad"
-        [(ngModel)]="cantidad"
-    >
-</div>
+    <div class="container-dato-matdialog" *ngIf="tipoPorcentaje">
+        <label class="label-matdialog lblCantidad" for="cantidad">Cantidad</label>
+        <input 
+            class="textbox-matdialog"
+            type="number"
+            name="cantidad"
+            id="cantidad"
+            [(ngModel)]="cantidad"
+        >
+    </div>
 
-<div *ngIf="tipoProyecto">
-    <label class="label" for="enlace">Enlace:</label>
-    <input 
-        class="textbox"
-        type="text"
-        name="enlace"
-        id="enlace"
-        [(ngModel)]="enlace"
-    >
-</div>
+    <div class="container-dato-matdialog" *ngIf="tipoProyecto">
+        <label class="label-matdialog" for="enlace">Enlace</label>
+        <input 
+            class="textbox-matdialog"
+            type="text"
+            name="enlace"
+            id="enlace"
+            [(ngModel)]="enlace"
+        >
+    </div>
 
-<mat-dialog-actions class="botones">
-    <input class="btn btn-cancelar" mat-button [mat-dialog-close]="cancel()" type="button" value="Cancelar">
-    <input class="btn btn-enviar"mat-button [mat-dialog-close]="submit()" type="submit">
-</mat-dialog-actions>
+    <mat-dialog-actions class="container-botones-matdialog">
+        <input class="btn btn-secundario" mat-button [mat-dialog-close]="cancel()" type="button" value="Cancelar">
+        <input class="btn btn-principal"mat-button [mat-dialog-close]="submit()" type="submit">
+    </mat-dialog-actions>
+</div>

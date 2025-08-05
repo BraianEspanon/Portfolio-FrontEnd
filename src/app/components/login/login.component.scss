@@ -36,28 +36,13 @@
 }
 .container-btn{
     text-align: center;
-    margin: 15px 0px;
+    margin: 15px auto;
 }
 
-.btn-iniciar-sesion{
+.btn{
+    width: 100px;
     height: 24px;
-    color: $azul-fondo-oscuro;
-    background-color: $gray-buttons;
-    border-color: $gray-buttons;
-    transition: background-color 0.15s ease-out, color 0.15s ease-out;
-}
-
-.btn-iniciar-sesion:hover{
-    color: $azul-fondo-oscuro;
-    background-color: $gray-buttons;
-    border-color: $gray-buttons;
-
-    cursor: pointer;
-}
-
-.btn-iniciar-sesion:active{
-    color: $azul-fondo-oscuro;
-    background-color: $blanco-fuerte;
-    border-color: $blanco-fuerte;
-
+    margin: 10px auto ;
+    text-align: center;
+    padding: 1px;
 }

@@ -1,5 +1,4 @@
-
-import { Component, OnInit, Input, Output, EventEmitter, AfterViewInit, ElementRef} from '@angular/core';
+import { Component, Input, Output, EventEmitter, AfterViewInit, ElementRef} from '@angular/core';
 import { TarjetaDetalle } from 'src/app/Interfaces/TarjetaDetalle';
 
 import { MatDialog } from '@angular/material/dialog';
@@ -66,7 +65,7 @@ export class TarjetaPorcentajesComponent implements AfterViewInit  {
 
   editar(): void {
     const dialogRef = this.dialog.open(AltaModificacionDetalleComponent, {
-      panelClass: 'container-alta-modificacion',
+      panelClass: 'custom-dialog-container',
       data:{tipo : "Porcentaje",
             idDetalle : this.detalle.idDetalle,
             prioridad : this.detalle.prioridad,

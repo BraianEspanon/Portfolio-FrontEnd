@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, Output, EventEmitter  } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter, AfterViewInit, ViewChild, ElementRef  } from '@angular/core';
 import { TarjetaDetalle } from 'src/app/Interfaces/TarjetaDetalle';
 
 import { MatDialog } from '@angular/material/dialog';
@@ -16,7 +16,7 @@ import { faTrash } from '@fortawesome/free-solid-svg-icons';
   TarjetaBasico es un tipo de detalle de tarjeta.
   Se trata de una tarjeta con un titulo, imagen, descripcion y periodo.
 */
-export class TarjetaBasicoComponent implements OnInit {
+export class TarjetaBasicoComponent implements OnInit, AfterViewInit {
   @Output() onEditDetalle: EventEmitter<TarjetaDetalle> = new EventEmitter();
   @Output() onDeleteDetalle: EventEmitter<TarjetaDetalle> = new EventEmitter();
   
@@ -26,13 +26,35 @@ export class TarjetaBasicoComponent implements OnInit {
   faPen = faPen;
   faTrash = faTrash;
 
+  @ViewChild('imgElement') imgElement!: ElementRef;
+  isVisible: boolean = false;
+  imgLoaded: boolean = false;
+
   constructor(public dialog: MatDialog) { }
 
   ngOnInit(): void {
   }
+  
+  ngAfterViewInit(): void {
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          this.isVisible = true;
+          observer.unobserve(entry.target); // dejar de observar después del primer fade-in
+        }
+      });
+    }, { threshold: 0.1 });
+
+    if (this.imgElement) {
+      observer.observe(this.imgElement.nativeElement);
+    }
+  }
+  onImgLoad() {
+    this.imgLoaded = true;
+  }
   editar(): void{
     const dialogRef = this.dialog.open(AltaModificacionDetalleComponent, {
-      panelClass: 'container-alta-modificacion',
+      panelClass: 'custom-dialog-container',
       data:{tipo : "Basico",
             idDetalle : this.detalle.idDetalle,
             prioridad : this.detalle.prioridad,

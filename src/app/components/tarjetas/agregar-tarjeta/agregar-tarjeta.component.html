@@ -1,30 +1,35 @@
-<div>
-    <label class="label" for="lugar">Titulo:</label>
-    <input 
-        class="textbox"
-        type="text"
-        name="titulo"
-        id="titulo"
-        [(ngModel)]="titulo"
-    >
-</div><div>
-    <label class="label" for="prioridad">Prioridad:</label>
-    <input 
-        class="textbox"
-        type="text"
-        name="prioridad"
-        id="prioridad"
-        [(ngModel)]="prioridad"
-    >
+<div class="container-matdialog">
+    <div class="container-dato-matdialog">
+        <label class="label-matdialog" for="lugar">Titulo</label>
+        <input 
+            class="textbox-matdialog"
+            type="text"
+            name="titulo"
+            id="titulo"
+            [(ngModel)]="titulo"
+        >
+    </div>
+
+    <div class="container-dato-matdialog">
+        <label class="label-matdialog" for="prioridad">Prioridad</label>
+        <input 
+            class="textbox-matdialog"
+            type="text"
+            name="prioridad"
+            id="prioridad"
+            [(ngModel)]="prioridad"
+        >
+    </div>
+
+    <div class="container-dato-matdialog">
+        <label class="label-matdialog" for="lugar">Tipo</label>
+        <select class="textbox-matdialog" name="example" [(ngModel)]="tipoSeleccionado">
+            <option [value]="tipo" *ngFor="let tipo of listaTipos">{{tipo}}</option>
+        </select>
+    </div>
+    
+    <mat-dialog-actions class="container-botones-matdialog">
+        <input class="btn btn-secundario" mat-button [mat-dialog-close]="cancel()" type="button" value="Cancelar">
+        <input class="btn btn-principal" mat-button [mat-dialog-close]="submit()" type="submit">
+    </mat-dialog-actions>
 </div>
-<div>
-    <label class="label" for="lugar">Tipo:</label>
-    <select class="textbox" name="example" [(ngModel)]="tipoSeleccionado">
-        <option [value]="tipo" *ngFor="let tipo of listaTipos">{{tipo}}</option>
-    </select>
-</div>
-  
-<mat-dialog-actions class="botones">
-    <input class="btn btn-cancelar" mat-button [mat-dialog-close]="cancel()" type="button" value="Cancelar">
-    <input class="btn btn-enviar" mat-button [mat-dialog-close]="submit()" type="submit">
-</mat-dialog-actions>

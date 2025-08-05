@@ -13,12 +13,12 @@
   left: 0;
   width: 100vw;
   height: 100vh;
-  background-image: url('assets/images/bg2.jpg'); // ruta a tu fondo
+  background-image: url('assets/images/bg2.jpg');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
   z-index: -1; // detrás de todo
-  pointer-events: none; // para que no bloquee clics
+  pointer-events: none; // para que no bloquee clicks
 }
 
 html {
@@ -30,7 +30,7 @@ body {
   margin: 0px;
   margin: 0;
   padding: 0;
-  background-color: #191930; //Poner variable. Sirve para color durante carga mobile
+  background-color: $azul-footer-oscuro; //Sirve para color de fondo donde no haya imagen (Botones chrome android)
 }
 
 app-root {
@@ -48,29 +48,40 @@ router-outlet {
   justify-content: center;
   align-items: center;
   flex: 1;
-  min-height: calc(100vh - 210px - 50px);
+  min-height: calc(100vh - 260px - 50px);
+  height: 100%;
   width: 100%;
 }
 .container-tarjeta {
-    scroll-margin-top: 15px; /* o el valor que quieras como offset */
+    scroll-margin-top: 15px; //Regula donde deja el scroll
     min-width: 325px;
     width: 85%;
     margin: 20px auto;
     padding: 3px;
     min-height: 80px;
     border-radius: 20px;
-    background: linear-gradient(to bottom, $azul-tarjeta-claro, $azul-tarjeta-oscuro);
+    background: linear-gradient(to bottom, rgba($azul-tarjeta-claro2,0.6), rgba($azul-tarjeta-oscuro2,0.6));
     color: $blanco-suave;
-    box-shadow: 1px 1px 6px rgba($blanco-suave, 0.2);
+    box-shadow: 0px 0px 6px rgba($blanco-suave, 0.2);
     transition: box-shadow 0.1s ease;
 }
 
+@media(max-width:600px){
+  .contenedor-principal {
+    min-height: calc(100vh - 310px - 50px);
+  }
+  
+  .container-tarjeta {
+    margin: 10px auto;
+  }
+}
 .container-tarjeta:hover {
-    box-shadow: 2px 2px 10px rgba($blanco-suave, 0.333);
+    box-shadow: 0px 0px 10px rgba($blanco-suave, 0.333);
+
 }
 
 .container-tarjeta:hover .img-perfil{
-    box-shadow: 1px 2px 25px rgba($blanco-suave, 0.333);
+    box-shadow: 0px 0px 25px rgba($blanco-suave, 0.333);
 }
 
 .fila-tarjetas {
@@ -103,21 +114,110 @@ router-outlet {
 
 .container-botones{
   display: flex;
-  align-items: end;
-  justify-content: space-between;
+  align-items: center;
+  justify-self:center;
   gap:10px;
 }
+
+.cursor:hover{
+  cursor: pointer;
+}
 .btn{
-    background-color: transparent;
-    border-style: solid;
-    border-radius: 5px;
-    border-width: 2px;
+  border-style: solid;
+  border-radius: 5px;
+  border-width: 2px;
+
+  text-decoration: none;
+  font-size:13px;
+  display: flex;
+  align-items: center; /* centra vertical */
+  justify-content: center; /* centra horizontal (opcional) */
+
+  width: 70px;
+  height: 24px;
+    
+  transition: background-color 0.15s ease-out, color 0.15s ease-out, border-color 0.15s ease-out;
 }
 
-.container-alta-modificacion{
-    min-width: 300px;
-    max-width: 500px;
-    width: 30%;
+.btn-principal{
+  color: $blanco-suave;
+  background-color:map-get($my-primary, 500);
+  border-color: map-get($my-primary, 500);
+
+}
+.btn-principal:hover{
+    color: $negro;
+    background-color:map-get($my-primary, 500);
+    border-color: map-get($my-primary, 500);
+    cursor: pointer;
+}
+.btn-principal:active{
+    color: $negro;
+    background-color: $blanco-fuerte;
+    border-color: $blanco-fuerte;
+}
+
+.btn-secundario{
+  color: $negro;
+  background-color: $gray-buttons;
+  border-color: $gray-buttons;
+}
+.btn-secundario:hover{
+  color: $blanco-fuerte;
+  background-color:map-get($my-primary, 500);
+  border-color: map-get($my-primary, 500);
+  cursor: pointer;
+}
+.btn-secundario:active{
+    color: $negro;
+    background-color: $blanco-fuerte;
+    border-color: $blanco-fuerte;
+}
+
+.custom-dialog-container {
+  min-width: 300px;
+  width: 90vw;
+  max-width: 95vw;
+}
+.container-matdialog{
+    background-color: $azul-tarjeta-claro;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.container-dato-matdialog{
+    display: flex;
+    text-align: center;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    width: 90%;
+}
+.container-botones-matdialog{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+}
+.label-matdialog{
+    width: 100%;
+    margin-top: 15px;
+    color: $gray-buttons;
+    background-color: $azul-tarjeta-claro;
+}
+.textbox-matdialog{
+    width: 100%;
+    text-align: center;
+    border:none;
+    border-bottom: 1px solid $gray-buttons;
+    color: $gray-buttons;
+    background-color: $azul-tarjeta-claro;
+}
+
+.textbox-matdialog:focus{
+    outline: none;
 }
 
 .unselectable {
@@ -131,11 +231,11 @@ router-outlet {
 
 ::-webkit-scrollbar {
     width: 5px; 
-    background: linear-gradient(to bottom, $azul-fondo-claro, $azul-fondo-oscuro);
+    background: linear-gradient(to bottom, $azul-footer-claro, $azul-footer-oscuro);
 }
 
 ::-webkit-scrollbar-track {
-    background: linear-gradient(to bottom, $azul-fondo-claro, $azul-fondo-oscuro);
+    background: linear-gradient(to bottom, $azul-footer-claro, $azul-footer-oscuro);
     border-radius: 10px;
 }
 
@@ -148,4 +248,27 @@ router-outlet {
 
 .no-scroll {
   overflow: hidden;
+}
+
+//Animaciones
+.fade-in-img {
+  opacity: 0;
+  transform: translateY(3px);
+  transition: opacity 0.8s ease-in, transform 0.66s ease-out;
+}
+
+.fade-in-img.visible {
+  opacity: 1;
+  transform: translateY(0px);
+}
+
+.fade-in-div {
+  opacity: 0;
+  transform: translateY(10px);
+  transition: opacity 1s ease-out, transform 1s ease-out;
+}
+
+.fade-in-div.visible {
+  opacity: 1;
+  transform: translateY(0px);
 }

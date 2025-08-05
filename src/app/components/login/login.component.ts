@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { AfterViewInit, Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { FirebaseError } from '@angular/fire/app';
 import { Router } from '@angular/router';
 import { AuthService } from 'src/app/service/auth.service';
@@ -12,7 +12,7 @@ import { AuthService } from 'src/app/service/auth.service';
   Componente Login.
   Utiliza los servicios Token y Auth para el inicio de sesión.
 */
-export class LoginComponent implements OnInit {
+export class LoginComponent implements OnInit, AfterViewInit {
   isLogged = false;
   isLogginFail = false;
   email!: string;
@@ -20,6 +20,9 @@ export class LoginComponent implements OnInit {
   roles: string[] = [];
   errMsj!: string;
 
+  @ViewChild('contenedorLogin') contenedorLogin!: ElementRef;
+  isVisible: boolean = false;
+  
   constructor(
     private authService: AuthService,
     private router: Router
@@ -34,6 +37,20 @@ export class LoginComponent implements OnInit {
     });
   }
 
+  ngAfterViewInit(): void {
+    const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        this.isVisible = true;
+        observer.unobserve(entry.target); // para no seguir observando luego
+      }
+    });
+    }, { threshold: 0.1 });
+
+    if (this.contenedorLogin) {
+      observer.observe(this.contenedorLogin.nativeElement);
+    }
+  }
   onLogin(){
     this.authService.login(this.email, this.password).subscribe({
       next: () => {

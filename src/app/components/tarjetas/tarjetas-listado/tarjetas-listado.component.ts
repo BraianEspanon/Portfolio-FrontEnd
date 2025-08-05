@@ -1,4 +1,4 @@
-import { AfterViewInit, Component, OnInit } from '@angular/core';
+import { AfterViewInit, Component, ElementRef, OnInit, QueryList, ViewChild, ViewChildren } from '@angular/core';
 import { TarjetasService } from 'src/app/service/tarjetas.service';
 import { Tarjeta } from 'src/app/Interfaces/Tarjeta';
 import { TarjetaPerfil } from 'src/app/Interfaces/TarjetaPerfil';
@@ -31,6 +31,13 @@ export class TarjetasListadoComponent implements OnInit, AfterViewInit {
   isLoading: boolean = true;
   loggedIn: boolean = true;
 
+  @ViewChild('contenedorPerfil') contenedorPerfil!: ElementRef;
+  isVisiblePerfil: boolean = false;
+
+  @ViewChildren('fadeTarjetas') fadeTarjetas!: QueryList<ElementRef>;
+  @ViewChildren('fadeTarjetasPorcentaje') fadeTarjetasPorcentaje!: QueryList<ElementRef>;
+
+
   constructor(
     private tarjetasService: TarjetasService,
     private authService: AuthService,
@@ -41,13 +48,13 @@ export class TarjetasListadoComponent implements OnInit, AfterViewInit {
   ngOnInit(): void {
     this.tarjetasService.getTarjetasInformacion().subscribe((tarjetas) => 
     {
-      this.listaTarjetas = tarjetas
+      this.listaTarjetas = tarjetas.map(t => ({ ...t, visible: false }));
       this.tarjetasPorcentaje = this.listaTarjetas.filter(t => t.tipo === 'Porcentaje');
       this.otrasTarjetas = this.listaTarjetas.filter(t => t.tipo !== 'Porcentaje');
 
       
-      const nombres = this.otrasTarjetas.map(t => this.idFromNombre(t.titulo)); // 👈
-      this.scrollService.setSecciones(nombres); // 👈
+      const nombres = this.otrasTarjetas.map(t => this.idFromNombre(t.titulo));
+      this.scrollService.setSecciones(nombres);
     }, (error) => {
       this.errorMessage = "¡Error! Ha ocurrido un error al intentar conectar al servidor BackEnd. No se pudieron obtener las tarjetas de información.";
     });
@@ -68,6 +75,48 @@ export class TarjetasListadoComponent implements OnInit, AfterViewInit {
   ngAfterViewInit(): void {
     // Intentamos realizar el scroll si hay uno pendiente
     this.scrollService['intentarScrollDesdeComponente']?.();
+
+    const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        if (entry.target === this.contenedorPerfil.nativeElement) {
+          this.isVisiblePerfil = true;
+        }
+
+        // Buscar la tarjeta en la lista y marcar como visible
+        const index = this.fadeTarjetas.toArray().findIndex(el => el.nativeElement === entry.target);
+        if (index !== -1) {
+          this.otrasTarjetas[index].visible = true;
+        }
+        
+        // Buscar tarjeta porcentaje
+        const indexPorc = this.fadeTarjetasPorcentaje.toArray().findIndex(el => el.nativeElement === entry.target);
+        if (indexPorc !== -1) {
+          this.tarjetasPorcentaje[indexPorc].visible = true;
+        }
+
+        observer.unobserve(entry.target); // para no seguir observando luego
+      }
+    });
+    }, { threshold: 0.1 });
+
+    // Observar perfil
+    if (this.contenedorPerfil) {
+      observer.observe(this.contenedorPerfil.nativeElement);
+    }
+    
+    // Observar cada tarjeta genérica
+    this.fadeTarjetas.changes.subscribe((tarjetas: QueryList<ElementRef>) => {
+      tarjetas.forEach((tarjeta) => observer.observe(tarjeta.nativeElement));
+    });
+    this.fadeTarjetas.forEach((tarjeta) => observer.observe(tarjeta.nativeElement));
+    
+    
+    // Observar porcentaje
+    this.fadeTarjetasPorcentaje.changes.subscribe((tarjetas: QueryList<ElementRef>) => {
+      tarjetas.forEach((tarjeta) => observer.observe(tarjeta.nativeElement));
+    });
+    this.fadeTarjetasPorcentaje.forEach((tarjeta) => observer.observe(tarjeta.nativeElement));
   }
   
   idFromNombre(nombre: string): string {

@@ -40,7 +40,7 @@ export class TarjetaBaseComponent implements OnInit {
 
   agregarDetalle(): void{
     const dialogRef = this.dialog.open(AltaModificacionDetalleComponent, {
-      panelClass: 'container-alta-modificacion',
+      panelClass: 'custom-dialog-container',
       data: {
         tipo : this.tarjeta.tipo}
     });
@@ -57,7 +57,7 @@ export class TarjetaBaseComponent implements OnInit {
     console.log(this.tarjeta)
     
     const dialogRef = this.dialog.open(AgregarTarjetaComponent, {
-      panelClass: 'container-alta-modificacion',
+      panelClass: 'custom-dialog-container',
       data:{
         tarjeta: this.tarjeta
       }

@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter, ViewChild, ElementRef, AfterViewInit } from '@angular/core';
 import { TarjetaPerfil } from 'src/app/Interfaces/TarjetaPerfil';
 import { Tarjeta } from 'src/app/Interfaces/Tarjeta';
 
@@ -17,7 +17,7 @@ import { AgregarTarjetaComponent } from '../agregar-tarjeta/agregar-tarjeta.comp
 /*
   TarjetaPerfil es la primera tarjeta a mostrar. Contiene datos personales y una breve descripción.
 */
-export class TarjetaPerfilComponent implements OnInit {
+export class TarjetaPerfilComponent implements OnInit, AfterViewInit {
   @Output() onEditPerfil: EventEmitter<TarjetaPerfil> = new EventEmitter();
   @Output() onAddTarjeta: EventEmitter<TarjetaPerfil> = new EventEmitter();
 
@@ -27,20 +27,39 @@ export class TarjetaPerfilComponent implements OnInit {
   faPlus = faPlus;
   faPen = faPen;
 
-  linkCV = "https://drive.google.com/file/d/1k7KJnzUN8_BF5Elet5fzsgnqiNOaqfRy/view?usp=drive_link"
-  linkGitHub = "https://github.com/BraianEspanon"
-  linkLinkedIn = "https://www.linkedin.com/in/braian-espa%C3%B1on-064501353/"
 
+  @ViewChild('imgElement') imgElement!: ElementRef;
+  isVisible: boolean = false;
+  imgLoaded: boolean = false;
+  
   constructor(public dialog: MatDialog) { }
 
   ngOnInit(): void {
   }
+  
+  ngAfterViewInit(): void {
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          this.isVisible = true;
+          observer.unobserve(entry.target); // dejar de observar después del primer fade-in
+        }
+      });
+    }, { threshold: 0.1 });
+
+    if (this.imgElement) {
+      observer.observe(this.imgElement.nativeElement);
+    }
+  }
+  onImgLoad() {
+    this.imgLoaded = true;
+  }
+
   editar(): void {
     const dialogRef = this.dialog.open(ModificacionPerfilComponent, {
-      panelClass: 'container-alta-modificacion',
+      panelClass: 'custom-dialog-container',
       data: {
         nombre: this.tarjeta.nombre,
-        urlCV: this.tarjeta.urlCV,
         urlImgPerfil: this.tarjeta.urlImgPerfil,
         detalle: this.tarjeta.detalle,
         lugar: this.tarjeta.lugar,
@@ -56,7 +75,7 @@ export class TarjetaPerfilComponent implements OnInit {
   
   addTarjeta(): void {
     const dialogRef = this.dialog.open(AgregarTarjetaComponent, {
-      panelClass: 'container-alta-modificacion',
+      panelClass: 'custom-dialog-container',
       data: {
         tarjeta: {} as Tarjeta
       }

@@ -29,9 +29,9 @@ export class ScrollService {
   scrollToSeccion(id: string) {
     const currentUrl = this.router.url;
 
-    if (!currentUrl.startsWith('/inicio')) {
+    if (currentUrl !== "/") {
       this.pendingScrollId = id;
-      this.router.navigate(['/inicio']);
+      this.router.navigate(['']);
     } else {
       this.hacerScroll(id);
     }
@@ -43,7 +43,7 @@ export class ScrollService {
       if (el) {
         el.scrollIntoView({ behavior: 'smooth', block: 'start' });
       }
-    }, 100); // Ajustá este valor si hace falta más delay
+    }, 100); // Regula el delay
   }
   intentarScrollDesdeComponente() {
     if (this.pendingScrollId) {

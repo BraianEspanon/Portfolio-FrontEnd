@@ -6,17 +6,18 @@ import { TarjetasListadoComponent } from './components/tarjetas/tarjetas-listado
 
 
 const routes: Routes = [
-  {path: '', pathMatch: 'full', redirectTo: '/inicio'},
-  {path: 'inicio', component: TarjetasListadoComponent},
+  {path: '', component: TarjetasListadoComponent},
   {path: 'login', component: LoginComponent},
   {path: 'contacto', component: ContactoComponent},
-  { path: '**', redirectTo: '/inicio' }
+  { path: '**', redirectTo: '' }
 ]
 
 @NgModule({
   declarations: [],
   imports: [
-    RouterModule.forRoot(routes, {enableTracing: true})
+    RouterModule.forRoot(routes, {
+      scrollPositionRestoration: 'top'
+    })
   ],
   exports: [RouterModule]
 })
