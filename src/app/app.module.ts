@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 import { BrowserModule } from '@angular/platform-browser';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { RouterModule, Routes } from '@angular/router';
-import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { MatDialogModule } from '@angular/material/dialog';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -38,44 +38,36 @@ import { FooterBarComponent } from './components/footer/footer-bar/footer-bar.co
 import { CargandoComponent } from './components/cargando/cargando.component';
 import { MenuComponent } from './components/header/menu/menu.component';
 
-@NgModule({
-  declarations: [
-    AppComponent,
-    HeaderBarComponent,
-    TarjetaBaseComponent,
-    TarjetasListadoComponent,
-    TarjetaPerfilComponent,
-    TarjetaBasicoComponent,
-    TarjetaPorcentajesComponent,
-    TarjetaProyectosComponent,
-    LoginComponent,
-    AltaModificacionDetalleComponent,
-    ModificacionPerfilComponent,
-    SubirImagenComponent,
-    AgregarTarjetaComponent,
-    ContactoComponent,
-    FooterBarComponent,
-    CargandoComponent,
-    MenuComponent
-  ],
-  imports: [
-    BrowserModule,
-    FontAwesomeModule,  
-    HttpClientModule,
-    MatProgressBarModule,
-    FormsModule,
-    CommonModule,
-    MatDialogModule,
-    BrowserAnimationsModule,
-    MatTooltipModule,
-    MatProgressSpinnerModule,
-    AppRoutingModule,
-    MatButtonModule,
-    provideFirebaseApp(() => initializeApp(environment.firebaseConfig)),
-    provideAuth(() => getAuth()),
-
-  ],
-  providers: [{ provide: HTTP_INTERCEPTORS, useClass:InterceptorService, multi: true}],
-  bootstrap: [AppComponent]
-})
+@NgModule({ declarations: [
+        AppComponent,
+        HeaderBarComponent,
+        TarjetaBaseComponent,
+        TarjetasListadoComponent,
+        TarjetaPerfilComponent,
+        TarjetaBasicoComponent,
+        TarjetaPorcentajesComponent,
+        TarjetaProyectosComponent,
+        LoginComponent,
+        AltaModificacionDetalleComponent,
+        ModificacionPerfilComponent,
+        SubirImagenComponent,
+        AgregarTarjetaComponent,
+        ContactoComponent,
+        FooterBarComponent,
+        CargandoComponent,
+        MenuComponent
+    ],
+    bootstrap: [AppComponent], imports: [BrowserModule,
+        FontAwesomeModule,
+        MatProgressBarModule,
+        FormsModule,
+        CommonModule,
+        MatDialogModule,
+        BrowserAnimationsModule,
+        MatTooltipModule,
+        MatProgressSpinnerModule,
+        AppRoutingModule,
+        MatButtonModule,
+        provideFirebaseApp(() => initializeApp(environment.firebaseConfig)),
+        provideAuth(() => getAuth())], providers: [{ provide: HTTP_INTERCEPTORS, useClass: InterceptorService, multi: true }, provideHttpClient(withInterceptorsFromDi())] })
 export class AppModule { }
