@@ -8,9 +8,10 @@ import { HttpErrorResponse } from '@angular/common/http';
 import { ScrollService } from 'src/app/service/scroll.service';
 
 @Component({
-  selector: 'app-tarjetas-listado',
-  templateUrl: './tarjetas-listado.component.html',
-  styleUrls: ['./tarjetas-listado.component.scss']
+    selector: 'app-tarjetas-listado',
+    templateUrl: './tarjetas-listado.component.html',
+    styleUrls: ['./tarjetas-listado.component.scss'],
+    standalone: false
 })
 /*
   Este componente funciona como el inicio del portfolio.

@@ -3,9 +3,10 @@ import { ContactoService } from 'src/app/service/contacto.service';
 import { ScrollService } from 'src/app/service/scroll.service';
 
 @Component({
-  selector: 'app-menu',
-  templateUrl: './menu.component.html',
-  styleUrl: './menu.component.scss'
+    selector: 'app-menu',
+    templateUrl: './menu.component.html',
+    styleUrl: './menu.component.scss',
+    standalone: false
 })
 export class MenuComponent implements OnInit{
   @Output() cerrar = new EventEmitter<void>();

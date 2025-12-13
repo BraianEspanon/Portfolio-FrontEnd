@@ -5,9 +5,10 @@ import { ScrollService } from 'src/app/service/scroll.service';
 import { MedioContacto } from 'src/app/Interfaces/MedioContacto';
 
 @Component({
-  selector: 'app-footer-bar',
-  templateUrl: './footer-bar.component.html',
-  styleUrl: './footer-bar.component.scss'
+    selector: 'app-footer-bar',
+    templateUrl: './footer-bar.component.html',
+    styleUrl: './footer-bar.component.scss',
+    standalone: false
 })
 export class FooterBarComponent implements OnInit {  
   loggedIn: boolean = false;

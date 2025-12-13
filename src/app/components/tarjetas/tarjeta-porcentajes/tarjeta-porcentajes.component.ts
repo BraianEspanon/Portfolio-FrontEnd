@@ -8,9 +8,10 @@ import { AltaModificacionDetalleComponent } from '../alta-modificacion-detalle/a
 import { faPen, faTrash } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
-  selector: 'app-tarjeta-porcentajes',
-  templateUrl: './tarjeta-porcentajes.component.html',
-  styleUrls: ['./tarjeta-porcentajes.component.scss']
+    selector: 'app-tarjeta-porcentajes',
+    templateUrl: './tarjeta-porcentajes.component.html',
+    styleUrls: ['./tarjeta-porcentajes.component.scss'],
+    standalone: false
 })
 /*
   TarjetaPorcentajes se trata de un tipo de detalle.

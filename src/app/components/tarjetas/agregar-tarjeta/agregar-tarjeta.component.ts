@@ -5,9 +5,10 @@ import { Tarjeta } from 'src/app/Interfaces/Tarjeta';
 import { Inject } from '@angular/core';
 
 @Component({
-  selector: 'app-agregar-tarjeta',
-  templateUrl: './agregar-tarjeta.component.html',
-  styleUrls: ['./agregar-tarjeta.component.scss']
+    selector: 'app-agregar-tarjeta',
+    templateUrl: './agregar-tarjeta.component.html',
+    styleUrls: ['./agregar-tarjeta.component.scss'],
+    standalone: false
 })
 /*
   Componente pensado para ser abierto en forma de MatDialog.

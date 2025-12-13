@@ -10,9 +10,10 @@ import { faPlus, faPen, faTrash  } from '@fortawesome/free-solid-svg-icons';
 import { AgregarTarjetaComponent } from '../agregar-tarjeta/agregar-tarjeta.component';
 
 @Component({
-  selector: 'app-tarjeta-base',
-  templateUrl: './tarjeta-base.component.html',
-  styleUrls: ['./tarjeta-base.component.scss']
+    selector: 'app-tarjeta-base',
+    templateUrl: './tarjeta-base.component.html',
+    styleUrls: ['./tarjeta-base.component.scss'],
+    standalone: false
 })
 
 /*

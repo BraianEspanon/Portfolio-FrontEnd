@@ -9,9 +9,10 @@ import { faPen } from '@fortawesome/free-solid-svg-icons';
 import { faTrash } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
-  selector: 'app-tarjeta-proyectos',
-  templateUrl: './tarjeta-proyectos.component.html',
-  styleUrls: ['./tarjeta-proyectos.component.scss']
+    selector: 'app-tarjeta-proyectos',
+    templateUrl: './tarjeta-proyectos.component.html',
+    styleUrls: ['./tarjeta-proyectos.component.scss'],
+    standalone: false
 })
 /*
   TarjetaProyecto se trata de un tipo de detalle.

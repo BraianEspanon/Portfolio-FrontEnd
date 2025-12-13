@@ -4,9 +4,10 @@ import { MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { Inject } from '@angular/core';
 
 @Component({
-  selector: 'app-alta-modificacion-detalle',
-  templateUrl: './alta-modificacion-detalle.component.html',
-  styleUrls: ['./alta-modificacion-detalle.component.scss']
+    selector: 'app-alta-modificacion-detalle',
+    templateUrl: './alta-modificacion-detalle.component.html',
+    styleUrls: ['./alta-modificacion-detalle.component.scss'],
+    standalone: false
 })
 /*
   Componente pensado para ser abierto en forma de MatDialog.

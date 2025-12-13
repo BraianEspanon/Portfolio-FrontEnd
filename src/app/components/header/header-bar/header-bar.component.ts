@@ -5,9 +5,10 @@ import { faBars } from '@fortawesome/free-solid-svg-icons';
 import { ScrollService } from 'src/app/service/scroll.service';
 
 @Component({
-  selector: 'app-header-bar',
-  templateUrl: './header-bar.component.html',
-  styleUrls: ['./header-bar.component.scss']
+    selector: 'app-header-bar',
+    templateUrl: './header-bar.component.html',
+    styleUrls: ['./header-bar.component.scss'],
+    standalone: false
 })
 
 /*

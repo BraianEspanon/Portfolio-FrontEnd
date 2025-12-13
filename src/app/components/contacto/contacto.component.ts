@@ -3,9 +3,10 @@ import { MedioContacto } from 'src/app/Interfaces/MedioContacto';
 import { ContactoService } from 'src/app/service/contacto.service';
 
 @Component({
-  selector: 'app-contacto',
-  templateUrl: './contacto.component.html',
-  styleUrls: ['./contacto.component.scss']
+    selector: 'app-contacto',
+    templateUrl: './contacto.component.html',
+    styleUrls: ['./contacto.component.scss'],
+    standalone: false
 })
 /*
   Componente contacto
