@@ -1,11 +1,15 @@
+import { CommonModule } from '@angular/common';
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { RouterModule } from '@angular/router';
 import { ContactoService } from 'src/app/service/contacto.service';
 import { ScrollService } from 'src/app/service/scroll.service';
 
 @Component({
-  selector: 'app-menu',
-  templateUrl: './menu.component.html',
-  styleUrl: './menu.component.scss'
+    selector: 'app-menu',
+    templateUrl: './menu.component.html',
+    styleUrl: './menu.component.scss',
+    standalone: true,
+    imports: [CommonModule, RouterModule]
 })
 export class MenuComponent implements OnInit{
   @Output() cerrar = new EventEmitter<void>();

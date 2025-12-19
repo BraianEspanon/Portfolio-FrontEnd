@@ -6,11 +6,17 @@ import { AltaModificacionDetalleComponent } from '../alta-modificacion-detalle/a
 
 import { faPen } from '@fortawesome/free-solid-svg-icons';
 import { faTrash } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { CommonModule } from '@angular/common';
+import {MatTooltipModule} from '@angular/material/tooltip';
 
 @Component({
-  selector: 'app-tarjeta-basico',
-  templateUrl: './tarjeta-basico.component.html',
-  styleUrls: ['./tarjeta-basico.component.scss']
+    selector: 'app-tarjeta-basico',
+    templateUrl: './tarjeta-basico.component.html',
+    styleUrls: ['./tarjeta-basico.component.scss'],
+
+    standalone: true,
+    imports: [FontAwesomeModule, CommonModule, MatTooltipModule]
 })
 /*
   TarjetaBasico es un tipo de detalle de tarjeta.

@@ -1,13 +1,18 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { Router, RouterModule } from '@angular/router';
 import { faGithub, faLinkedin } from '@fortawesome/free-brands-svg-icons';
 import { faBars } from '@fortawesome/free-solid-svg-icons';
 import { ScrollService } from 'src/app/service/scroll.service';
+import { MenuComponent } from '../menu/menu.component';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { CommonModule } from '@angular/common';
 
 @Component({
-  selector: 'app-header-bar',
-  templateUrl: './header-bar.component.html',
-  styleUrls: ['./header-bar.component.scss']
+    selector: 'app-header-bar',
+    templateUrl: './header-bar.component.html',
+    styleUrls: ['./header-bar.component.scss'],
+    standalone: true,
+    imports: [MenuComponent, FontAwesomeModule, CommonModule, RouterModule]
 })
 
 /*

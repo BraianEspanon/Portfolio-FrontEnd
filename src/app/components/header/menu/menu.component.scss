@@ -1,4 +1,5 @@
 @use '/src/styles/variables.scss' as *;
+@use 'sass:map';
 
 .fondo-menu {
   position: fixed;
@@ -40,5 +41,5 @@
 .cerrar {
   width: 100%;
   height: 43px;
-  background-color: map-get($my-primary, 500);
+  background-color: map.get($my-primary, 500);
 }

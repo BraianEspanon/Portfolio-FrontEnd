@@ -1,4 +1,5 @@
 @use '/src/styles/variables.scss' as *;
+@use 'sass:map';
 
 .container-proyecto{
     height: 100%;
@@ -20,7 +21,7 @@
 }
 .titulo{
     font-size: large;
-    color: map-get($my-primary, 500);
+    color: map.get($my-primary, 500);
     text-align: center;
     margin: 5px 0px;
 }

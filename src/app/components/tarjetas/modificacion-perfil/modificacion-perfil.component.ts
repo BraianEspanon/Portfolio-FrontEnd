@@ -1,13 +1,16 @@
 import { Component, OnInit } from '@angular/core';
 import { TarjetaPerfil } from 'src/app/Interfaces/TarjetaPerfil';
-import { MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { MAT_DIALOG_DATA, MatDialogModule } from '@angular/material/dialog';
 import { Inject } from '@angular/core';
+import { FormsModule } from '@angular/forms';
 
 
 @Component({
-  selector: 'app-modificacion-perfil',
-  templateUrl: './modificacion-perfil.component.html',
-  styleUrls: ['./modificacion-perfil.component.scss']
+    selector: 'app-modificacion-perfil',
+    templateUrl: './modificacion-perfil.component.html',
+    styleUrls: ['./modificacion-perfil.component.scss'],
+    standalone: true,
+    imports: [MatDialogModule, FormsModule]
 })
 /*
   Componente pensado para ser abierto en forma de MatDialog.

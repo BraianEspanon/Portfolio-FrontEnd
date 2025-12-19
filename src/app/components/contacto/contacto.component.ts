@@ -1,11 +1,15 @@
+import { CommonModule } from '@angular/common';
 import { AfterViewInit, Component, ElementRef, OnInit, QueryList, ViewChild, ViewChildren } from '@angular/core';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { MedioContacto } from 'src/app/Interfaces/MedioContacto';
 import { ContactoService } from 'src/app/service/contacto.service';
 
 @Component({
-  selector: 'app-contacto',
-  templateUrl: './contacto.component.html',
-  styleUrls: ['./contacto.component.scss']
+    selector: 'app-contacto',
+    templateUrl: './contacto.component.html',
+    styleUrls: ['./contacto.component.scss'],
+    standalone: true,
+    imports: [FontAwesomeModule, CommonModule]
 })
 /*
   Componente contacto

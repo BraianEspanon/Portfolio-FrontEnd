@@ -6,11 +6,18 @@ import { AltaModificacionDetalleComponent } from '../alta-modificacion-detalle/a
 
 
 import { faPen, faTrash } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeModule  } from '@fortawesome/angular-fontawesome';
+import { MatProgressBarModule } from '@angular/material/progress-bar';
+import { CommonModule } from '@angular/common';
+import { MatTooltipModule } from '@angular/material/tooltip';
 
 @Component({
-  selector: 'app-tarjeta-porcentajes',
-  templateUrl: './tarjeta-porcentajes.component.html',
-  styleUrls: ['./tarjeta-porcentajes.component.scss']
+    selector: 'app-tarjeta-porcentajes',
+    templateUrl: './tarjeta-porcentajes.component.html',
+    styleUrls: ['./tarjeta-porcentajes.component.scss'],
+    
+    standalone: true,
+    imports: [FontAwesomeModule , MatProgressBarModule, CommonModule, MatTooltipModule]
 })
 /*
   TarjetaPorcentajes se trata de un tipo de detalle.

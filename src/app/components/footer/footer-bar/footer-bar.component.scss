@@ -1,4 +1,5 @@
 @use '/src/styles/variables.scss' as *;
+@use 'sass:map';
 
 p{
     margin: 0px;
@@ -82,7 +83,7 @@ p{
     display: flex;
     align-items: center;
     gap:5px;
-    color: map-get($my-primary, 500)
+    color: map.get($my-primary, 500)
 }
 .div-log{
     position: absolute;
@@ -111,19 +112,19 @@ p{
     color: $blanco-fuerte;
     margin: 5px;
     padding: 2px 3px;
-    background-color: map-get($my-warn, 900);
-    border-color: map-get($my-warn, 900);
+    background-color: map.get($my-warn, 900);
+    border-color: map.get($my-warn, 900);
 }
 
 .logout:hover{
     color: $blanco-fuerte;
-    background-color: map-get($my-warn, A700);
-    border-color: map-get($my-warn, 900);
+    background-color: map.get($my-warn, A700);
+    border-color: map.get($my-warn, 900);
     cursor: pointer;
 }
 
 .logout:active{
-    background-color: map-get($my-warn, A700);
-    border-color: map-get($my-warn, A700);
+    background-color: map.get($my-warn, A700);
+    border-color: map.get($my-warn, A700);
     color: gainsboro;
 }

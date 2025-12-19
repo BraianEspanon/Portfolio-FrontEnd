@@ -2,6 +2,7 @@
 // styles.scss
 @use 'styles/variables' as *;
 @use 'styles/themes';
+@use 'sass:map';
 
 /* You can add global styles to this file, and also import other style files */
 *{
@@ -141,14 +142,14 @@ router-outlet {
 
 .btn-principal{
   color: $blanco-suave;
-  background-color:map-get($my-primary, 500);
-  border-color: map-get($my-primary, 500);
+  background-color:map.get($my-primary, 500);
+  border-color: map.get($my-primary, 500);
 
 }
 .btn-principal:hover{
     color: $negro;
-    background-color:map-get($my-primary, 500);
-    border-color: map-get($my-primary, 500);
+    background-color:map.get($my-primary, 500);
+    border-color: map.get($my-primary, 500);
     cursor: pointer;
 }
 .btn-principal:active{
@@ -164,8 +165,8 @@ router-outlet {
 }
 .btn-secundario:hover{
   color: $blanco-fuerte;
-  background-color:map-get($my-primary, 500);
-  border-color: map-get($my-primary, 500);
+  background-color:map.get($my-primary, 500);
+  border-color: map.get($my-primary, 500);
   cursor: pointer;
 }
 .btn-secundario:active{

@@ -1,13 +1,17 @@
 import { Component, OnInit } from '@angular/core';
-import { MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { MAT_DIALOG_DATA, MatDialogModule } from '@angular/material/dialog';
 import { TarjetaDetalle } from 'src/app/Interfaces/TarjetaDetalle';
 import { Tarjeta } from 'src/app/Interfaces/Tarjeta';
 import { Inject } from '@angular/core';
+import { FormsModule } from '@angular/forms';
+import { CommonModule } from '@angular/common';
 
 @Component({
-  selector: 'app-agregar-tarjeta',
-  templateUrl: './agregar-tarjeta.component.html',
-  styleUrls: ['./agregar-tarjeta.component.scss']
+    selector: 'app-agregar-tarjeta',
+    templateUrl: './agregar-tarjeta.component.html',
+    styleUrls: ['./agregar-tarjeta.component.scss'],
+    standalone: true,
+    imports: [MatDialogModule, FormsModule, CommonModule]
 })
 /*
   Componente pensado para ser abierto en forma de MatDialog.

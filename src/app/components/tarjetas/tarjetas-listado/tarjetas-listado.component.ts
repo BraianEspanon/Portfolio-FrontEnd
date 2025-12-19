@@ -6,11 +6,17 @@ import { AuthService } from 'src/app/service/auth.service';
 import { MatDialog } from '@angular/material/dialog';
 import { HttpErrorResponse } from '@angular/common/http';
 import { ScrollService } from 'src/app/service/scroll.service';
+import { TarjetaBaseComponent } from '../tarjeta-base/tarjeta-base.component';
+import { TarjetaPerfilComponent } from '../tarjeta-perfil/tarjeta-perfil.component';
+import { CargandoComponent } from '../../cargando/cargando.component';
+import { CommonModule } from '@angular/common';
 
 @Component({
-  selector: 'app-tarjetas-listado',
-  templateUrl: './tarjetas-listado.component.html',
-  styleUrls: ['./tarjetas-listado.component.scss']
+    selector: 'app-tarjetas-listado',
+    templateUrl: './tarjetas-listado.component.html',
+    styleUrls: ['./tarjetas-listado.component.scss'],
+    standalone: true,
+    imports: [TarjetaBaseComponent, TarjetaPerfilComponent, CargandoComponent, CommonModule]
 })
 /*
   Este componente funciona como el inicio del portfolio.

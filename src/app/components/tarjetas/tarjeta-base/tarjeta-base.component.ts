@@ -8,11 +8,21 @@ import { TarjetaDetalle } from 'src/app/Interfaces/TarjetaDetalle'
 
 import { faPlus, faPen, faTrash  } from '@fortawesome/free-solid-svg-icons';
 import { AgregarTarjetaComponent } from '../agregar-tarjeta/agregar-tarjeta.component';
+import { FontAwesomeModule  } from '@fortawesome/angular-fontawesome';
+import { TarjetaProyectosComponent } from '../tarjeta-proyectos/tarjeta-proyectos.component';
+import { TarjetaPorcentajesComponent } from '../tarjeta-porcentajes/tarjeta-porcentajes.component';
+import { TarjetaBasicoComponent } from '../tarjeta-basico/tarjeta-basico.component';
+import { CommonModule } from '@angular/common';
+import { MatTooltipModule } from '@angular/material/tooltip';
 
 @Component({
-  selector: 'app-tarjeta-base',
-  templateUrl: './tarjeta-base.component.html',
-  styleUrls: ['./tarjeta-base.component.scss']
+    selector: 'app-tarjeta-base',
+    templateUrl: './tarjeta-base.component.html',
+    styleUrls: ['./tarjeta-base.component.scss'],
+    standalone: true,
+    imports: [FontAwesomeModule, TarjetaProyectosComponent, TarjetaPorcentajesComponent, TarjetaBasicoComponent
+      ,CommonModule, MatTooltipModule
+     ]
 })
 
 /*
