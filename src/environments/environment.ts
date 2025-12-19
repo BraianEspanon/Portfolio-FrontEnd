@@ -7,10 +7,12 @@ export const environment = {
   production: false,
   
   firebaseConfig: {
-    apiKey: "...",
-    authDomain: "...",
-    projectId: "...",
-  }
+    apiKey: "...", //Obtener desde https://console.cloud.google.com/, buscando el proyecto creado en Firebase
+    authDomain: "portfolio-c4181.firebaseapp.com",
+    projectId: "portfolio-c4181",
+  },
+
+  apiUrl: 'http://localhost:8080'
 };
 
 /*

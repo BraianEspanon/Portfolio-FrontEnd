@@ -4,6 +4,7 @@ import { Observable, of, throwError } from 'rxjs';
 import { Tarjeta } from 'src/app/Interfaces/Tarjeta';
 import { TarjetaPerfil } from '../Interfaces/TarjetaPerfil';
 import { catchError, tap } from 'rxjs/operators'; 
+import { environment } from '../../environments/environment';
 
 const httpOptions = {
   headers : new HttpHeaders({
@@ -19,14 +20,15 @@ const httpOptions = {
   Contiene todas las peticions HTTP al servidor backend relacionadas con las tarjetas.
 */
 export class TarjetasService {
-  private apiUrl: string = 'https://api.portfolio-braianespanon.com';
-  //private apiUrl: string = 'http://localhost:8080';
+  private apiUrl: string = environment.apiUrl;
   private tarjetasCache: Tarjeta[] | null = null;
   private tarjetaPerfilCache: TarjetaPerfil | null = null;
   
   constructor(
     private http: HttpClient
-  ) { }
+  ) { 
+    console.log('Estás en modo producción:', environment.production);
+  }
   
   getTarjetasInformacion() : Observable<Tarjeta[]> {
     if (this.tarjetasCache) {
