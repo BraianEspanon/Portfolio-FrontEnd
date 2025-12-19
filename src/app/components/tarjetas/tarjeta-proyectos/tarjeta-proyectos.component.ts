@@ -7,12 +7,17 @@ import { AltaModificacionDetalleComponent } from '../alta-modificacion-detalle/a
 
 import { faPen } from '@fortawesome/free-solid-svg-icons';
 import { faTrash } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeModule  } from '@fortawesome/angular-fontawesome';
+import { CommonModule } from '@angular/common';
+import { MatTooltipModule } from '@angular/material/tooltip';
 
 @Component({
     selector: 'app-tarjeta-proyectos',
     templateUrl: './tarjeta-proyectos.component.html',
     styleUrls: ['./tarjeta-proyectos.component.scss'],
-    standalone: false
+
+    standalone: true,
+    imports: [FontAwesomeModule, CommonModule, MatTooltipModule]
 })
 /*
   TarjetaProyecto se trata de un tipo de detalle.

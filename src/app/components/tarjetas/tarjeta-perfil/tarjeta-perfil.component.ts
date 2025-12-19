@@ -8,12 +8,17 @@ import { ModificacionPerfilComponent } from '../modificacion-perfil/modificacion
 
 import { faPlus, faPen } from '@fortawesome/free-solid-svg-icons';
 import { AgregarTarjetaComponent } from '../agregar-tarjeta/agregar-tarjeta.component';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { CommonModule } from '@angular/common';
+import { MatTooltipModule } from '@angular/material/tooltip';
 
 @Component({
     selector: 'app-tarjeta-perfil',
     templateUrl: './tarjeta-perfil.component.html',
     styleUrls: ['./tarjeta-perfil.component.scss'],
-    standalone: false
+
+    standalone: true,
+    imports: [FontAwesomeModule, CommonModule, MatTooltipModule]
 })
 /*
   TarjetaPerfil es la primera tarjeta a mostrar. Contiene datos personales y una breve descripción.

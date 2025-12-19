@@ -19,8 +19,8 @@ const httpOptions = {
   Contiene todas las peticions HTTP al servidor backend relacionadas con las tarjetas.
 */
 export class TarjetasService {
-  //private apiUrl: string = 'https://api.portfolio-braianespanon.com';
-  private apiUrl: string = 'http://localhost:8080';
+  private apiUrl: string = 'https://api.portfolio-braianespanon.com';
+  //private apiUrl: string = 'http://localhost:8080';
   private tarjetasCache: Tarjeta[] | null = null;
   private tarjetaPerfilCache: TarjetaPerfil | null = null;
   

@@ -1,13 +1,16 @@
 import { Component, OnInit } from '@angular/core';
 import { TarjetaDetalle } from 'src/app/Interfaces/TarjetaDetalle';
-import { MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { MAT_DIALOG_DATA, MatDialogModule } from '@angular/material/dialog';
 import { Inject } from '@angular/core';
+import { FormsModule } from '@angular/forms';
+import { CommonModule } from '@angular/common';
 
 @Component({
     selector: 'app-alta-modificacion-detalle',
     templateUrl: './alta-modificacion-detalle.component.html',
     styleUrls: ['./alta-modificacion-detalle.component.scss'],
-    standalone: false
+    standalone: true,
+    imports: [MatDialogModule, FormsModule, CommonModule]
 })
 /*
   Componente pensado para ser abierto en forma de MatDialog.

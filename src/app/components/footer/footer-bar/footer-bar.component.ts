@@ -3,12 +3,16 @@ import { AuthService } from 'src/app/service/auth.service';
 import { ContactoService } from 'src/app/service/contacto.service';
 import { ScrollService } from 'src/app/service/scroll.service';
 import { MedioContacto } from 'src/app/Interfaces/MedioContacto';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { CommonModule } from '@angular/common';
+import { RouterModule } from '@angular/router';
 
 @Component({
     selector: 'app-footer-bar',
     templateUrl: './footer-bar.component.html',
     styleUrl: './footer-bar.component.scss',
-    standalone: false
+    standalone: true,
+    imports: [FontAwesomeModule, CommonModule, RouterModule]
 })
 export class FooterBarComponent implements OnInit {  
   loggedIn: boolean = false;
