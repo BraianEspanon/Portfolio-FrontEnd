@@ -19,6 +19,8 @@ export class ContactoService {
   email: string = 'braianespanon@gmail.com';
   telefono:string = '3513510812'
   mensaje:string = 'Hola Braian, vi tu portfolio y quiero contactarte.'
+  curriculumUrl: string = 'https://res.cloudinary.com/dflvqquau/image/upload/v1782784245/CVBraian_tngzj2.pdf';
+
   constructor() { 
     this.listaMedioContacto.push({medio: "Teléfono", dato: this.telefono, icono: faPhoneAlt})
     this.listaMedioContacto.push({medio: "Correo", dato: this.email, icono: faEnvelope})
@@ -42,6 +44,11 @@ export class ContactoService {
 
     return `mailto:${this.email}?subject=${asunto}&body=${cuerpo}`;
   }
+
+  getCurriculumUrl() {
+    return this.curriculumUrl;
+  }
+
   getPlantillaWhatsApp() {
     const mensaje = encodeURIComponent(this.mensaje);
     const numeroConCodigo = `+549${this.telefono}`;

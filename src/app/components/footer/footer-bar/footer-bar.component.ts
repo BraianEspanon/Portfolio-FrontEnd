@@ -19,6 +19,7 @@ export class FooterBarComponent implements OnInit {
   secciones: string[] = [];
 
   listaMedioContacto: MedioContacto[] = []
+  curriculumUrl: string = '';
 
   @ViewChildren('descripcion') descripciones!: QueryList<ElementRef>;
   
@@ -37,6 +38,7 @@ export class FooterBarComponent implements OnInit {
     });
     
     this.listaMedioContacto = this.contactoService.getListaMedios()
+    this.curriculumUrl = this.contactoService.getCurriculumUrl();
   }
   
   logOut(): void {

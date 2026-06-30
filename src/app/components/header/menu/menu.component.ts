@@ -16,6 +16,7 @@ export class MenuComponent implements OnInit{
 
   secciones: string[] = [];
   mailtoLink:string = "";
+  curriculumUrl: string = '';
   
   constructor(private contactoService: ContactoService,
     private scrollService: ScrollService
@@ -27,6 +28,7 @@ export class MenuComponent implements OnInit{
       this.secciones = sec;
     });
     this.mailtoLink = this.contactoService.getPlantillaCorreo()
+    this.curriculumUrl = this.contactoService.getCurriculumUrl();
   }
   
   irASeccion(id: string) {

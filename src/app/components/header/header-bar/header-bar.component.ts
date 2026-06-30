@@ -3,6 +3,7 @@ import { Router, RouterModule } from '@angular/router';
 import { faGithub, faLinkedin } from '@fortawesome/free-brands-svg-icons';
 import { faBars } from '@fortawesome/free-solid-svg-icons';
 import { ScrollService } from 'src/app/service/scroll.service';
+import { ContactoService } from 'src/app/service/contacto.service';
 import { MenuComponent } from '../menu/menu.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { CommonModule } from '@angular/common';
@@ -27,15 +28,18 @@ export class HeaderBarComponent implements OnInit{
   menuVisible = false;
 
   secciones: string[] = [];
+  curriculumUrl: string = '';
 
   constructor(private router: Router, 
-    private scrollService: ScrollService) { }
+    private scrollService: ScrollService,
+    private contactoService: ContactoService) { }
 
 
   ngOnInit() {
     this.scrollService.secciones$.subscribe((sec) => {
       this.secciones = sec;
     });
+    this.curriculumUrl = this.contactoService.getCurriculumUrl();
   }
 
   redireccionar(): void {
